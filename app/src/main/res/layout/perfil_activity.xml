@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/animation_list">
+
+    <TextView
+        android:id="@+id/txtEdat2"
+        android:layout_width="177dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
+        android:layout_marginBottom="340dp"
+        android:background="#C3381F67"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtNom10"
+        android:layout_width="177dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
+        android:layout_marginBottom="380dp"
+        android:background="#C3381F67"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtNova"
+        android:layout_width="114dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="500dp"
+        android:fontFamily="@font/baloo_chettan_bold"
+        android:text="Phone number:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtTelf2" />
+
+    <TextView
+        android:id="@+id/txtTelf2"
+        android:layout_width="177dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
+        android:layout_marginBottom="500dp"
+        android:background="#C3381F67"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtEmail2"
+        android:layout_width="177dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
+        android:layout_marginBottom="460dp"
+        android:background="#C3381F67"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtDireccio2"
+        android:layout_width="177dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
+        android:layout_marginBottom="420dp"
+        android:background="#C3381F67"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/idConfig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="172dp"
+        android:layout_marginRight="172dp"
+        android:layout_marginBottom="640dp"
+        android:fontFamily="@font/baloo_chettan_bold"
+        android:text="Profile"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtAntiga"
+        android:layout_width="114dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="540dp"
+        android:fontFamily="@font/baloo_chettan_bold"
+        android:text="Name:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtNom2" />
+
+    <TextView
+        android:id="@+id/txtNova2"
+        android:layout_width="114dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="460dp"
+        android:fontFamily="@font/baloo_chettan_bold"
+        android:text="Email:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtEmail2" />
+
+    <TextView
+        android:id="@+id/txtDireccio"
+        android:layout_width="114dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="420dp"
+        android:fontFamily="@font/baloo_chettan_bold"
+        android:text="Address:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtDireccio2" />
+
+    <TextView
+        android:id="@+id/txtSexe"
+        android:layout_width="114dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="380dp"
+        android:fontFamily="@font/baloo_chettan_bold"
+        android:text="Gender:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtNom10" />
+
+    <TextView
+        android:id="@+id/txtEdat"
+        android:layout_width="114dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="340dp"
+        android:fontFamily="@font/baloo_chettan_bold"
+        android:text="Age:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtEdat2" />
+
+    <TextView
+        android:id="@+id/txtNom2"
+        android:layout_width="177dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
+        android:layout_marginBottom="540dp"
+        android:background="#C3381F67"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="83dp"
+        android:layout_height="33dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginRight="76dp"
+        android:layout_marginBottom="272dp"
+        android:background="@drawable/rounded_btn"
+        android:fontFamily="@font/baloo_chettan"
+        android:text="Settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/animation_list">
+
+
+    <TextView
+        android:id="@+id/txtEdat10"
+        android:layout_width="177dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="220dp"
+        android:background="#C3381F67"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtEdat9"
+        android:layout_width="139dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="220dp"
+        android:fontFamily="@font/baloo_chettan_bold"
+        android:text="Gender:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtEdat10" />
+
+    <TextView
+        android:id="@+id/txtEdat8"
+        android:layout_width="177dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="260dp"
+        android:background="#C3381F67"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtEdat7"
+        android:layout_width="139dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="260dp"
+        android:fontFamily="@font/baloo_chettan_bold"
+        android:text="Gender:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtEdat8" />
+
+    <TextView
+        android:id="@+id/txtTelf"
+        android:layout_width="177dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="500dp"
+        android:background="#C3381F67"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtTelf3"
+        android:layout_width="177dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="540dp"
+        android:background="#C3381F67"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtEdat2"
+        android:layout_width="177dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="300dp"
+        android:background="#C3381F67"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtEdat6"
+        android:layout_width="177dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="340dp"
+        android:background="#C3381F67"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtNom10"
+        android:layout_width="177dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="380dp"
+        android:background="#C3381F67"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtNova"
+        android:layout_width="139dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="500dp"
+        android:fontFamily="@font/baloo_chettan_bold"
+        android:text="New Password:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtTelf" />
+
+    <TextView
+        android:id="@+id/txtEmail2"
+        android:layout_width="177dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="460dp"
+        android:background="#C3381F67"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtDireccio2"
+        android:layout_width="177dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="420dp"
+        android:background="#C3381F67"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/idConfig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="148dp"
+        android:layout_marginRight="148dp"
+        android:layout_marginBottom="628dp"
+        android:fontFamily="@font/baloo_chettan_bold"
+        android:text="Settings"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtAntiga"
+        android:layout_width="139dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="540dp"
+        android:fontFamily="@font/baloo_chettan_bold"
+        android:text="Password:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtTelf3" />
+
+    <TextView
+        android:id="@+id/txtNova2"
+        android:layout_width="139dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="460dp"
+        android:fontFamily="@font/baloo_chettan_bold"
+        android:text="New Password:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtEmail2" />
+
+    <TextView
+        android:id="@+id/txtDireccio"
+        android:layout_width="139dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="420dp"
+        android:fontFamily="@font/baloo_chettan_bold"
+        android:text="Name:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtDireccio2" />
+
+    <TextView
+        android:id="@+id/txtSexe"
+        android:layout_width="139dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="380dp"
+        android:fontFamily="@font/baloo_chettan_bold"
+        android:text="Phone Number:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtNom10" />
+
+    <TextView
+        android:id="@+id/txtEdat"
+        android:layout_width="139dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="340dp"
+        android:fontFamily="@font/baloo_chettan_bold"
+        android:text="Email:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtEdat6" />
+
+    <TextView
+        android:id="@+id/txtEdat5"
+        android:layout_width="139dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="300dp"
+        android:fontFamily="@font/baloo_chettan_bold"
+        android:text="Address:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtEdat2" />
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="83dp"
+        android:layout_height="33dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="164dp"
+        android:background="@drawable/rounded_btn"
+        android:fontFamily="@font/baloo_chettan"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
