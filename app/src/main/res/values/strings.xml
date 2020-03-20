@@ -4,4 +4,10 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="sign_up_with_google">Sign up with Google</string>
+    <string name="don_t_remember_your_password">Don\'t remember your password ?</string>
+    <string name="urbangymfinder">urbanGymFinder</string>
+    <string name="email_adress">Email adress</string>
+    <string name="log_in">log in</string>
+    <string name="password">Password</string>
 </resources>
