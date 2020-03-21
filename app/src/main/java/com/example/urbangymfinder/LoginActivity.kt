@@ -8,7 +8,7 @@ import android.widget.*
 class LoginActivity : AppCompatActivity() {
 
     // exemple var nom usuari del login per pasar a seguent activity
-    var userName: String = "runnerconfinat"
+    var userName: String = "runnerConfinat"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
