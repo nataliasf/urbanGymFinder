@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:weightSum="12"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,15 +21,44 @@
             android:id="@+id/tvGimnasiosFavoritos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gimnasios favoritos"
+            android:text="Favourite gyms"
+            android:padding="5dp"
             android:fontFamily="@font/baloo_chettan_bold"
-            android:layout_gravity="center_vertical"
+            android:gravity="center"
             android:textSize="36sp"
+            />
+
+        <TextView
+            android:id="@+id/tvSelect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please select a gym:"
+            android:padding="5dp"
+            android:fontFamily="@font/baloo_chettan_bold"
+            android:gravity="left"
+            android:textSize="18dp"
             />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvListaFavs"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:padding="5dp"
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_weight="11.3"/>
+
+        <Button
+            android:id="@+id/buttonback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="back"
+            android:background="@drawable/rounded_btn"
+            android:layout_gravity="center"/>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

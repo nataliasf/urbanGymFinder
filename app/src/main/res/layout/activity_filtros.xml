@@ -13,38 +13,51 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:weightSum="12">
 
         <TextView
             android:id="@+id/tvTituloFiltros"
-            android:textSize="36sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/baloo_chettan_bold"
-            android:text="Filtros" />
+            android:gravity="center"
+            android:text="Filters"
+            android:padding="5dp"
+            android:textSize="36sp" />
 
         <TextView
             android:id="@+id/tvDonde"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/baloo_chettan_bold"
-            android:text="¿Dónde?" />
+            android:text="Where?"
+            android:padding="5dp"
+
+            android:textSize="18sp"/>
 
         <Spinner
             android:id="@+id/spinnerLugares"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
 
         <TextView
             android:id="@+id/tvTipo"
-            android:fontFamily="@font/baloo_chettan_bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="¿Qué tipo de gimnasio?" />
+            android:fontFamily="@font/baloo_chettan_bold"
+            android:padding="5dp"
+            android:text="What kind?"
+
+            android:textSize="18sp" />
 
         <Spinner
             android:id="@+id/spinnerTipos"
             android:layout_width="match_parent"
+            android:layout_weight="1"
+
             android:layout_height="wrap_content" />
 
         <TextView
@@ -52,11 +65,28 @@
             android:fontFamily="@font/baloo_chettan_bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Opciones extras" />
+            android:textSize="18sp"
+            android:padding="5dp"
+
+            android:text="Extra options" />
 
         <Spinner
             android:id="@+id/spinnerExtras"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_weight="8.3"/>
+
+        <Button
+            android:id="@+id/buttonok"
+            android:text="Show results"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_btn"
+            android:layout_gravity="center" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
