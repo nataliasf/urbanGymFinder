@@ -31,6 +31,10 @@ class EventdetailActivity : AppCompatActivity() {
                     event.name + " has been added!", Toast.LENGTH_LONG).show()
         }
         findViewById<Button>(R.id.backEvent).setOnClickListener {
+            Toast.makeText(
+                this, "The event " +
+                        event.name + " has been deleted!", Toast.LENGTH_LONG
+            ).show()
             finish()
         }
     }
