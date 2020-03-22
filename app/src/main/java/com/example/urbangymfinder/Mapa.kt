@@ -16,8 +16,7 @@ class Mapa : AppCompatActivity() {
 
 
    fun back(){
-       val intent= Intent(this,PerfilActivity::class.java)
-       startActivity(intent)
+       finish()
    }
 
     findViewById<Button>(R.id.btnReturn).setOnClickListener {
