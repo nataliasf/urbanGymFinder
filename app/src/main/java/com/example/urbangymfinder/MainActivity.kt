@@ -33,11 +33,11 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<ImageButton>(R.id.btnMap).setOnClickListener {
             Toast.makeText(this, "Select map option!", Toast.LENGTH_LONG).show()
-            //map()
+            map()
         }
         findViewById<ImageButton>(R.id.btnFilters).setOnClickListener {
             Toast.makeText(this, "Select filters!", Toast.LENGTH_LONG).show()
-            //filters()
+            filters()
         }
     }
     //funcions navegació activity
