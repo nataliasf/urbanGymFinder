@@ -18,8 +18,7 @@ class ConfigActivity : AppCompatActivity() {
 
     fun save(){
         Toast.makeText(this, "Changes saved!", Toast.LENGTH_LONG).show()
-        val intent = Intent(this,PerfilActivity::class.java)
-        startActivity(intent)
+        finish()
 
 
 
@@ -29,13 +28,11 @@ class ConfigActivity : AppCompatActivity() {
     }
 
     fun back(){
-            val intent = Intent(this,PerfilActivity::class.java)
+            val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
-
-
-
     }
-     findViewById<Button>(R.id.btnSave).setOnClickListener {
+
+     findViewById<Button>(R.id.btnBack2).setOnClickListener {
             back()
         }
 

@@ -17,18 +17,22 @@ class PerfilActivity : AppCompatActivity() {
         setContentView(R.layout.perfil_activity);
 
 
+        fun back(){
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
 
+        fun  config(){
+            val intent = Intent(this,ConfigActivity::class.java)
+            startActivity(intent)
+        }
 
-    fun  config(){
-        val intent = Intent(this,ConfigActivity::class.java)
-        startActivity(intent)
-
-
-
+        findViewById<Button>(R.id.btnSettings).setOnClickListener {
+            config()
+        }
+        findViewById<Button>(R.id.btnBack).setOnClickListener {
+            back()
+        }
     }
-    findViewById<Button>(R.id.btnSettings).setOnClickListener {
-        config()
-    }
-}
 
 }
