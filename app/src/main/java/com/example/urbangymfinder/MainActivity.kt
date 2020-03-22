@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<ImageButton>(R.id.btnFavorites).setOnClickListener {
             Toast.makeText(this, "This is your list of favorit places!", Toast.LENGTH_LONG).show()
-            //favorites()
+            favorites()
         }
         findViewById<ImageButton>(R.id.btnFilters).setOnClickListener {
             Toast.makeText(this, "Select filters!", Toast.LENGTH_LONG).show()
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<ImageButton>(R.id.btnProfile).setOnClickListener {
             Toast.makeText(this, "Profile selected!", Toast.LENGTH_LONG).show()
-            //profile()
+            profile()
         }
         findViewById<ImageButton>(R.id.btnHome).setOnClickListener {
             Toast.makeText(this, "Select home/config!", Toast.LENGTH_LONG).show()
