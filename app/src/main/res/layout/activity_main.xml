@@ -6,7 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
@@ -20,6 +28,7 @@
 
     <ImageButton
         android:id="@+id/btnMap"
+        android:contentDescription="map"
         android:layout_width="83dp"
         android:layout_height="54dp"
         android:layout_marginBottom="2dp"
@@ -28,6 +37,7 @@
 
     <ImageButton
         android:id="@+id/btnEvents"
+        android:contentDescription="events"
         android:layout_width="77dp"
         android:layout_height="64dp"
         android:layout_alignParentBottom="true"
@@ -41,6 +51,7 @@
 
     <ImageButton
         android:id="@+id/btnHome"
+        android:contentDescription="home"
         android:layout_width="79dp"
         android:layout_height="55dp"
         android:layout_alignParentStart="true"
@@ -59,6 +70,7 @@
 
     <ImageButton
         android:id="@+id/btnFavorites"
+        android:contentDescription="favorites"
         android:layout_width="84dp"
         android:layout_height="61dp"
         android:layout_alignParentBottom="true"
@@ -72,8 +84,9 @@
 
     <ImageButton
         android:id="@+id/btnProfile"
+        android:contentDescription="profile"
         android:layout_width="74dp"
-        android:layout_height="55dp"
+        android:layout_height="59dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
@@ -85,6 +98,7 @@
 
     <ImageButton
         android:id="@+id/btnFilters"
+        android:contentDescription="filters"
         android:layout_width="64dp"
         android:layout_height="55dp"
         android:layout_alignParentEnd="true"
@@ -93,18 +107,6 @@
         android:layout_marginRight="0dp"
         android:background="@color/colorPrimary"
         app:srcCompat="@drawable/filters" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="618dp"
-        android:layout_above="@+id/toolbar2"
-        android:layout_marginBottom="1dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
 
 
 </RelativeLayout>
