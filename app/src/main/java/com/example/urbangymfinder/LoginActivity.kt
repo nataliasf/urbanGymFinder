@@ -26,9 +26,8 @@ class LoginActivity : AppCompatActivity() {
         val user: String = txtUser.text.toString()
         val password: String = txtUser.text.toString()
 
-        val intent = Intent(this, MainActivity::class.java)
-            /*.also { it.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT) }
-            */
+        val intent = Intent(this, MainActivity::class.java).also { it.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT) }
+
         startActivity(intent)
 
     }
