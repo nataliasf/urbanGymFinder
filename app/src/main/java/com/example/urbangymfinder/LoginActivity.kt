@@ -16,7 +16,7 @@ class LoginActivity : AppCompatActivity() {
 
         //funcio login
         fun login() {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, EventsActivity::class.java)
             intent.putExtra("userName", userName)
             startActivity(intent)
         }
@@ -25,8 +25,5 @@ class LoginActivity : AppCompatActivity() {
         findViewById<Button>(R.id.logInBtn).setOnClickListener {
             login()
         }
-
-
-
     }
 }
