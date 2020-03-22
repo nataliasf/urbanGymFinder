@@ -23,21 +23,21 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "This is your list of favorit places!", Toast.LENGTH_LONG).show()
             favorites()
         }
-        findViewById<ImageButton>(R.id.btnFilters).setOnClickListener {
-            Toast.makeText(this, "Select filters!", Toast.LENGTH_LONG).show()
-            //filters()
-        }
         findViewById<ImageButton>(R.id.btnProfile).setOnClickListener {
             Toast.makeText(this, "Profile selected!", Toast.LENGTH_LONG).show()
             profile()
         }
         findViewById<ImageButton>(R.id.btnHome).setOnClickListener {
             Toast.makeText(this, "Select home/config!", Toast.LENGTH_LONG).show()
-            //home()
+            home()
         }
         findViewById<ImageButton>(R.id.btnMap).setOnClickListener {
             Toast.makeText(this, "Select map option!", Toast.LENGTH_LONG).show()
             //map()
+        }
+        findViewById<ImageButton>(R.id.btnFilters).setOnClickListener {
+            Toast.makeText(this, "Select filters!", Toast.LENGTH_LONG).show()
+            //filters()
         }
     }
     //funcions navegació activity
@@ -47,10 +47,6 @@ class MainActivity : AppCompatActivity() {
     }
     fun favorites() {
         val intent = Intent(this, FavoritosActivity::class.java)
-        startActivity(intent)
-    }
-    fun filters() {
-        val intent = Intent(this, EventsActivity::class.java)
         startActivity(intent)
     }
     fun profile() {
@@ -63,6 +59,10 @@ class MainActivity : AppCompatActivity() {
     }
     fun map() {
         val intent = Intent(this, Mapa::class.java)
+        startActivity(intent)
+    }
+    fun filters() {
+        val intent = Intent(this, FiltrosActivity::class.java)
         startActivity(intent)
     }
 }
