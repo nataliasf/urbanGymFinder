@@ -29,7 +29,7 @@
         android:layout_marginRight="59dp"
         android:fontFamily="@font/baloo_chettan_bold"
         android:text="urbanGymFinder"
-        android:textSize="36sp" />
+        android:textSize="30sp" />
 
     <EditText
         android:id="@+id/et_email"
