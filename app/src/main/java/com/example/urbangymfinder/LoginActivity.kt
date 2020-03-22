@@ -12,8 +12,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var txtPassword:EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_activity);
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.login_activity)
 
         txtUser = findViewById(R.id.et_email)
         txtPassword = findViewById(R.id.et_password)
