@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // funcio on click button
-        findViewById<Button>(R.id.button2).setOnClickListener {
+        findViewById<Button>(R.id.btnMap).setOnClickListener {
             events()
         }
     }
