@@ -16,7 +16,7 @@ class LoginActivity : AppCompatActivity() {
 
         //funcio login
         fun login() {
-            val intent = Intent(this, EventsActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             intent.putExtra("userName", userName)
             startActivity(intent)
         }
