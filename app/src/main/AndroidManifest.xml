@@ -11,10 +11,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".EventsActivity"></activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".ui.MainActivity" />
-        <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2" />
+        <activity android:name=".Mapa" />
+        <activity android:name=".EventdetailActivity" />
+
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

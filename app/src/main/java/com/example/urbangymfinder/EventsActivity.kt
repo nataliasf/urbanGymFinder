@@ -99,25 +99,14 @@ class EventsActivity : AppCompatActivity() {
             "18:00 - 21:00",
             "Park Güell",
             "descripcio del event, participants, etc..." ))
-        /*
-        val arrayAdapter: ArrayAdapter<*>
-        //val eventsList = arrayOf("Massa critica: Wed, May 20, 9:00 PM", "Home runner: Sat, May 25, 5:00 PM", "Yoga on the beach: Thu, May 27, 8:00 AM")
-        val eventsTitle = arrayOf("Massa critica", "Home runner", "Yoga on the beach")
-        val date = arrayOf("Wed, May 20, 9:00 PM", "Sat, May 25, 5:00 PM", "Thu, May 27, 8:00 AM")
-        val location = arrayOf("Arc del Triumf", "Plaça Catalunya", "Bogatell")
-        val description = arrayOf(
-            "Massive gathering of hundreds to march around the city of barcelona. Bring your bycicle!",
-            "Baseball game in Plaça Catalunya, everyone is welcome to join!",
-            "Free yoga class in the beautiful Bogatell beach")
 
-         */
-        var EventsAdapter = EventsAdapter(this, eventsList)
+        val EventsAdapter = EventsAdapter(this, eventsList)
         lvEvents.adapter = EventsAdapter
         lvEvents.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, position, id ->
             //TODO NEW ACTIVITY INTENT
-            Toast.makeText(this, "Want to see more information of " +
-                    eventsList[position].name + "event?", Toast.LENGTH_SHORT).show()
-            eventDetailActivity(position);
+            //Toast.makeText(this, "Want to see more information of " +
+            //        eventsList[position].name + "event?", Toast.LENGTH_SHORT).show()
+            eventDetailActivity(position)
         }
 
 
@@ -189,50 +178,3 @@ class EventsActivity : AppCompatActivity() {
     }
 
 }
-/*
-import android.content.Intent
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-
-
-import android.widget.ArrayAdapter
-import android.widget.ListView
-class EventsActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_events)
-
-
-        val arrayAdapter: ArrayAdapter<*>
-        //val eventsList = arrayOf("Massa critica: Wed, May 20, 9:00 PM", "Home runner: Sat, May 25, 5:00 PM", "Yoga on the beach: Thu, May 27, 8:00 AM")
-        val eventsTitle = arrayOf("Massa critica", "Home runner", "Yoga on the beach")
-        val date = arrayOf("Wed, May 20, 9:00 PM", "Sat, May 25, 5:00 PM", "Thu, May 27, 8:00 AM")
-        val location = arrayOf("Arc del Triumf", "Plaça Catalunya", "Bogatell")
-        val description = arrayOf(
-            "Massive gathering of hundreds to march around the city of barcelona. Bring your bycicle!",
-            "Baseball game in Plaça Catalunya, everyone is welcome to join!",
-            "Free class of yoga in the beautiful Bogatell beach")
-
-        // access the listView from xml file
-        var mListView = findViewById<ListView>(R.id.eventsTitle)
-        arrayAdapter = ArrayAdapter(this,
-            android.R.layout.simple_list_item_2, eventsTitle)
-        mListView.adapter = arrayAdapter
-
-        val context = this
-        mListView.setOnItemClickListener { _, _, position, _ ->
-            val title = eventsTitle[position]
-            val date = date[position]
-            val location = location[position]
-            val description = description[position]
-            val intent = Intent(this, EventdetailActivity::class.java)
-            intent.putExtra("title", title)
-            intent.putExtra("date", date)
-            intent.putExtra("location", location)
-            intent.putExtra("description", description)
-            startActivity(intent)
-        }
-    }
-}
-*/
