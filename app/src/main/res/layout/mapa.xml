@@ -7,12 +7,41 @@
     android:background="@drawable/animation_list">
 
     <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
-        android:layout_width="386dp"
-        android:layout_height="702dp"
+        android:id="@+id/idMap"
+        android:layout_width="370dp"
+        android:layout_height="629dp"
         android:background="@drawable/animation_list"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.414"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.823" />
+
+    <Button
+        android:id="@+id/btnReturn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/rounded_btn"
+        android:fontFamily="@font/baloo_chettan"
+        android:text="Return"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="action4"/>
+
+    <TextView
+        android:id="@+id/txtGYM"
+        android:layout_width="128dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/baloo_chettan_bold"
+        android:text="GYM MAP"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

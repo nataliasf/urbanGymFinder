@@ -136,10 +136,10 @@
 
     <TextView
         android:id="@+id/txtEdat"
-        android:layout_width="114dp"
+        android:layout_width="83dp"
         android:layout_height="24dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
         android:layout_marginBottom="340dp"
         android:fontFamily="@font/baloo_chettan_bold"
         android:text="Age:"
@@ -158,7 +158,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/btnGuardar"
+        android:id="@+id/btnSettings"
         android:layout_width="83dp"
         android:layout_height="33dp"
         android:layout_marginEnd="76dp"
@@ -168,6 +168,25 @@
         android:fontFamily="@font/baloo_chettan"
         android:text="Settings"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="action2"/>
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="83dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginEnd="146dp"
+        android:layout_marginRight="146dp"
+        android:layout_marginBottom="272dp"
+        android:background="@drawable/rounded_btn"
+        android:fontFamily="@font/baloo_chettan"
+        android:text="Back"
+        android:onClick="action6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnSettings"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
