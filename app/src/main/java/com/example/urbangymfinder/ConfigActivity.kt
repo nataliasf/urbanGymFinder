@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class ConfigActivity : AppCompatActivity() {
@@ -16,8 +17,8 @@ class ConfigActivity : AppCompatActivity() {
 
 
     fun save(){
-        val intent = Intent(this,PerfilActivity::class.java)
-        startActivity(intent)
+        Toast.makeText(this, "Changes saved!", Toast.LENGTH_LONG).show()
+        finish()
 
 
 
@@ -27,13 +28,11 @@ class ConfigActivity : AppCompatActivity() {
     }
 
     fun back(){
-            val intent = Intent(this,PerfilActivity::class.java)
+            val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
-
-
-
     }
-     findViewById<Button>(R.id.btnSave).setOnClickListener {
+
+     findViewById<Button>(R.id.btnBack2).setOnClickListener {
             back()
         }
 

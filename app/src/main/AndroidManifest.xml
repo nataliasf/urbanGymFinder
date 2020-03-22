@@ -9,11 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EventsActivity"></activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Mapa" />
-        <activity android:name=".EventdetailActivity" />
-
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +16,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".FavoritosActivity"/>
+        <activity android:name=".FiltrosActivity" />
+        <activity android:name=".EventsActivity"/>
+        <activity android:name=".EventdetailActivity" />
+        <activity android:name=".Mapa" />
+        <activity android:name=".ConfigActivity" />
+        <activity android:name=".PerfilActivity" />
+
+
+
     </application>
 
 </manifest>

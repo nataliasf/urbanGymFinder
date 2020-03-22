@@ -111,7 +111,7 @@
         android:layout_height="52dp"
         android:background="@drawable/transparent_btn"
         android:fontFamily="@font/baloo_chettan"
-        android:text="Go back"
+        android:text="Sign off"
         android:gravity="center"
         android:layout_margin="5dp"
         android:textColor="#FFFFFF"
