@@ -2,28 +2,34 @@ package com.example.urbangymfinder
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import android.widget.*
 
 class LoginActivity : AppCompatActivity() {
 
-    // exemple var nom usuari del login per pasar a seguent activity
-    var userName: String = "runnerConfinat"
+    private lateinit var txtUser:EditText
+    private lateinit var txtPassword:EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.login_activity)
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.login_activity);
 
-        //funcio login
-        fun login() {
-            val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("userName", userName)
-            startActivity(intent)
-        }
+        txtUser = findViewById(R.id.et_email)
+        txtPassword = findViewById(R.id.et_password)
 
-        // funcio on click button
-        findViewById<Button>(R.id.logInBtn).setOnClickListener {
-            login()
-        }
+        findViewById<Button>(R.id.btnLogin).setOnClickListener{loginUser()}
+
     }
+
+    private fun loginUser(){
+        val user: String = txtUser.text.toString()
+        val password: String = txtUser.text.toString()
+
+        val intent = Intent(this, MainActivity::class.java).also { it.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT) }
+
+        startActivity(intent)
+
+    }
+
 }
