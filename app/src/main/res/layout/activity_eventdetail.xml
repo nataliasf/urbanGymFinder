@@ -106,7 +106,7 @@
         app:layout_constraintVertical_bias="0.85" />
 
     <Button
-        android:id="@+id/deleteEvent"
+        android:id="@+id/backEvent"
         android:layout_width="173dp"
         android:layout_height="52dp"
         android:background="@drawable/transparent_btn"

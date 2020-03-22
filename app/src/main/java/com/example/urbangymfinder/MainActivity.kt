@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
     fun favorites() {
-        val intent = Intent(this, EventsActivity::class.java)
+        val intent = Intent(this, FavoritosActivity::class.java)
         startActivity(intent)
     }
     fun filters() {
