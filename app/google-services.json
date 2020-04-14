@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "461450808552",
+    "firebase_url": "https://urbangymfinder.firebaseio.com",
+    "project_id": "urbangymfinder",
+    "storage_bucket": "urbangymfinder.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461450808552:android:b34b4e749dc53181f18d5d",
+        "android_client_info": {
+          "package_name": "com.example.urbangymfinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461450808552-86i542a0fsefguq2ppcv10u73o7srtve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbbVTNb2C6hd3tehjyxUd51dvnpX0OolE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461450808552-86i542a0fsefguq2ppcv10u73o7srtve.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
