@@ -2,7 +2,7 @@ package com.example.urbangymfinder
 
 import java.io.Serializable
 
-public class Event : Serializable {
+public open class Event : Serializable {
     var name: String? = null
     var date: String? = null
     var time: String? = null
