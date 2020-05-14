@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "461450808552-sth5jjbq0d7vms1gtdfp7qkjqlq6cfut.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.urbangymfinder",
+            "certificate_hash": "2a3f9b74563d9989e3102c6e00904a580d94fadd"
+          }
+        },
+        {
           "client_id": "461450808552-86i542a0fsefguq2ppcv10u73o7srtve.apps.googleusercontent.com",
           "client_type": 3
         }
