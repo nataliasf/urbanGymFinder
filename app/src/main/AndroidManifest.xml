@@ -26,7 +26,6 @@
         <activity android:name=".PerfilActivity" />
 
 
-
     </application>
 
 </manifest>
