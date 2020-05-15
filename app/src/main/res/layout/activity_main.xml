@@ -9,104 +9,100 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="0dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme" />
 
+
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="-2dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme" />
 
-    <ImageButton
-        android:id="@+id/btnMap"
-        android:contentDescription="map"
-        android:layout_width="83dp"
-        android:layout_height="54dp"
-        android:layout_marginBottom="2dp"
-        android:background="@color/colorPrimary"
-        app:srcCompat="@android:drawable/ic_dialog_map" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:weightSum="12"
+        >
 
-    <ImageButton
-        android:id="@+id/btnEvents"
-        android:contentDescription="events"
-        android:layout_width="77dp"
-        android:layout_height="64dp"
+        <ImageButton
+            android:id="@+id/btnMap"
+            android:layout_width="83dp"
+            android:layout_height="60dp"
+            android:background="@color/colorPrimary"
+            android:contentDescription="map"
+            android:layout_gravity="left"
+            app:srcCompat="@android:drawable/ic_dialog_map"
+            android:layout_weight="6" />
+
+        <ImageButton
+            android:id="@+id/btnFilters"
+            android:layout_width="83dp"
+            android:layout_height="60dp"
+            android:background="@color/colorPrimary"
+            android:contentDescription="filters"
+            android:layout_weight="6"
+            app:srcCompat="@drawable/filters" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="33dp"
-        android:layout_marginRight="33dp"
-        android:layout_marginBottom="-6dp"
-        android:layout_toStartOf="@+id/btnFavorites"
-        android:layout_toLeftOf="@+id/btnFavorites"
-        android:background="@color/colorPrimary"
-        app:srcCompat="@android:drawable/ic_menu_my_calendar" />
+        android:weightSum="12">
 
-    <ImageButton
-        android:id="@+id/btnHome"
-        android:contentDescription="home"
-        android:layout_width="79dp"
-        android:layout_height="55dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="3dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="0dp"
-        android:layout_toStartOf="@+id/btnEvents"
-        android:layout_toLeftOf="@+id/btnEvents"
-        android:background="@color/colorPrimary"
-        android:tint="#FFFFFF"
-        app:srcCompat="@drawable/ic_home_black_24dp" />
+        <ImageButton
+            android:id="@+id/btnHome"
+            android:layout_width="83dp"
+            android:layout_height="60dp"
+            android:background="@color/colorPrimary"
+            android:contentDescription="home"
+            android:tint="#FFFFFF"
+            android:layout_weight="3"
+            app:srcCompat="@drawable/ic_home_black_24dp" />
 
-    <ImageButton
-        android:id="@+id/btnFavorites"
-        android:contentDescription="favorites"
-        android:layout_width="84dp"
-        android:layout_height="61dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_marginBottom="-4dp"
-        android:layout_toStartOf="@+id/btnProfile"
-        android:layout_toLeftOf="@+id/btnProfile"
-        android:background="@color/colorPrimary"
-        app:srcCompat="@drawable/favorite" />
+        <ImageButton
+            android:id="@+id/btnEvents"
+            android:layout_width="83dp"
+            android:layout_height="60dp"
 
-    <ImageButton
-        android:id="@+id/btnProfile"
-        android:contentDescription="profile"
-        android:layout_width="74dp"
-        android:layout_height="59dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="0dp"
-        android:background="@color/colorPrimary"
-        app:srcCompat="@drawable/filter" />
+            android:background="@color/colorPrimary"
+            android:contentDescription="events"
+            app:srcCompat="@android:drawable/ic_menu_my_calendar"
+            android:layout_weight="3"
+            />
 
-    <ImageButton
-        android:id="@+id/btnFilters"
-        android:contentDescription="filters"
-        android:layout_width="64dp"
-        android:layout_height="55dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:background="@color/colorPrimary"
-        app:srcCompat="@drawable/filters" />
+        <ImageButton
+            android:id="@+id/btnFavorites"
+            android:layout_width="83dp"
+            android:layout_height="60dp"
+
+            android:background="@color/colorPrimary"
+            android:contentDescription="favorites"
+            app:srcCompat="@drawable/favorite"
+            android:layout_weight="3"/>
+
+        <ImageButton
+            android:id="@+id/btnProfile"
+            android:layout_width="83dp"
+            android:layout_height="60dp"
+
+            android:background="@color/colorPrimary"
+            android:contentDescription="profile"
+            app:srcCompat="@drawable/filter"
+            android:layout_weight="3"/>
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
