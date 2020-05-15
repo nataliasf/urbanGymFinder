@@ -17,7 +17,7 @@ class LoginActivity : AppCompatActivity() {
 
     private var emailTV: EditText? = null
     private var passwordTV: EditText? = null
-    private var resetTV: TextView? = null
+    private var resetBtn: Button? = null
     private var loginBtn: Button? = null
     private var registerBtn: Button? = null
     private var guestBtn: Button? = null
@@ -37,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
         loginBtn?.setOnClickListener { loginUserAccount() }
         registerBtn?.setOnClickListener { registerUserAccount() }
         guestBtn?.setOnClickListener { loginUserGuest() }
-        resetTV?.setOnClickListener { resetUserPassword() }
+        resetBtn?.setOnClickListener { resetUserPassword() }
     }
 
     //TODO signOut Firebase.auth.signOut()
@@ -140,7 +140,7 @@ class LoginActivity : AppCompatActivity() {
         loginBtn = findViewById(R.id.btnLogin)
         registerBtn = findViewById(R.id.btnRegister)
         guestBtn = findViewById(R.id.btnGuest)
-        resetTV = findViewById(R.id.textView)
+        resetBtn = findViewById(R.id.btnForgotPass)
         //progressBar = findViewById(R.id.progressBar)
     }
 }
