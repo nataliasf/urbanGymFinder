@@ -17,74 +17,71 @@ import com.google.firebase.auth.FirebaseAuth
 
 
 class ResetActivity : AppCompatActivity()  {
-        /* private lateinit var textEmail: EditText
-         private lateinit var textPassword:EditText
-         private lateinit var textName:EditText
-         private lateinit var btnRegistrar:Button
-     */
+    /* private lateinit var textEmail: EditText
+     private lateinit var textPassword:EditText
+     private lateinit var textName:EditText
+     private lateinit var btnRegistrar:Button
+ */
 
-        private var emailTV: EditText? = null
-        private var resetBtn: Button? = null
-        private var backBtn: Button? = null
+    private var emailTV: EditText? = null
+    private var resetBtn: Button? = null
+    private var backBtn: Button? = null
 
-        private lateinit var auth:FirebaseAuth
+    private lateinit var auth:FirebaseAuth
 
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_register)
-            auth = FirebaseAuth.getInstance()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_register)
+        auth = FirebaseAuth.getInstance()
 
-            initializeUI()
+        initializeUI()
 
-            resetBtn?.setOnClickListener { resetPassword() }
-            backBtn?.setOnClickListener { back() }
+        resetBtn?.setOnClickListener { resetPassword() }
+        backBtn?.setOnClickListener { back() }
 
+    }
+
+    private fun back() {
+        val intent =
+            Intent(this@ResetActivity, LoginActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun resetPassword() {
+        val email: String
+        email = emailTV!!.text.toString()
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(applicationContext, "Please enter your email...", Toast.LENGTH_LONG)
+                .show()
+            return
         }
-    
-        private fun back() {
-            val intent =
-                Intent(this@ResetActivity, LoginActivity::class.java)
-            startActivity(intent)
-        }
-
-        private fun resetPassword() {
-            val email: String
-            email = emailTV!!.text.toString()
-            if (TextUtils.isEmpty(email)) {
-                Toast.makeText(applicationContext, "Please enter your email...", Toast.LENGTH_LONG)
-                    .show()
-                return
-            }
-            auth.sendPasswordResetEmail(email)
-                .addOnCompleteListener({ task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(
-                            applicationContext,
-                            "Password reset mail sent successful! Check your mail for futher instructions",
-                            Toast.LENGTH_LONG
-                        ).show()
-                        val intent =
-                            Intent(this@ResetActivity, MainActivity::class.java)
-                        startActivity(intent)
-                    } else {
-                        Toast.makeText(
-                            applicationContext,
-                            "Password reset failed! Please try again",
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
-                })
-        }
-
-
-
-        private fun initializeUI() {
-            emailTV = findViewById(R.id.etPassword)
-            resetBtn = findViewById(R.id.resetBtn)
-            backBtn = findViewById(R.id.backBtn)
-        }
+        auth.sendPasswordResetEmail(email)
+            .addOnCompleteListener({ task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(
+                        applicationContext,
+                        "Password reset mail sent successful! Check your mail for futher instructions",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    val intent =
+                        Intent(this@ResetActivity, LoginActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(
+                        applicationContext,
+                        "Password reset failed! Please try again",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            })
     }
 
 
 
+    private fun initializeUI() {
+        emailTV = findViewById(R.id.etPassword)
+        resetBtn = findViewById(R.id.resetBtn)
+        backBtn = findViewById(R.id.backBtn)
+    }
 }
+
