@@ -42,7 +42,7 @@ class RegisterActivity : AppCompatActivity()  {
 
     }
     private fun registerNewUser() {
-        progressBar!!.visibility = View.VISIBLE
+        //progressBar!!.visibility = View.VISIBLE
         val email: String
         val password: String
         email = emailTV!!.text.toString()
@@ -62,20 +62,20 @@ class RegisterActivity : AppCompatActivity()  {
                 if (task.isSuccessful) {
                     Toast.makeText(
                         applicationContext,
-                        "Registration successful!",
+                        "Registration successful! Welcome",
                         Toast.LENGTH_LONG
                     ).show()
-                    progressBar!!.visibility = View.GONE
+                    //progressBar!!.visibility = View.GONE
                     val intent =
-                        Intent(this@RegisterActivity, LoginActivity::class.java) //segons d'on ho he tret hauria de ser this@activity_register pero dona error
+                        Intent(this@RegisterActivity, MainActivity::class.java) //segons d'on ho he tret hauria de ser this@activity_register pero dona error
                     startActivity(intent)
                 } else {
                     Toast.makeText(
                         applicationContext,
-                        "Registration failed! Please try again later",
+                        "Registration failed! Please try again",
                         Toast.LENGTH_LONG
                     ).show()
-                    progressBar!!.visibility = View.GONE
+                    //progressBar!!.visibility = View.GONE
                 }
             })
     }

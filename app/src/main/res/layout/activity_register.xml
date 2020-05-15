@@ -28,6 +28,24 @@
             android:textSize="36sp" />
 
         <TextView
+            android:id="@+id/tvEmail"
+            android:fontFamily="@font/baloo_chettan_bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:padding="5dp"
+
+            android:text="Email" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/email_adress"
+            android:inputType="textEmailAddress" />
+
+        <TextView
             android:id="@+id/tvName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,24 +77,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="Password"
             android:inputType="textPassword" />
 
-        <TextView
-            android:id="@+id/tvEmail"
-            android:fontFamily="@font/baloo_chettan_bold"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:padding="5dp"
 
-            android:text="Email" />
-
-        <EditText
-            android:id="@+id/etEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="textEmailAddress" />
         <View
             android:layout_width="1dp"
             android:layout_height="1dp"
