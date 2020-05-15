@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUserAccount() {
-        progressBar!!.visibility = View.VISIBLE
+        //progressBar!!.visibility = View.VISIBLE
         val email: String
         val password: String
         email = emailTV!!.text.toString()

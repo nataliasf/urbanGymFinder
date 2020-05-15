@@ -104,5 +104,24 @@
         android:text="Forgot your password? "
         android:textColor="#FFFFFF" />
 
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="234dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="89dp"
+        android:layout_marginRight="89dp"
+        android:background="@drawable/rounded_btn"
+        android:fontFamily="@font/baloo_chettan"
+        android:text="Register"
+        android:textColor="#FFFFFF" />
+
 
 </RelativeLayout>
