@@ -4,10 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
@@ -20,6 +17,7 @@ class LoginActivity : AppCompatActivity() {
 
     private var emailTV: EditText? = null
     private var passwordTV: EditText? = null
+    private var resetTV: TextView? = null
     private var loginBtn: Button? = null
     private var registerBtn: Button? = null
     private var guestBtn: Button? = null
@@ -39,6 +37,7 @@ class LoginActivity : AppCompatActivity() {
         loginBtn?.setOnClickListener { loginUserAccount() }
         registerBtn?.setOnClickListener { registerUserAccount() }
         guestBtn?.setOnClickListener { loginUserGuest() }
+        resetTV?.setOnClickListener { resetUserPassword() }
     }
 
     //TODO forget your password  https://grokonez.com/android/kotlin-firebase-authentication-send-reset-password-email-forgot-password-android#2_Send_a_password_reset_email
@@ -50,6 +49,12 @@ class LoginActivity : AppCompatActivity() {
             .show()
         val intent =
             Intent(this@LoginActivity, MainActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun resetUserPassword(){
+        val intent =
+            Intent(this@LoginActivity, ResetActivity::class.java)
         startActivity(intent)
     }
 
@@ -120,6 +125,7 @@ class LoginActivity : AppCompatActivity() {
         loginBtn = findViewById(R.id.btnLogin)
         registerBtn = findViewById(R.id.btnRegister)
         guestBtn = findViewById(R.id.btnGuest)
+        resetTV = findViewById(R.id.textView)
         //progressBar = findViewById(R.id.progressBar)
     }
 }

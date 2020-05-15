@@ -31,7 +31,7 @@ class ResetActivity : AppCompatActivity()  {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        setContentView(R.layout.activity_reset)
         auth = FirebaseAuth.getInstance()
 
         initializeUI()
@@ -79,7 +79,7 @@ class ResetActivity : AppCompatActivity()  {
 
 
     private fun initializeUI() {
-        emailTV = findViewById(R.id.etPassword)
+        emailTV = findViewById(R.id.etEmail)
         resetBtn = findViewById(R.id.resetBtn)
         backBtn = findViewById(R.id.backBtn)
     }

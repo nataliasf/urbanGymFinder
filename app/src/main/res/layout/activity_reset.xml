@@ -6,6 +6,7 @@ android:layout_height="match_parent"
 tools:context=".ResetActivity"
 android:background="@drawable/animation_list">
 
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -43,41 +44,6 @@ android:background="@drawable/animation_list">
         android:hint="@string/email_adress"
         android:inputType="textEmailAddress" />
 
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/baloo_chettan_bold"
-        android:text="Name"
-        android:padding="5dp"
-
-        android:textSize="18sp"/>
-
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        />
-
-    <TextView
-        android:id="@+id/tvPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/baloo_chettan_bold"
-        android:padding="5dp"
-        android:text="Email adress"
-
-        android:textSize="18sp" />
-
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:hint="@string/email_adress"
-        android:inputType="textEmailAddress" />
-
 
     <View
         android:layout_width="1dp"
@@ -91,14 +57,24 @@ android:background="@drawable/animation_list">
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_btn"
         android:layout_gravity="center"
+        android:fontFamily="@font/baloo_chettan"
+        android:textColor="#FFFFFF"
         />
+
     <Button
         android:id="@+id/backBtn"
         android:text="Back"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:background="@drawable/rounded_btn"
         android:layout_gravity="center"
+        android:fontFamily="@font/baloo_chettan"
+        android:textColor="#FFFFFF"
         />
+    <View
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_weight="8.3"/>
 </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
