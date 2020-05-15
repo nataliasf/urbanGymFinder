@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/animation_list"
     android:orientation="vertical"
-    android:weightSum="15">
+    android:padding="10dp"
+    android:weightSum="14">
 
     <TextView
         android:id="@+id/idConfig"
@@ -190,7 +191,7 @@
         android:textColor="#FFFFFF"
         android:layout_gravity="center"
         android:layout_weight="2"
-        android:padding="15dp"/>
+        android:padding="10dp"/>
 
     <View
         android:layout_width="1dp"

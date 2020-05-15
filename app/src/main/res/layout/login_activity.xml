@@ -10,6 +10,7 @@
     android:background="@drawable/animation_list"
     tools:context=".LoginActivity"
     android:orientation="vertical"
+    android:padding="10dp"
     android:weightSum="16">
 
     <View
