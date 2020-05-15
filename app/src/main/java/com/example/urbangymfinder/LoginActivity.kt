@@ -44,8 +44,6 @@ class LoginActivity : AppCompatActivity() {
     //TODO forget your password  https://grokonez.com/android/kotlin-firebase-authentication-send-reset-password-email-forgot-password-android#2_Send_a_password_reset_email
     //TODO signOut Firebase.auth.signOut()
     //TODO signInAnonimously
-    //TODO signIn google account
-
 
     private fun loginUserGuest(){
         Toast.makeText(applicationContext, "Welcome as a guest!", Toast.LENGTH_LONG)
