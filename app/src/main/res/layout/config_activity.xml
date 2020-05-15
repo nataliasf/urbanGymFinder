@@ -1,258 +1,284 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/animation_list">
-
-
-    <TextView
-        android:id="@+id/txtEdat10"
-        android:layout_width="177dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="220dp"
-        android:background="#C3381F67"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/txtEdat9"
-        android:layout_width="139dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_marginBottom="220dp"
-        android:fontFamily="@font/baloo_chettan_bold"
-        android:text="Gender:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtEdat10" />
-
-    <TextView
-        android:id="@+id/txtEdat8"
-        android:layout_width="177dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="260dp"
-        android:background="#C3381F67"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/txtEdat7"
-        android:layout_width="139dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_marginBottom="260dp"
-        android:fontFamily="@font/baloo_chettan_bold"
-        android:text="Gender:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtEdat8" />
-
-    <TextView
-        android:id="@+id/txtTelf"
-        android:layout_width="177dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="500dp"
-        android:background="#C3381F67"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/txtTelf3"
-        android:layout_width="177dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="540dp"
-        android:background="#C3381F67"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/txtEdat2"
-        android:layout_width="177dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="300dp"
-        android:background="#C3381F67"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/txtEdat6"
-        android:layout_width="177dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="340dp"
-        android:background="#C3381F67"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/txtNom10"
-        android:layout_width="177dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="380dp"
-        android:background="#C3381F67"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/txtNova"
-        android:layout_width="139dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_marginBottom="500dp"
-        android:fontFamily="@font/baloo_chettan_bold"
-        android:text="New Password:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtTelf" />
-
-    <TextView
-        android:id="@+id/txtEmail2"
-        android:layout_width="177dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="460dp"
-        android:background="#C3381F67"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/txtDireccio2"
-        android:layout_width="177dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="420dp"
-        android:background="#C3381F67"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    android:background="@drawable/animation_list"
+    android:orientation="vertical"
+    android:weightSum="15">
 
     <TextView
         android:id="@+id/idConfig"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="148dp"
-        android:layout_marginRight="148dp"
-        android:layout_marginBottom="628dp"
         android:fontFamily="@font/baloo_chettan_bold"
         android:text="Settings"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textSize="36sp"
+        android:padding="13dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="3dp"
+        android:layout_weight="1"
+        >
+
+        <TextView
+            android:id="@+id/txtDireccio"
+            android:layout_width="139dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_chettan_bold"
+
+            android:text="Name:"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="3dp"
+        android:layout_weight="1"
+        >
+
+        <TextView
+            android:id="@+id/tvGender"
+            android:layout_width="139dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_chettan_bold"
+            android:text="Gender:"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/etGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtSexe"
+            android:layout_width="139dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_chettan_bold"
+
+            android:text="Phone number:"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="phone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtEdat"
+            android:layout_width="139dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_chettan_bold"
+
+            android:text="Email:"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textEmailAddress" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtEdat5"
+            android:layout_width="139dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_chettan_bold"
+
+            android:text="Address:"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/editText5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPostalAddress" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/newpass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtNova"
+            android:layout_width="139dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_chettan_bold"
+
+            android:text="New password:"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/editText6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPassword" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_weight="1" />
 
     <TextView
-        android:id="@+id/txtAntiga"
-        android:layout_width="139dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_marginBottom="540dp"
-        android:fontFamily="@font/baloo_chettan_bold"
-        android:text="Password:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtTelf3" />
+        android:id="@+id/tvIntroduzcaPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/baloo_chettan_regular"
+        android:text="Please enter your current password to save your changes"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center"
+        android:layout_weight="2"
+        android:padding="15dp"/>
 
-    <TextView
-        android:id="@+id/txtNova2"
-        android:layout_width="139dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_marginBottom="460dp"
-        android:fontFamily="@font/baloo_chettan_bold"
-        android:text="New Password:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtEmail2" />
+    <View
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_weight="0" />
 
-    <TextView
-        android:id="@+id/txtDireccio"
-        android:layout_width="139dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_marginBottom="420dp"
-        android:fontFamily="@font/baloo_chettan_bold"
-        android:text="Name:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtDireccio2" />
+    <LinearLayout
+        android:id="@+id/pass"
+        android:layout_width="match_parent"
+        android:padding="7dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/txtSexe"
-        android:layout_width="139dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_marginBottom="380dp"
-        android:fontFamily="@font/baloo_chettan_bold"
-        android:text="Phone Number:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtNom10" />
+        <TextView
+            android:id="@+id/txtAntiga"
+            android:layout_width="139dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_chettan_bold"
 
-    <TextView
-        android:id="@+id/txtEdat"
-        android:layout_width="139dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_marginBottom="340dp"
-        android:fontFamily="@font/baloo_chettan_bold"
-        android:text="Email:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtEdat6" />
+            android:text="Password:"
+            android:textSize="18dp" />
 
-    <TextView
-        android:id="@+id/txtEdat5"
-        android:layout_width="139dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_marginBottom="300dp"
-        android:fontFamily="@font/baloo_chettan_bold"
-        android:text="Address:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtEdat2" />
+        <EditText
+            android:id="@+id/editText7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPassword" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="83dp"
-        android:layout_height="33dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="164dp"
-        android:background="@drawable/rounded_btn"
-        android:fontFamily="@font/baloo_chettan"
-        android:text="Save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:onClick="action3"/>
+    <View
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_weight="0" />
 
-    <Button
-        android:id="@+id/btnBack2"
-        android:layout_width="83dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="164dp"
-        android:background="@drawable/rounded_btn"
-        android:fontFamily="@font/baloo_chettan"
-        android:text="Back"
-        android:onClick="action5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:layout_weight="3"
+        android:weightSum="6">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:background="@drawable/rounded_btn"
+            android:fontFamily="@font/baloo_chettan"
+            android:onClick="action3"
+            android:padding="15dp"
+            android:text="Save changes"
+            android:layout_gravity="center"
+            android:textColor="#FFFFFF" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btnBack2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:background="@drawable/rounded_btn"
+            android:fontFamily="@font/baloo_chettan"
+            android:onClick="action5"
+            android:layout_gravity="center"
+
+            android:padding="15dp"
+            android:text="Back"
+            android:textColor="#FFFFFF" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</LinearLayout>
