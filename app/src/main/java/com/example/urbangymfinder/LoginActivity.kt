@@ -45,11 +45,27 @@ class LoginActivity : AppCompatActivity() {
     //TODO signInAnonimously
 
     private fun loginUserGuest(){
-        Toast.makeText(applicationContext, "Welcome as a guest!", Toast.LENGTH_LONG)
-            .show()
-        val intent =
-            Intent(this@LoginActivity, MainActivity::class.java)
-        startActivity(intent)
+        mAuth!!.signInAnonymously()
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(
+                        applicationContext,
+                        "Welcome as a guest! You can register later",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    //progressBar.visibility = View.GONE
+                    val intent =
+                        Intent(this@LoginActivity, MainActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(
+                        applicationContext,
+                        "Login failed! Please try again later",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    //progressBar.visibility = View.GONE
+                }
+            }
     }
 
     private fun resetUserPassword(){
