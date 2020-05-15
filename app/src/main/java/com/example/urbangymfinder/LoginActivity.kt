@@ -40,9 +40,8 @@ class LoginActivity : AppCompatActivity() {
         resetTV?.setOnClickListener { resetUserPassword() }
     }
 
-    //TODO forget your password  https://grokonez.com/android/kotlin-firebase-authentication-send-reset-password-email-forgot-password-android#2_Send_a_password_reset_email
     //TODO signOut Firebase.auth.signOut()
-    //TODO signInAnonimously
+    //TODO register from anon signin
 
     private fun loginUserGuest(){
         mAuth!!.signInAnonymously()
