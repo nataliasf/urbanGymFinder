@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
     fun map() {
-        val intent = Intent(this, Mapa::class.java)
+        val intent = Intent(this, MapsActivity::class.java)
         startActivity(intent)
     }
     fun filters() {
