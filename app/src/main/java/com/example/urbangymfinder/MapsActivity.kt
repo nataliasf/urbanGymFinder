@@ -65,7 +65,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
         // segon exemple loc
         val fav = LatLng(41.380, 2.17)
-        val favLocationOptions = MarkerOptions().icon(BitmapDescriptorFactory.fromBitmap(BitmapFactory.decodeResource(resources, R.drawable.favorite)))
+        val favLocationOptions = MarkerOptions()//.icon(BitmapDescriptorFactory.fromBitmap(BitmapFactory.decodeResource(resources, R.drawable.favorite)))
         map.addMarker(favLocationOptions.position(fav).title("Favorite spot"))
         map.moveCamera(CameraUpdateFactory.newLatLng(fav))
 
