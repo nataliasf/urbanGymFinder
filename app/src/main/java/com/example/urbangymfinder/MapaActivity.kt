@@ -7,7 +7,7 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.mapa.*
 
-class Mapa : AppCompatActivity() {
+class MapaActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +20,6 @@ class Mapa : AppCompatActivity() {
    }
 
     findViewById<Button>(R.id.btnReturn).setOnClickListener {
-
         back()
     }
 }

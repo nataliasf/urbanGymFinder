@@ -1,192 +1,229 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/animation_list">
+    android:background="@drawable/animation_list"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:weightSum="16">
+
 
     <TextView
-        android:id="@+id/txtEdat2"
-        android:layout_width="177dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginRight="72dp"
-        android:layout_marginBottom="340dp"
-        android:background="#C3381F67"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/txtNom10"
-        android:layout_width="177dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginRight="72dp"
-        android:layout_marginBottom="380dp"
-        android:background="#C3381F67"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/txtNova"
-        android:layout_width="114dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="500dp"
-        android:fontFamily="@font/baloo_chettan_bold"
-        android:text="Phone number:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtTelf2" />
-
-    <TextView
-        android:id="@+id/txtTelf2"
-        android:layout_width="177dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginRight="72dp"
-        android:layout_marginBottom="500dp"
-        android:background="#C3381F67"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/txtEmail2"
-        android:layout_width="177dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginRight="72dp"
-        android:layout_marginBottom="460dp"
-        android:background="#C3381F67"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/txtDireccio2"
-        android:layout_width="177dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginRight="72dp"
-        android:layout_marginBottom="420dp"
-        android:background="#C3381F67"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/idConfig"
+        android:id="@+id/tvProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="172dp"
-        android:layout_marginRight="172dp"
-        android:layout_marginBottom="640dp"
         android:fontFamily="@font/baloo_chettan_bold"
         android:text="Profile"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textSize="36sp"
+        android:padding="13dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"/>
 
-    <TextView
-        android:id="@+id/txtAntiga"
-        android:layout_width="114dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="540dp"
-        android:fontFamily="@font/baloo_chettan_bold"
-        android:text="Name:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtNom2" />
+    <LinearLayout
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="3dp"
+        android:layout_weight="1"
+        >
 
-    <TextView
-        android:id="@+id/txtNova2"
-        android:layout_width="114dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="460dp"
-        android:fontFamily="@font/baloo_chettan_bold"
-        android:text="Email:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtEmail2" />
+        <TextView
+            android:id="@+id/txtDireccio"
+            android:layout_width="139dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_chettan_bold"
 
-    <TextView
-        android:id="@+id/txtDireccio"
-        android:layout_width="114dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="420dp"
-        android:fontFamily="@font/baloo_chettan_bold"
-        android:text="Address:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtDireccio2" />
+            android:text="Name:"
+            android:textSize="18dp" />
 
-    <TextView
-        android:id="@+id/txtSexe"
-        android:layout_width="114dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="380dp"
-        android:fontFamily="@font/baloo_chettan_bold"
-        android:text="Gender:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtNom10" />
+        <TextView
+            android:id="@+id/tvNameProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nombre del usuario"
+            android:textSize="18dp"
+            android:ems="10"
+            android:inputType="textPersonName" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/txtEdat"
-        android:layout_width="83dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
-        android:layout_marginBottom="340dp"
-        android:fontFamily="@font/baloo_chettan_bold"
-        android:text="Age:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtEdat2" />
+    <LinearLayout
+        android:id="@+id/gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="3dp"
+        android:layout_weight="1"
+        >
 
-    <TextView
-        android:id="@+id/txtNom2"
-        android:layout_width="177dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginRight="72dp"
-        android:layout_marginBottom="540dp"
-        android:background="#C3381F67"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <TextView
+            android:id="@+id/tvGender"
+            android:layout_width="139dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_chettan_bold"
+            android:text="Gender:"
+            android:textSize="18dp" />
 
-    <Button
-        android:id="@+id/btnSettings"
-        android:layout_width="83dp"
-        android:layout_height="33dp"
-        android:layout_marginEnd="76dp"
-        android:layout_marginRight="76dp"
-        android:layout_marginBottom="272dp"
-        android:background="@drawable/rounded_btn"
-        android:fontFamily="@font/baloo_chettan"
-        android:text="Settings"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:onClick="action2"/>
+        <TextView
+            android:id="@+id/etGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Genero"
+            android:textSize="18dp"
+            android:ems="10"
+            android:inputType="textPersonName" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/btnBack"
-        android:layout_width="83dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginEnd="146dp"
-        android:layout_marginRight="146dp"
-        android:layout_marginBottom="272dp"
-        android:background="@drawable/rounded_btn"
-        android:fontFamily="@font/baloo_chettan"
-        android:text="Back"
-        android:onClick="action6"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnSettings"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+    <LinearLayout
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/txtSexe"
+            android:layout_width="139dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_chettan_bold"
+
+            android:text="Phone number:"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/editText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:text="667666666"
+            android:textSize="18dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtEdat"
+            android:layout_width="139dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_chettan_bold"
+
+            android:text="Email:"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/editText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:text="mlkmflefm@gmail.com"
+            android:textSize="18dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtEdat5"
+            android:layout_width="139dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_chettan_bold"
+
+            android:text="Address:"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/editText5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:text="C/ de l'Usuari 5"
+            android:textSize="18dp"
+            />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_weight="6" />
+
+
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:layout_weight="3"
+        android:weightSum="6">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btnSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:background="@drawable/rounded_btn"
+            android:fontFamily="@font/baloo_chettan"
+            android:onClick="action3"
+            android:padding="15dp"
+            android:text="Settings"
+            android:layout_gravity="center"
+            android:textColor="#FFFFFF" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:background="@drawable/rounded_btn"
+            android:fontFamily="@font/baloo_chettan"
+            android:onClick="action4"
+            android:layout_gravity="center"
+
+            android:padding="15dp"
+            android:text="Home"
+            android:textColor="#FFFFFF" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

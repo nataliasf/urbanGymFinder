@@ -109,6 +109,16 @@ class EventsActivity : AppCompatActivity() {
             eventDetailActivity(position)
         }
 
+        fun home(){
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        findViewById<Button>(R.id.btnHome).setOnClickListener {
+            home()
+        }
+
+
 
     }
 
