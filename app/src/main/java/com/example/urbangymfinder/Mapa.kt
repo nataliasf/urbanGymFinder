@@ -20,7 +20,6 @@ class Mapa : AppCompatActivity() {
    }
 
     findViewById<Button>(R.id.btnReturn).setOnClickListener {
-
         back()
     }
 }
