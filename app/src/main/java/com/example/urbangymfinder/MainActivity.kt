@@ -336,9 +336,33 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-   /* @RequiresApi(Build.VERSION_CODES.KITKAT)
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
     override fun onResume() {
         super.onResume()
+        val txtTitle1: TextView= findViewById(R.id.txttitle1)
+        val txtDirection1: TextView = findViewById(R.id.txtdirection1)
+
+
+        val txtTitle2: TextView= findViewById(R.id.txttitle2)
+        val txtDirection2: TextView = findViewById(R.id.txtdirection2)
+
+        val txtTitle3: TextView= findViewById(R.id.txttitle3)
+        val txtDirection3: TextView = findViewById(R.id.txtdirection3)
+
+        val txtTitle4: TextView= findViewById(R.id.txttitle4)
+        val txtDirection4: TextView = findViewById(R.id.txtdirection4)
+
+        val txtTitle5: TextView= findViewById(R.id.txttitle5)
+
+        val txtDirection5: TextView = findViewById(R.id.txtdirection5)
+
+        val txtTitle6: TextView= findViewById(R.id.txttitle6)
+        val txtDirection6: TextView = findViewById(R.id.txtdirection6)
+
+        val txtTitle7: TextView= findViewById(R.id.txttitle6)
+        val txtDirection7: TextView = findViewById(R.id.txtdirection6)
+
+
         getFirebaseData(txtTitle1,txtDirection1, "1")
         getFirebaseData(txtTitle2, txtDirection2, "2")
         getFirebaseData(txtTitle3, txtDirection3, "3")
@@ -346,7 +370,7 @@ class MainActivity : AppCompatActivity() {
         getFirebaseData(txtTitle5, txtDirection5, "5")
         getFirebaseData(txtTitle6, txtDirection6, "6")
         getFirebaseData(txtTitle7, txtDirection7, "7")
-    }*/
+    }
 
 
 
