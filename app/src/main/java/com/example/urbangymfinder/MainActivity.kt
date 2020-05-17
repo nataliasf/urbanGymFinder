@@ -1,14 +1,22 @@
 package com.example.urbangymfinder
 
+import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.transition.Slide
+import android.transition.TransitionManager
 import android.util.Log
-import android.widget.ImageButton
-import android.widget.TextView
-import android.widget.Toast
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.View
+import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_pop_activity.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     val db = FirebaseFirestore.getInstance()
 
 
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -27,6 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         val txtTitle1: TextView= findViewById(R.id.txttitle1)
         val txtDirection1: TextView = findViewById(R.id.txtdirection1)
+
 
         val txtTitle2: TextView= findViewById(R.id.txttitle2)
         val txtDirection2: TextView = findViewById(R.id.txtdirection2)
@@ -38,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         val txtDirection4: TextView = findViewById(R.id.txtdirection4)
 
         val txtTitle5: TextView= findViewById(R.id.txttitle5)
+
         val txtDirection5: TextView = findViewById(R.id.txtdirection5)
 
         val txtTitle6: TextView= findViewById(R.id.txttitle6)
@@ -53,6 +64,93 @@ class MainActivity : AppCompatActivity() {
         getFirebaseData(txtTitle5, txtDirection5, "5")
         getFirebaseData(txtTitle6, txtDirection6, "6")
         getFirebaseData(txtTitle7, txtDirection7, "7")
+
+        txtTitle1.setOnClickListener{
+            val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            //val pop_view = inflater.inflate(R.layout.activity_pop_activity, null)
+
+
+            setContentView(R.layout.activity_pop_activity)
+
+            // Get the widgets reference from custom view
+            val pop_title: TextView = findViewById(R.id.popTitle)
+            val pop_description = findViewById<TextView>(R.id.popDescription)
+
+
+            pop_title.setText(txtTitle1.text)
+            getFireBaseDescription(pop_description, "1")
+
+            // Set a click listener for pop_activity btn
+            btnBack.setOnClickListener{
+                getFirebaseData(txtTitle1,txtDirection1, "1")
+                getFirebaseData(txtTitle2, txtDirection2, "2")
+                getFirebaseData(txtTitle3, txtDirection3, "3")
+                getFirebaseData(txtTitle4, txtDirection4, "4")
+                getFirebaseData(txtTitle5, txtDirection5, "5")
+                getFirebaseData(txtTitle6, txtDirection6, "6")
+                getFirebaseData(txtTitle7, txtDirection7, "7")
+                // Dismiss the detail window
+                setContentView(R.layout.activity_main)
+                //Set data from Firebase
+
+            }
+
+            //Set a click listener for show on Map Button
+            //              ****** AQUI S'HA DE LINKEJAR MAP ***********
+
+
+
+
+            /*val popupWindow = PopupWindow(
+                pop_view, //view itself
+                RelativeLayout.LayoutParams.WRAP_CONTENT, // Width of popup w
+                RelativeLayout.LayoutParams.WRAP_CONTENT // Window height
+            )
+
+            // Set an elevation for the popup window
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                popupWindow.elevation = 10.0F
+            }
+
+            // If API level 23 or higher then execute the code
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                // Create a new slide animation for popup window enter transition
+                val slideIn = Slide()
+                slideIn.slideEdge = Gravity.TOP
+                popupWindow.enterTransition = slideIn
+
+                // Slide animation for popup window exit transition
+                val slideOut = Slide()
+                slideOut.slideEdge = Gravity.RIGHT
+                popupWindow.exitTransition = slideOut
+            }
+
+            // Get the widgets reference from custom view
+            val pop_title = pop_view.findViewById<TextView>(R.id.popTitle)
+            val pop_description = pop_view.findViewById<TextView>(R.id.popDescription)
+            val pop_btnBack = pop_view.findViewById<Button>(R.id.btnBack)
+
+
+            // Set a click listener for popup's button widget
+            btnBack.setOnClickListener{
+                // Dismiss the popup window
+                popupWindow.dismiss()
+            }
+
+            //Set a click listener for show on Map Button
+            //              ****** AQUI S'HA DE LINKEJAR MAP ***********
+
+
+            // Finally, show the popup window on app
+            TransitionManager.beginDelayedTransition(root_layout)
+            popupWindow.showAtLocation(
+                root_layout, // Location to display popup window
+                Gravity.CENTER, // Exact position of layout to display popup
+                0, // X offset
+                0 // Y offset
+            )*/
+        }
+
 
 
 
@@ -85,6 +183,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+
     fun getFirebaseData(txt_title: TextView, txt_dir: TextView, documentPath: String){
 
         db.collection("spots").document(documentPath).get().addOnSuccessListener { documentSnapshot ->
@@ -94,6 +194,7 @@ class MainActivity : AppCompatActivity() {
 
                 val dir: String? = documentSnapshot.getString("direccion")
                 txt_dir.setText(dir)
+
             }else{
                 Log.d("Error", "could not reach data")
             }
@@ -101,6 +202,18 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+    fun getFireBaseDescription(txt_description: TextView, documentPath: String) {
+        db.collection("spots").document(documentPath).get()
+            .addOnSuccessListener { documentSnapshot ->
+                if (documentSnapshot.exists()) {
+                    val description: String? = documentSnapshot.getString("Description")
+                    txt_description.setText(description)
+
+                }
+            }
+    }
+
 
 
     //funcions navegació activity
