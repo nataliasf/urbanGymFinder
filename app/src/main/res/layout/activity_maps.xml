@@ -1,9 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:map="http://schemas.android.com/apk/res-auto"
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapsActivity" />
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context=".MapsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:weightSum="12"
+        >
+
+        <ImageButton
+            android:id="@+id/btnMap"
+            android:layout_width="83dp"
+            android:layout_height="60dp"
+            android:background="@color/colorPrimary"
+            android:contentDescription="map"
+            android:layout_gravity="left"
+            app:srcCompat="@android:drawable/ic_dialog_map"
+            android:layout_weight="6" />
+
+        <ImageButton
+            android:id="@+id/btnFilters"
+            android:layout_width="83dp"
+            android:layout_height="60dp"
+            android:background="@color/colorPrimary"
+            android:contentDescription="filters"
+            android:layout_weight="6"
+            app:srcCompat="@drawable/filters" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:weightSum="12">
+
+        <ImageButton
+            android:id="@+id/btnHome"
+            android:layout_width="83dp"
+            android:layout_height="60dp"
+            android:background="@color/colorPrimary"
+            android:contentDescription="home"
+            android:tint="#FFFFFF"
+            android:layout_weight="3"
+            app:srcCompat="@drawable/ic_home_black_24dp" />
+
+        <ImageButton
+            android:id="@+id/btnEvents"
+            android:layout_width="83dp"
+            android:layout_height="60dp"
+
+            android:background="@color/colorPrimary"
+            android:contentDescription="events"
+            app:srcCompat="@android:drawable/ic_menu_my_calendar"
+            android:layout_weight="3"
+            />
+
+        <ImageButton
+            android:id="@+id/btnFavorites"
+            android:layout_width="83dp"
+            android:layout_height="60dp"
+
+            android:background="@color/colorPrimary"
+            android:contentDescription="favorites"
+            app:srcCompat="@drawable/favorite"
+            android:layout_weight="3"/>
+
+        <ImageButton
+            android:id="@+id/btnProfile"
+            android:layout_width="83dp"
+            android:layout_height="60dp"
+
+            android:background="@color/colorPrimary"
+            android:contentDescription="profile"
+            app:srcCompat="@drawable/filter"
+            android:layout_weight="3"/>
+    </LinearLayout>
+
+    <fragment
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_above="@id/toolbar2"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"/>
+
+</RelativeLayout>
+

@@ -9,6 +9,8 @@ import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.common.api.ResolvableApiException
@@ -28,7 +30,7 @@ import java.io.IOException
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
-    lateinit var database: DatabaseReference;
+    lateinit var database: DatabaseReference
     val db = FirebaseFirestore.getInstance()
 
     private lateinit var map: GoogleMap
@@ -55,6 +57,33 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        // funcions on click btns
+        findViewById<ImageButton>(R.id.btnEvents).setOnClickListener {
+            Toast.makeText(this, "This is the list of new events!", Toast.LENGTH_LONG).show()
+            events()
+        }
+
+        findViewById<ImageButton>(R.id.btnFavorites).setOnClickListener {
+            Toast.makeText(this, "This is your list of favorit places!", Toast.LENGTH_LONG).show()
+            favorites()
+        }
+        findViewById<ImageButton>(R.id.btnProfile).setOnClickListener {
+            Toast.makeText(this, "Profile selected!", Toast.LENGTH_LONG).show()
+            profile()
+        }
+        findViewById<ImageButton>(R.id.btnHome).setOnClickListener {
+            Toast.makeText(this, "Home selected!", Toast.LENGTH_LONG).show()
+            home()
+        }
+        findViewById<ImageButton>(R.id.btnMap).setOnClickListener {
+            Toast.makeText(this, "Map reset", Toast.LENGTH_LONG).show()
+            map()
+        }
+        findViewById<ImageButton>(R.id.btnFilters).setOnClickListener {
+            Toast.makeText(this, "Select filters!", Toast.LENGTH_LONG).show()
+            filters()
+        }
     }
 
     /**
@@ -112,169 +141,194 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             }
         }
 
-        }
+    }
 
-        override fun onMarkerClick(p0: Marker?) = false
+    override fun onMarkerClick(p0: Marker?) = false
 
-        //request fine location to user if not already given
-        private fun setUpMap() {
-            if (ActivityCompat.checkSelfPermission(
-                    this,
-                    android.Manifest.permission.ACCESS_FINE_LOCATION
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                ActivityCompat.requestPermissions(
-                    this,
-                    arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
-                    LOCATION_PERMISSION_REQUEST_CODE
-                )
-                return
-            }
-            map.isMyLocationEnabled = true
-
-            fusedLocationClient.lastLocation.addOnSuccessListener(this) { location ->
-                // Got last known location. In some rare situations this can be null.
-                if (location != null) {
-                    lastLocation = location
-                    val currentLatLng = LatLng(location.latitude, location.longitude)
-                    //placeMarkerOnMap(currentLatLng)
-                    map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
-                }
-            }
-        }
-
-        //marcador de posicio de usuari personalitzat
-        private fun placeMarkerOnMap(location: LatLng) {
-            // crea marcador
-            val markerOptions = MarkerOptions().position(location)
-            markerOptions.icon(
-                BitmapDescriptorFactory.fromBitmap(
-                    BitmapFactory.decodeResource(resources, R.mipmap.ic_user_location)
-                )
+    //request fine location to user if not already given
+    private fun setUpMap() {
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                android.Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                LOCATION_PERMISSION_REQUEST_CODE
             )
-            //Bitmap icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.icon_resource);
-            // afegeix al mapa
-            map.addMarker(markerOptions)
+            return
         }
+        map.isMyLocationEnabled = true
 
-        // start update location
-        private fun startLocationUpdates() {
-            //1
-            if (ActivityCompat.checkSelfPermission(
-                    this,
-                    android.Manifest.permission.ACCESS_FINE_LOCATION
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                ActivityCompat.requestPermissions(
-                    this,
-                    arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
-                    LOCATION_PERMISSION_REQUEST_CODE
-                )
-                return
+        fusedLocationClient.lastLocation.addOnSuccessListener(this) { location ->
+            // Got last known location. In some rare situations this can be null.
+            if (location != null) {
+                lastLocation = location
+                val currentLatLng = LatLng(location.latitude, location.longitude)
+                //placeMarkerOnMap(currentLatLng)
+                map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
             }
-            //2
-            fusedLocationClient.requestLocationUpdates(
-                locationRequest,
-                locationCallback,
-                null /* Looper */
+        }
+    }
+
+    //marcador de posicio de usuari personalitzat
+    private fun placeMarkerOnMap(location: LatLng) {
+        // crea marcador
+        val markerOptions = MarkerOptions().position(location)
+        markerOptions.icon(
+            BitmapDescriptorFactory.fromBitmap(
+                BitmapFactory.decodeResource(resources, R.mipmap.ic_user_location)
             )
+        )
+        //Bitmap icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.icon_resource);
+        // afegeix al mapa
+        map.addMarker(markerOptions)
+    }
+
+    // start update location
+    private fun startLocationUpdates() {
+        //1
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                android.Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                LOCATION_PERMISSION_REQUEST_CODE
+            )
+            return
         }
+        //2
+        fusedLocationClient.requestLocationUpdates(
+            locationRequest,
+            locationCallback,
+            null /* Looper */
+        )
+    }
 
-        // update user location
-        private fun createLocationRequest() {
-            // 1
-            locationRequest = LocationRequest()
-            // 2
-            locationRequest.interval = 10000
-            // 3
-            locationRequest.fastestInterval = 5000
-            locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+    // update user location
+    private fun createLocationRequest() {
+        // 1
+        locationRequest = LocationRequest()
+        // 2
+        locationRequest.interval = 10000
+        // 3
+        locationRequest.fastestInterval = 5000
+        locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
 
-            val builder = LocationSettingsRequest.Builder()
-                .addLocationRequest(locationRequest)
+        val builder = LocationSettingsRequest.Builder()
+            .addLocationRequest(locationRequest)
 
-            // 4
-            val client = LocationServices.getSettingsClient(this)
-            val task = client.checkLocationSettings(builder.build())
+        // 4
+        val client = LocationServices.getSettingsClient(this)
+        val task = client.checkLocationSettings(builder.build())
 
-            // 5
-            task.addOnSuccessListener {
-                locationUpdateState = true
-                startLocationUpdates()
+        // 5
+        task.addOnSuccessListener {
+            locationUpdateState = true
+            startLocationUpdates()
+        }
+        task.addOnFailureListener { e ->
+            // 6
+            if (e is ResolvableApiException) {
+                // Location settings are not satisfied, but this can be fixed
+                // by showing the user a dialog.
+                try {
+                    // Show the dialog by calling startResolutionForResult(),
+                    // and check the result in onActivityResult().
+                    e.startResolutionForResult(
+                        this@MapsActivity,
+                        REQUEST_CHECK_SETTINGS
+                    )
+                } catch (sendEx: IntentSender.SendIntentException) {
+                    // Ignore
+                }
             }
-            task.addOnFailureListener { e ->
-                // 6
-                if (e is ResolvableApiException) {
-                    // Location settings are not satisfied, but this can be fixed
-                    // by showing the user a dialog.
-                    try {
-                        // Show the dialog by calling startResolutionForResult(),
-                        // and check the result in onActivityResult().
-                        e.startResolutionForResult(
-                            this@MapsActivity,
-                            REQUEST_CHECK_SETTINGS
-                        )
-                    } catch (sendEx: IntentSender.SendIntentException) {
-                        // Ignore
+        }
+    }
+
+
+    // aux not used yet. translates from coordinates to adress
+    // for setting new spots/events
+    private fun getAddress(latLng: LatLng): String {
+        val geocoder = Geocoder(this)
+        val addresses: List<Address>?
+        val address: Address?
+        var addressText = ""
+
+        try {
+            addresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1)
+            if (null != addresses && !addresses.isEmpty()) {
+                address = addresses[0]
+                for (i in 0 until address.maxAddressLineIndex) {
+                    addressText += if (i == 0) address.getAddressLine(i) else "\n" + address.getAddressLine(
+                        i
+                    )
+                }
+            }
+        } catch (e: IOException) {
+            Log.e("MapsActivity", e.localizedMessage)
+        }
+        return addressText
+    }
+
+
+    // firebase get data
+    fun getAllSpotsOnMap() {
+        db.collection("spots").get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    val nombre: String? = document.getString("Title")
+                    val geopoint: GeoPoint? = document.getGeoPoint("geopoint")
+                    val lat: Double = geopoint!!.getLatitude()
+                    val lng: Double = geopoint!!.getLongitude()
+                    val latLng = LatLng(lat, lng)
+                    // primer exemple basic
+                    val basicLocationOptions = MarkerOptions().icon(
+                        BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)
+                    )
+                    map.addMarker(basicLocationOptions.position(latLng).title(nombre))
+                    map.setOnInfoWindowClickListener(object :
+                        GoogleMap.OnInfoWindowClickListener {
+                        override fun onInfoWindowClick(marker: Marker) {
+                            val intent1 =
+                                Intent(this@MapsActivity, MainActivity::class.java)
+                            val title = marker.title
+                            intent1.putExtra("spotTitle", title)
+                            startActivity(intent1)
                     }
-                }
+                })
             }
         }
+     }
 
 
-        // aux not used yet. translates from coordinates to adress
-        // for setting new spots/events
-        private fun getAddress(latLng: LatLng): String {
-            val geocoder = Geocoder(this)
-            val addresses: List<Address>?
-            val address: Address?
-            var addressText = ""
-
-            try {
-                addresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1)
-                if (null != addresses && !addresses.isEmpty()) {
-                    address = addresses[0]
-                    for (i in 0 until address.maxAddressLineIndex) {
-                        addressText += if (i == 0) address.getAddressLine(i) else "\n" + address.getAddressLine(
-                            i
-                        )
-                    }
-                }
-            } catch (e: IOException) {
-                Log.e("MapsActivity", e.localizedMessage)
-            }
-            return addressText
-        }
-
-
-        // firebase get data
-        fun getAllSpotsOnMap() {
-            db.collection("spots").get()
-                .addOnSuccessListener { result ->
-                    for (document in result) {
-                        val nombre: String? = document.getString("Title")
-                        val geopoint: GeoPoint? = document.getGeoPoint("geopoint")
-                        val lat: Double = geopoint!!.getLatitude()
-                        val lng: Double = geopoint!!.getLongitude()
-                        val latLng = LatLng(lat, lng)
-                        // primer exemple basic
-                        val basicLocationOptions = MarkerOptions().icon(
-                            BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)
-                        )
-                        map.addMarker(basicLocationOptions.position(latLng).title(nombre))
-                        map.setOnInfoWindowClickListener(object :
-                            GoogleMap.OnInfoWindowClickListener {
-                            override fun onInfoWindowClick(marker: Marker) {
-                                val intent1 =
-                                    Intent(this@MapsActivity, MainActivity::class.java)
-                                val title = marker.title
-                                intent1.putExtra("spotTitle", title)
-                                startActivity(intent1)
-                        }
-                    })
-                }
-            }
-         }
-
-
-        }
+    //funcions navegació activity
+    fun events() {
+        val intent = Intent(this, EventsActivity::class.java)
+        startActivity(intent)
+    }
+    fun favorites() {
+        val intent = Intent(this, FavoritosActivity::class.java)
+        startActivity(intent)
+    }
+    fun profile() {
+        val intent = Intent(this, PerfilActivity::class.java)
+        startActivity(intent)
+    }
+    fun home() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
+    fun map() {
+        val intent = Intent(this, MapsActivity::class.java)
+        startActivity(intent)
+    }
+    fun filters() {
+        val intent = Intent(this, FiltrosActivity::class.java)
+        startActivity(intent)
+    }
+}
