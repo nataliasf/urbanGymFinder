@@ -9,7 +9,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_pop_activity.*
 
 
-class pop_activity : AppCompatActivity() {
+class PopActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         lateinit var database: DatabaseReference;
