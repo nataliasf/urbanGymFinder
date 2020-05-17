@@ -65,6 +65,10 @@ class MainActivity : AppCompatActivity() {
         getFirebaseData(txtTitle6, txtDirection6, "6")
         getFirebaseData(txtTitle7, txtDirection7, "7")
 
+
+        //CLICK LISTENERS FOR SPOT DETAILS
+
+
         txtTitle1.setOnClickListener{
             val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             //val pop_view = inflater.inflate(R.layout.activity_pop_activity, null)
@@ -96,7 +100,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             btnShowMap.setOnClickListener({
-
+                    //TODO
             })
 
             //Set a click listener for show on Map Button
@@ -155,6 +159,151 @@ class MainActivity : AppCompatActivity() {
             )*/
         }
 
+        txtTitle2.setOnClickListener{
+
+            setContentView(R.layout.activity_pop_activity)
+
+            // Get the widgets reference from custom view
+            val pop_title: TextView = findViewById(R.id.popTitle)
+            val pop_description = findViewById<TextView>(R.id.popDescription)
+
+
+            pop_title.setText(txtTitle2.text)
+            getFireBaseDescription(pop_description, "2")
+
+            // Set a click listener for pop_activity btn
+            btnBack.setOnClickListener{
+                // Dismiss the detail window
+                setContentView(R.layout.activity_main)
+
+            }
+
+            btnShowMap.setOnClickListener({
+                //TODO
+            })
+
+        }
+        txtTitle3.setOnClickListener{
+
+            setContentView(R.layout.activity_pop_activity)
+
+            // Get the widgets reference from custom view
+            // * Posar com a variables globals.. *
+            val pop_title: TextView = findViewById(R.id.popTitle)
+            val pop_description = findViewById<TextView>(R.id.popDescription)
+
+
+            pop_title.setText(txtTitle3.text)
+            getFireBaseDescription(pop_description, "3")
+
+            // Set a click listener for pop_activity btn
+            btnBack.setOnClickListener{
+                // Dismiss the detail window
+                setContentView(R.layout.activity_main)
+
+            }
+
+            btnShowMap.setOnClickListener({
+                //TODO
+            })
+
+        }
+        txtTitle4.setOnClickListener{
+
+            setContentView(R.layout.activity_pop_activity)
+
+            // Get the widgets reference from custom view
+            val pop_title: TextView = findViewById(R.id.popTitle)
+            val pop_description = findViewById<TextView>(R.id.popDescription)
+
+
+            pop_title.setText(txtTitle4.text)
+            getFireBaseDescription(pop_description, "4")
+
+            // Set a click listener for pop_activity btn
+            btnBack.setOnClickListener{
+                // Dismiss the detail window
+                setContentView(R.layout.activity_main)
+
+            }
+
+            btnShowMap.setOnClickListener({
+                //TODO
+            })
+
+        }
+        txtTitle5.setOnClickListener{
+
+            setContentView(R.layout.activity_pop_activity)
+
+            // Get the widgets reference from custom view
+            val pop_title: TextView = findViewById(R.id.popTitle)
+            val pop_description = findViewById<TextView>(R.id.popDescription)
+
+
+            pop_title.setText(txtTitle5.text)
+            getFireBaseDescription(pop_description, "5")
+
+            // Set a click listener for pop_activity btn
+            btnBack.setOnClickListener{
+                // Dismiss the detail window
+                setContentView(R.layout.activity_main)
+
+            }
+
+            btnShowMap.setOnClickListener({
+                //TODO
+            })
+
+        }
+        txtTitle6.setOnClickListener{
+
+            setContentView(R.layout.activity_pop_activity)
+
+            // Get the widgets reference from custom view
+            val pop_title: TextView = findViewById(R.id.popTitle)
+            val pop_description = findViewById<TextView>(R.id.popDescription)
+
+
+            pop_title.setText(txtTitle6.text)
+            getFireBaseDescription(pop_description, "6")
+
+            // Set a click listener for pop_activity btn
+            btnBack.setOnClickListener{
+                // Dismiss the detail window
+                setContentView(R.layout.activity_main)
+
+            }
+
+            btnShowMap.setOnClickListener({
+                //TODO
+            })
+
+        }
+        txtTitle7.setOnClickListener{
+
+            setContentView(R.layout.activity_pop_activity)
+
+            // Get the widgets reference from custom view
+            val pop_title: TextView = findViewById(R.id.popTitle)
+            val pop_description = findViewById<TextView>(R.id.popDescription)
+
+
+            pop_title.setText(txtTitle7.text)
+            getFireBaseDescription(pop_description, "7")
+
+            // Set a click listener for pop_activity btn
+            btnBack.setOnClickListener{
+                // Dismiss the detail window
+                setContentView(R.layout.activity_main)
+
+            }
+
+            btnShowMap.setOnClickListener({
+                //TODO
+            })
+
+        }
 
 
 
@@ -186,6 +335,18 @@ class MainActivity : AppCompatActivity() {
             filters()
         }
     }
+
+   /* @RequiresApi(Build.VERSION_CODES.KITKAT)
+    override fun onResume() {
+        super.onResume()
+        getFirebaseData(txtTitle1,txtDirection1, "1")
+        getFirebaseData(txtTitle2, txtDirection2, "2")
+        getFirebaseData(txtTitle3, txtDirection3, "3")
+        getFirebaseData(txtTitle4, txtDirection4, "4")
+        getFirebaseData(txtTitle5, txtDirection5, "5")
+        getFirebaseData(txtTitle6, txtDirection6, "6")
+        getFirebaseData(txtTitle7, txtDirection7, "7")
+    }*/
 
 
 
