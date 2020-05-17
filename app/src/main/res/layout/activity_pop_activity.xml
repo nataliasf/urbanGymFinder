@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pop_bg"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/popTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/baloo_chettan_medium"
+        android:textColor="#673AB7"
+        android:textSize="24sp"
+
+        android:weightSum="1" />
+
+    <TextView
+        android:id="@+id/popDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/popTitle"
+        android:layout_marginTop="27dp"
+        android:fontFamily="@font/baloo_chettan"
+
+        android:text="Description"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:weightSum="1" />
+
+    <TextView
+        android:id="@+id/textDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/popDescription"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="34dp"
+        android:layout_marginBottom="521dp"
+        android:textColor="#8D8989"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/btnShowMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginRight="33dp"
+        android:layout_marginBottom="45dp"
+        android:layout_toStartOf="@+id/button3"
+        android:layout_toLeftOf="@+id/button3"
+        android:background="@drawable/rounded_btn"
+        android:text="Show on map" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="45dp"
+        android:background="@drawable/rounded_btn"
+        android:text="back" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="43dp"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="33dp"
+        android:layout_marginRight="33dp"
+        android:layout_marginBottom="45dp"
+        android:layout_toStartOf="@+id/btnBack"
+        android:layout_toLeftOf="@+id/btnBack"
+        android:background="@drawable/favorite" />
+
+
+</RelativeLayout>
