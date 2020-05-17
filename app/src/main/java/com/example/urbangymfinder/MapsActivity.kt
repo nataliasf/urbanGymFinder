@@ -28,21 +28,14 @@ import java.io.IOException
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
+    lateinit var database: DatabaseReference;
+    val db = FirebaseFirestore.getInstance()
 
     private lateinit var map: GoogleMap
     private lateinit var lastLocation: Location
-
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
-
-    lateinit var database: DatabaseReference;
-
-    val db = FirebaseFirestore.getInstance()
-
-    // 1
     private lateinit var locationCallback: LocationCallback
-
-    // 2
     private lateinit var locationRequest: LocationRequest
     private var locationUpdateState = false
 
@@ -187,7 +180,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             )
         }
 
-        // update location
+        // update user location
         private fun createLocationRequest() {
             // 1
             locationRequest = LocationRequest()
@@ -222,25 +215,23 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                             REQUEST_CHECK_SETTINGS
                         )
                     } catch (sendEx: IntentSender.SendIntentException) {
-                        // Ignore the error.
+                        // Ignore
                     }
                 }
             }
         }
 
 
-        // translates from coordinates to adress
+        // aux not used yet. translates from coordinates to adress
+        // for setting new spots/events
         private fun getAddress(latLng: LatLng): String {
-            // 1
             val geocoder = Geocoder(this)
             val addresses: List<Address>?
             val address: Address?
             var addressText = ""
 
             try {
-                // 2
                 addresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1)
-                // 3
                 if (null != addresses && !addresses.isEmpty()) {
                     address = addresses[0]
                     for (i in 0 until address.maxAddressLineIndex) {
@@ -252,7 +243,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             } catch (e: IOException) {
                 Log.e("MapsActivity", e.localizedMessage)
             }
-
             return addressText
         }
 
@@ -280,9 +270,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                                 val title = marker.title
                                 intent1.putExtra("spotTitle", title)
                                 startActivity(intent1)
-                            }
-                        })
-                    }
+                        }
+                    })
                 }
-             }
+            }
+         }
+
+
         }
