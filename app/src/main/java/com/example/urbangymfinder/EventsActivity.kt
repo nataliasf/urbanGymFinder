@@ -7,12 +7,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
-import kotlinx.android.synthetic.main.activity_events.*
-import java.io.Serializable
-
-
+import android.widget.BaseAdapter
+import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import java.io.Serializable
 
 
 class EventsActivity : AppCompatActivity() {
@@ -101,12 +100,24 @@ class EventsActivity : AppCompatActivity() {
             "descripcio del event, participants, etc..." ))
 
         val EventsAdapter = EventsAdapter(this, eventsList)
+        /*
         lvEvents.adapter = EventsAdapter
         lvEvents.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, position, id ->
             //TODO NEW ACTIVITY INTENT
             //Toast.makeText(this, "Want to see more information of " +
             //        eventsList[position].name + "event?", Toast.LENGTH_SHORT).show()
             eventDetailActivity(position)
+        }
+        
+         */
+
+        fun home(){
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        findViewById<Button>(R.id.btnHome).setOnClickListener {
+            home()
         }
 
 

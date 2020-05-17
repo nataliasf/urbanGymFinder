@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="12"
+        android:weightSum="16"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,6 +27,7 @@
             android:fontFamily="@font/baloo_chettan_bold"
             android:gravity="center"
             android:textSize="36sp"
+            android:layout_weight="1"
             />
 
         <TextView
@@ -38,28 +39,31 @@
             android:fontFamily="@font/baloo_chettan_bold"
             android:gravity="left"
             android:textSize="18dp"
+            android:layout_weight="1"
             />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvListaFavs"
             android:layout_width="match_parent"
             android:padding="5dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="10">
 
         </androidx.recyclerview.widget.RecyclerView>
 
         <View
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_weight="11.3"/>
+            android:layout_weight="1"/>
 
         <Button
             android:id="@+id/buttonback"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="back"
             android:background="@drawable/rounded_btn"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:textColor="#FFFFFF"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
