@@ -219,6 +219,19 @@
             android:layout_width="1dp"
             android:layout_height="1dp"
             android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btnLogOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.5"
+            android:background="@drawable/rounded_btn"
+            android:fontFamily="@font/baloo_chettan"
+            android:onClick="action5"
+            android:padding="15dp"
+            android:text="Log Out"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
     <View

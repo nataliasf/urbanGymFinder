@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent;
 import android.view.View
 import android.widget.Button
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.perfil_activity.*
 
 class PerfilActivity : AppCompatActivity() {
@@ -26,12 +27,23 @@ class PerfilActivity : AppCompatActivity() {
             val intent = Intent(this,ConfigActivity::class.java)
             startActivity(intent)
         }
+        fun logout() {
+            FirebaseAuth.getInstance().signOut()
+            finish()
+            val intent = Intent(this,LoginActivity::class.java)
+            startActivity(intent)
+
+        }
 
         findViewById<Button>(R.id.btnSettings).setOnClickListener {
             config()
         }
         findViewById<Button>(R.id.btnBack).setOnClickListener {
             back()
+        }
+
+        findViewById<Button>(R.id.btnLogOut).setOnClickListener {
+            logout()
         }
     }
 
