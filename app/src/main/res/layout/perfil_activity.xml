@@ -176,7 +176,7 @@
         android:orientation="horizontal"
         android:padding="5dp"
         android:layout_weight="3"
-        android:weightSum="6">
+        android:weightSum="8.5">
 
         <View
             android:layout_width="1dp"
@@ -232,6 +232,11 @@
             android:padding="15dp"
             android:text="Log Out"
             android:textColor="#FFFFFF" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
     </LinearLayout>
 
     <View
