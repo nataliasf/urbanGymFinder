@@ -95,6 +95,10 @@ class MainActivity : AppCompatActivity() {
 
             }
 
+            btnShowMap.setOnClickListener({
+
+            })
+
             //Set a click listener for show on Map Button
             //              ****** AQUI S'HA DE LINKEJAR MAP ***********
 
