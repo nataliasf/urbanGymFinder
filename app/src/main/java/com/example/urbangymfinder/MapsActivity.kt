@@ -300,6 +300,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                             val title = marker.title
                             intent1.putExtra("spotTitle", title)
                             startActivity(intent1)
+                            //TODO open new activity on spot details popActivity
                     }
                 })
             }
