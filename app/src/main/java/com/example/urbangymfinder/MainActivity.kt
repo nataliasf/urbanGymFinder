@@ -4,18 +4,17 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.transition.Slide
-import android.transition.TransitionManager
 import android.util.Log
-import android.view.Gravity
 import android.view.LayoutInflater
-import android.view.View
-import android.widget.*
+import android.widget.ImageButton
+import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_main.*
+import com.google.firebase.firestore.SetOptions
 import kotlinx.android.synthetic.main.activity_pop_activity.*
 
 
@@ -94,14 +93,48 @@ class MainActivity : AppCompatActivity() {
                 getFirebaseData(txtTitle6, txtDirection6, "6")
                 getFirebaseData(txtTitle7, txtDirection7, "7")
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
+                //setContentView(R.layout.activity_main)
                 //Set data from Firebase
 
             }
 
             btnShowMap.setOnClickListener({
-                    //TODO
+                val intent = Intent(this, MapsActivity::class.java)
+                intent.putExtra("spotID", "test")
+                startActivity(intent)
             })
+
+            //TODO add to database user/favorites for each element
+            buttonfavs.setOnClickListener {
+                //Añadir a favoritos
+                val user = FirebaseAuth.getInstance().currentUser
+                if (user != null) {
+                    // User is signed in
+
+                    // Recuperar los gimnasios preferidos de la bd
+                    // Añadir a esos el gimnasio en cuestión
+                    // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+
+                    // Update favorit field
+
+                    val data = hashMapOf("favorit" to true)
+                    db.collection("spots").document("test")
+                        .set(data, SetOptions.merge())
+                    Toast.makeText(
+                        this,
+                        "Spot added to favorites",
+                        Toast.LENGTH_LONG
+                    ).show()
+
+                } else {
+                    // No user is signed in
+                    Toast.makeText(
+                        this,
+                        "You must be signed in to add a spot to your favorites",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
 
             //Set a click listener for show on Map Button
             //              ****** AQUI S'HA DE LINKEJAR MAP ***********
@@ -278,7 +311,6 @@ class MainActivity : AppCompatActivity() {
             btnShowMap.setOnClickListener({
                 //TODO
             })
-
         }
         txtTitle7.setOnClickListener{
 
@@ -302,10 +334,7 @@ class MainActivity : AppCompatActivity() {
             btnShowMap.setOnClickListener({
                 //TODO
             })
-
         }
-
-
 
 
         // funcions on click btns
