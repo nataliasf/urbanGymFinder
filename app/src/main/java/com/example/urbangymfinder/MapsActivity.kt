@@ -287,6 +287,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                     val lng: Double = geopoint!!.getLongitude()
                     val latLng = LatLng(lat, lng)
                     // primer exemple basic
+                    // TODO depenent del tipus de spot, event, favorit, canviar markup color, icon i intent type
                     val basicLocationOptions = MarkerOptions().icon(
                         BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)
                     )
