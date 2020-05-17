@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
-import kotlinx.android.synthetic.main.activity_pop_activity.*
+import kotlinx.android.synthetic.main.activity_pop.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -70,10 +70,10 @@ class MainActivity : AppCompatActivity() {
 
         txtTitle1.setOnClickListener{
             val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            //val pop_view = inflater.inflate(R.layout.activity_pop_activity, null)
+            //val pop_view = inflater.inflate(R.layout.activity_pop, null)
 
 
-            setContentView(R.layout.activity_pop_activity)
+            setContentView(R.layout.activity_pop)
 
             // Get the widgets reference from custom view
             val pop_title: TextView = findViewById(R.id.popTitle)
@@ -195,7 +195,7 @@ class MainActivity : AppCompatActivity() {
 
         txtTitle2.setOnClickListener{
 
-            setContentView(R.layout.activity_pop_activity)
+            setContentView(R.layout.activity_pop)
 
             // Get the widgets reference from custom view
             val pop_title: TextView = findViewById(R.id.popTitle)
@@ -254,7 +254,7 @@ class MainActivity : AppCompatActivity() {
         }
         txtTitle3.setOnClickListener{
 
-            setContentView(R.layout.activity_pop_activity)
+            setContentView(R.layout.activity_pop)
 
             // Get the widgets reference from custom view
             // * Posar com a variables globals.. *
@@ -314,7 +314,7 @@ class MainActivity : AppCompatActivity() {
         }
         txtTitle4.setOnClickListener{
 
-            setContentView(R.layout.activity_pop_activity)
+            setContentView(R.layout.activity_pop)
 
             // Get the widgets reference from custom view
             val pop_title: TextView = findViewById(R.id.popTitle)
@@ -373,7 +373,7 @@ class MainActivity : AppCompatActivity() {
         }
         txtTitle5.setOnClickListener{
 
-            setContentView(R.layout.activity_pop_activity)
+            setContentView(R.layout.activity_pop)
 
             // Get the widgets reference from custom view
             val pop_title: TextView = findViewById(R.id.popTitle)
@@ -432,7 +432,7 @@ class MainActivity : AppCompatActivity() {
         }
         txtTitle6.setOnClickListener{
 
-            setContentView(R.layout.activity_pop_activity)
+            setContentView(R.layout.activity_pop)
 
             // Get the widgets reference from custom view
             val pop_title: TextView = findViewById(R.id.popTitle)
@@ -490,7 +490,7 @@ class MainActivity : AppCompatActivity() {
         }
         txtTitle7.setOnClickListener{
 
-            setContentView(R.layout.activity_pop_activity)
+            setContentView(R.layout.activity_pop)
 
             // Get the widgets reference from custom view
             val pop_title: TextView = findViewById(R.id.popTitle)

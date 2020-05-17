@@ -13,7 +13,7 @@ class PopActivity : AppCompatActivity() {
         val db = FirebaseFirestore.getInstance()
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pop_activity)
+        setContentView(R.layout.activity_pop)
 
     }
 
