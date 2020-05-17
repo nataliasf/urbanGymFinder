@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:padding="10dp"
-        android:weightSum="12">
+        android:weightSum="16">
 
         <TextView
             android:id="@+id/tvTituloFiltros"
@@ -25,6 +25,7 @@
             android:gravity="center"
             android:text="Filters"
             android:padding="5dp"
+            android:layout_weight="1"
             android:textSize="36sp" />
 
         <TextView
@@ -34,6 +35,7 @@
             android:fontFamily="@font/baloo_chettan_bold"
             android:text="Where?"
             android:padding="5dp"
+            android:layout_weight="1"
 
             android:textSize="18sp"/>
 
@@ -51,6 +53,7 @@
             android:fontFamily="@font/baloo_chettan_bold"
             android:padding="5dp"
             android:text="What kind?"
+            android:layout_weight="1"
 
             android:textSize="18sp" />
 
@@ -68,6 +71,7 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:padding="5dp"
+            android:layout_weight="1"
 
             android:text="Extra options" />
 
@@ -80,14 +84,28 @@
         <View
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:layout_weight="8.3"/>
+            android:layout_weight="6"/>
 
-        <Button
-            android:id="@+id/buttonok"
-            android:text="Show results"
-            android:layout_width="150dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_btn"
-            android:layout_gravity="center" />
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/buttonok"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_btn"
+                android:text="Show results"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_weight="2"/>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
