@@ -3,8 +3,9 @@ package com.example.urbangymfinder
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
@@ -32,6 +33,26 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.login_activity)
         mAuth = FirebaseAuth.getInstance()
 
+        //chech if user is login
+        val user = mAuth!!.currentUser
+        if (user != null) {
+            // User is signed in go to mainActivity
+            Toast.makeText(
+                applicationContext,
+                "Welcome back!",
+                Toast.LENGTH_LONG
+            ).show()
+            val intent = Intent(this, MainActivity::class.java).also { it.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT) }
+            startActivity(intent)
+
+
+        } else {
+            Toast.makeText(
+                applicationContext,
+                "Welcome to Urban Gym Finder!",
+                Toast.LENGTH_LONG
+            ).show()
+        }
         initializeUI()
 
         loginBtn?.setOnClickListener { loginUserAccount() }
