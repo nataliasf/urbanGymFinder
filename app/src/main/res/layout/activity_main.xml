@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -112,13 +116,290 @@
         >
 
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:id="@+id/container_layout"
+            android:background="@color/colorPrimary">
+
+
+
+        <!-- We'll use one LinearLayout for each item -->
+        <LinearLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="600px"
+            android:weightSum="1"
+            android:background="@android:color/black"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50px"/>
+
+            <ImageView
+
+                android:layout_width="match_parent"
+                android:layout_height="400px"
+                android:src="@drawable/spot1" />
+
+            <TextView
+                android:id="@+id/txttitle1"
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:fontFamily="@font/baloo_chettan_bold"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:id="@+id/txtdirection1"
+                android:layout_width="match_parent"
+                android:layout_height="29dp"
+                android:fontFamily="@font/baloo_chettan"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:background="@android:color/black"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50px"/>
+
+            <ImageView
+
+                android:layout_width="match_parent"
+                android:layout_height="400px"
+                android:src="@drawable/spot2" />
+
+            <TextView
+                android:id="@+id/txttitle2"
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:fontFamily="@font/baloo_chettan_bold"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:id="@+id/txtdirection2"
+                android:layout_width="match_parent"
+                android:layout_height="29dp"
+                android:fontFamily="@font/baloo_chettan"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:background="@android:color/black"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50px"/>
+
+            <ImageView
+
+                android:layout_width="match_parent"
+                android:layout_height="400px"
+                android:src="@drawable/spot3" />
+
+            <TextView
+                android:id="@+id/txttitle3"
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:fontFamily="@font/baloo_chettan_bold"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:id="@+id/txtdirection3"
+                android:layout_width="match_parent"
+                android:layout_height="29dp"
+                android:fontFamily="@font/baloo_chettan"
+                android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1"
+                android:background="@android:color/black"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50px"/>
+
+                <ImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="400px"
+                    android:src="@drawable/spot4" />
+
+                <TextView
+                    android:id="@+id/txttitle4"
+                    android:layout_width="match_parent"
+                    android:layout_height="80px"
+                    android:fontFamily="@font/baloo_chettan_bold"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:id="@+id/txtdirection4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo_chettan"
+                    android:textColor="#FFFFFF" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1"
+                android:background="@android:color/black"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50px"/>
+
+                <ImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="400px"
+                    android:src="@drawable/spot5" />
+
+                <TextView
+                    android:id="@+id/txttitle5"
+                    android:layout_width="match_parent"
+                    android:layout_height="80px"
+                    android:fontFamily="@font/baloo_chettan_bold"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:id="@+id/txtdirection5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo_chettan"
+                    android:textColor="#FFFFFF" />
+
+
+            <!-- Afegir a l'últim per deixar marge -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50px"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1"
+                android:background="@android:color/black"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50px"/>
+
+                <ImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="400px"
+                    android:src="@drawable/spot6" />
+
+                <TextView
+                    android:id="@+id/txttitle6"
+                    android:layout_width="match_parent"
+                    android:layout_height="80px"
+                    android:fontFamily="@font/baloo_chettan_bold"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:id="@+id/txtdirection6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo_chettan"
+                    android:textColor="#FFFFFF" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1"
+                android:background="@android:color/black"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50px"/>
+
+                <ImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="400px"
+                    android:src="@drawable/spot7" />
+
+                <TextView
+                    android:id="@+id/txttitle7"
+                    android:layout_width="match_parent"
+                    android:layout_height="80px"
+                    android:fontFamily="@font/baloo_chettan_bold"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:id="@+id/txtdirection7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo_chettan"
+                    android:textColor="#FFFFFF" />
+
+
+                <!-- Afegir a l'últim per deixar marge -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50px"/>
+
+            </LinearLayout>
+
+
+
+
 
 
         </LinearLayout>
+
+
+
     </ScrollView>
 
 
