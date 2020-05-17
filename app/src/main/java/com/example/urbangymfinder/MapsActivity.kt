@@ -77,7 +77,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             home()
         }
         findViewById<ImageButton>(R.id.btnMap).setOnClickListener {
-            Toast.makeText(this, "Map reset", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Map updated", Toast.LENGTH_LONG).show()
             map()
         }
         findViewById<ImageButton>(R.id.btnFilters).setOnClickListener {
@@ -325,8 +325,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         startActivity(intent)
     }
     fun map() {
-        val intent = Intent(this, MapsActivity::class.java)
-        startActivity(intent)
+        getAllSpotsOnMap()
     }
     fun filters() {
         val intent = Intent(this, FiltrosActivity::class.java)
