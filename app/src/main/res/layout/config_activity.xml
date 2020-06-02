@@ -273,7 +273,7 @@
             android:layout_gravity="center"
 
             android:padding="15dp"
-            android:text="Home"
+            android:text="Back"
             android:textColor="#FFFFFF" />
 
         <View

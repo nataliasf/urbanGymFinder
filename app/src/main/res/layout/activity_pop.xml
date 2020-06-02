@@ -65,6 +65,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.5"
             android:textColor="#FFFFFF"
+            android:fontFamily="@font/baloo_chettan"
+
 
             android:background="@drawable/rounded_btn"
             android:text="Show on map" />
@@ -79,12 +81,15 @@
             android:layout_width="43dp"
             android:layout_height="43dp"
             android:layout_weight="1.5"
+            android:fontFamily="@font/baloo_chettan"
+
 
             android:background="@drawable/favorite" />
 
         <View
             android:layout_width="1dp"
             android:layout_height="1dp"
+
             android:layout_weight="1" />
 
         <Button
@@ -92,6 +97,8 @@
             android:textColor="#FFFFFF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_chettan"
+
 
             android:background="@drawable/rounded_btn"
             android:text="back"

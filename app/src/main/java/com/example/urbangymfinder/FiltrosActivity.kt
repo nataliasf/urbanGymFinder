@@ -14,11 +14,12 @@ class FiltrosActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.buttonok).setOnClickListener {
             Toast.makeText(this, "Showing new results", Toast.LENGTH_LONG).show()
-            save()
+            finish()
+        }
+
+        findViewById<Button>(R.id.buttonback).setOnClickListener {
+            finish()
         }
     }
-    //funcions navegació activity
-    fun save() {
-        finish()
-    }
+
 }

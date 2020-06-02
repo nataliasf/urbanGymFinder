@@ -60,6 +60,8 @@
             android:id="@+id/buttonback"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_chettan"
+
             android:text="back"
             android:background="@drawable/rounded_btn"
             android:layout_gravity="center"

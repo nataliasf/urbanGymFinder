@@ -37,15 +37,11 @@ class ResetActivity : AppCompatActivity()  {
         initializeUI()
 
         resetBtn?.setOnClickListener { resetPassword() }
-        backBtn?.setOnClickListener { back() }
+        backBtn?.setOnClickListener { finish() }
 
     }
 
-    private fun back() {
-        val intent =
-            Intent(this@ResetActivity, LoginActivity::class.java)
-        startActivity(intent)
-    }
+
 
     private fun resetPassword() {
         val email: String

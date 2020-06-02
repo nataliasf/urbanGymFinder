@@ -33,7 +33,7 @@ class ConfigActivity : AppCompatActivity() {
     }
 
      findViewById<Button>(R.id.btnBack2).setOnClickListener {
-            back()
+            finish()
         }
 
 }
