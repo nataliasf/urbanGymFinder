@@ -100,16 +100,47 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:padding="10dp"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:weightSum="7">
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
 
             <Button
                 android:id="@+id/buttonok"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:fontFamily="@font/baloo_chettan"
+
                 android:background="@drawable/rounded_btn"
                 android:text="Register"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:layout_weight="2"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/buttonback"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/baloo_chettan"
+
+                android:background="@drawable/rounded_btn"
+                android:text="Back"
+                android:textColor="#FFFFFF"
+                android:layout_weight="2"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
         </LinearLayout>
 
         <View

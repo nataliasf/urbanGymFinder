@@ -39,6 +39,10 @@ class RegisterActivity : AppCompatActivity()  {
 
         regBtn?.setOnClickListener { registerNewUser() }
 
+        findViewById<Button>(R.id.buttonback).setOnClickListener {
+            finish()
+        }
+
 
     }
     private fun registerNewUser() {
