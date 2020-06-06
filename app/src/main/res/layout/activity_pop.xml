@@ -78,13 +78,13 @@
 
         <Button
             android:id="@+id/buttonfavs"
-            android:layout_width="43dp"
+            android:layout_width="15dp"
             android:layout_height="43dp"
             android:layout_weight="1.5"
-            android:fontFamily="@font/baloo_chettan"
+            android:background="@drawable/favorite"
 
 
-            android:background="@drawable/favorite" />
+            android:fontFamily="@font/baloo_chettan" />
 
         <View
             android:layout_width="1dp"

@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     val db = FirebaseFirestore.getInstance()
 
 
+
     @RequiresApi(Build.VERSION_CODES.KITKAT)
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -53,8 +54,8 @@ class MainActivity : AppCompatActivity() {
         val txtTitle6: TextView= findViewById(R.id.txttitle6)
         val txtDirection6: TextView = findViewById(R.id.txtdirection6)
 
-        val txtTitle7: TextView= findViewById(R.id.txttitle6)
-        val txtDirection7: TextView = findViewById(R.id.txtdirection6)
+        val txtTitle7: TextView= findViewById(R.id.txttitle7)
+        val txtDirection7: TextView = findViewById(R.id.txtdirection7)
 
         getFirebaseData(txtTitle1,txtDirection1, "1")
         getFirebaseData(txtTitle2, txtDirection2, "2")
@@ -85,13 +86,7 @@ class MainActivity : AppCompatActivity() {
 
             // Set a click listener for pop_activity btn
             btnBack.setOnClickListener{
-                getFirebaseData(txtTitle1,txtDirection1, "1")
-                getFirebaseData(txtTitle2, txtDirection2, "2")
-                getFirebaseData(txtTitle3, txtDirection3, "3")
-                getFirebaseData(txtTitle4, txtDirection4, "4")
-                getFirebaseData(txtTitle5, txtDirection5, "5")
-                getFirebaseData(txtTitle6, txtDirection6, "6")
-                getFirebaseData(txtTitle7, txtDirection7, "7")
+
                 // Dismiss the detail window
                 setContentView(R.layout.activity_main)
                 //Set data from Firebase
@@ -137,60 +132,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            //Set a click listener for show on Map Button
-            //              ****** AQUI S'HA DE LINKEJAR MAP ***********
-
-
-
-
-            /*val popupWindow = PopupWindow(
-                pop_view, //view itself
-                RelativeLayout.LayoutParams.WRAP_CONTENT, // Width of popup w
-                RelativeLayout.LayoutParams.WRAP_CONTENT // Window height
-            )
-
-            // Set an elevation for the popup window
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                popupWindow.elevation = 10.0F
-            }
-
-            // If API level 23 or higher then execute the code
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                // Create a new slide animation for popup window enter transition
-                val slideIn = Slide()
-                slideIn.slideEdge = Gravity.TOP
-                popupWindow.enterTransition = slideIn
-
-                // Slide animation for popup window exit transition
-                val slideOut = Slide()
-                slideOut.slideEdge = Gravity.RIGHT
-                popupWindow.exitTransition = slideOut
-            }
-
-            // Get the widgets reference from custom view
-            val pop_title = pop_view.findViewById<TextView>(R.id.popTitle)
-            val pop_description = pop_view.findViewById<TextView>(R.id.popDescription)
-            val pop_btnBack = pop_view.findViewById<Button>(R.id.btnBack)
-
-
-            // Set a click listener for popup's button widget
-            btnBack.setOnClickListener{
-                // Dismiss the popup window
-                popupWindow.dismiss()
-            }
-
-            //Set a click listener for show on Map Button
-            //              ****** AQUI S'HA DE LINKEJAR MAP ***********
-
-
-            // Finally, show the popup window on app
-            TransitionManager.beginDelayedTransition(root_layout)
-            popupWindow.showAtLocation(
-                root_layout, // Location to display popup window
-                Gravity.CENTER, // Exact position of layout to display popup
-                0, // X offset
-                0 // Y offset
-            )*/
         }
 
         txtTitle2.setOnClickListener{
@@ -579,6 +520,8 @@ class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.KITKAT)
     override fun onResume() {
         super.onResume()
+
+        //hem de tornar a carregar les dades al tornar al home
         val txtTitle1: TextView= findViewById(R.id.txttitle1)
         val txtDirection1: TextView = findViewById(R.id.txtdirection1)
 
@@ -593,7 +536,6 @@ class MainActivity : AppCompatActivity() {
         val txtDirection4: TextView = findViewById(R.id.txtdirection4)
 
         val txtTitle5: TextView= findViewById(R.id.txttitle5)
-
         val txtDirection5: TextView = findViewById(R.id.txtdirection5)
 
         val txtTitle6: TextView= findViewById(R.id.txttitle6)
