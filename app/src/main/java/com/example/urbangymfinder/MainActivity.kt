@@ -13,6 +13,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import kotlinx.android.synthetic.main.activity_pop.*
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var database: DatabaseReference;
     lateinit var user: String
-
+    lateinit var sid: String
 
     val db = FirebaseFirestore.getInstance()
 
@@ -32,6 +33,8 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val user = FirebaseAuth.getInstance().currentUser
 
         val txtTitle1: TextView= findViewById(R.id.txttitle1)
         val txtDirection1: TextView = findViewById(R.id.txtdirection1)
@@ -72,7 +75,7 @@ class MainActivity : AppCompatActivity() {
             val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             //val pop_view = inflater.inflate(R.layout.activity_pop, null)
 
-
+            sid = "1"
             setContentView(R.layout.activity_pop)
 
             // Get the widgets reference from custom view
@@ -81,7 +84,7 @@ class MainActivity : AppCompatActivity() {
 
 
             pop_title.setText(txtTitle1.text)
-            getFireBaseDescription(pop_description, "1")
+            getFireBaseDescription(pop_description, sid)
 
             // Set a click listener for pop_activity btn
             btnBack.setOnClickListener{
@@ -101,40 +104,37 @@ class MainActivity : AppCompatActivity() {
             //TODO get spotID on mapActivity, zoom in and show title
             btnShowMap.setOnClickListener({
                 val intent = Intent(this, MapsActivity::class.java)
-                intent.putExtra("spotID", "test")
-
+                intent.putExtra("spotID", sid)
                 startActivity(intent)
             })
 
             //TODO add to database user/favorites for each element
             buttonfavs.setOnClickListener {
                 //Añadir a favoritos
-                val user = FirebaseAuth.getInstance().currentUser
                 if (user != null) {
-                    // User is signed in
+                    // User is signed in with email
+                    if (!user.isAnonymous) {
+                        // Recuperar los gimnasios preferidos de la bd
+                        // Añadir a esos el gimnasio en cuestión
+                        // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
 
-                    // Recuperar los gimnasios preferidos de la bd
-                    // Añadir a esos el gimnasio en cuestión
-                    // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+                        // Update favorit
+                        db.collection("users").document(user.uid)
+                            .update("favorits", FieldValue.arrayUnion(sid))
+                        Toast.makeText(
+                            this,
+                            "Spot added to favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
 
-                    // Update favorit field
-
-                    val data = hashMapOf("favorit" to true)
-                    db.collection("spots").document("test")
-                        .set(data, SetOptions.merge())
-                    Toast.makeText(
-                        this,
-                        "Spot added to favorites",
-                        Toast.LENGTH_LONG
-                    ).show()
-
-                } else {
-                    // No user is signed in
-                    Toast.makeText(
-                        this,
-                        "You must be signed in to add a spot to your favorites",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    } else {
+                        // User is anon
+                        Toast.makeText(
+                            this,
+                            "You must register to add a spot to your favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                 }
             }
 
@@ -197,7 +197,7 @@ class MainActivity : AppCompatActivity() {
         txtTitle2.setOnClickListener{
 
             setContentView(R.layout.activity_pop)
-
+            sid = "2"
             // Get the widgets reference from custom view
             val pop_title: TextView = findViewById(R.id.popTitle)
             val pop_description = findViewById<TextView>(R.id.popDescription)
@@ -216,39 +216,37 @@ class MainActivity : AppCompatActivity() {
             //TODO get spotID on mapActivity, zoom in and show title
             btnShowMap.setOnClickListener({
                 val intent = Intent(this, MapsActivity::class.java)
-                intent.putExtra("spotID", "test")
+                intent.putExtra("spotID", "sid")
                 startActivity(intent)
             })
 
             //TODO add to database user/favorites for each element
             buttonfavs.setOnClickListener {
                 //Añadir a favoritos
-                val user = FirebaseAuth.getInstance().currentUser
                 if (user != null) {
-                    // User is signed in
+                    // User is signed in with email
+                    if (!user.isAnonymous) {
+                        // Recuperar los gimnasios preferidos de la bd
+                        // Añadir a esos el gimnasio en cuestión
+                        // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
 
-                    // Recuperar los gimnasios preferidos de la bd
-                    // Añadir a esos el gimnasio en cuestión
-                    // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+                        // Update favorit
+                        db.collection("users").document(user.uid)
+                            .update("favorits", FieldValue.arrayUnion(sid))
+                        Toast.makeText(
+                            this,
+                            "Spot added to favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
 
-                    // Update favorit field
-
-                    val data = hashMapOf("favorit" to true)
-                    db.collection("spots").document("test")
-                        .set(data, SetOptions.merge())
-                    Toast.makeText(
-                        this,
-                        "Spot added to favorites",
-                        Toast.LENGTH_LONG
-                    ).show()
-
-                } else {
-                    // No user is signed in
-                    Toast.makeText(
-                        this,
-                        "You must be signed in to add a spot to your favorites",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    } else {
+                        // User is anon
+                        Toast.makeText(
+                            this,
+                            "You must register to add a spot to your favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                 }
             }
 
@@ -619,6 +617,7 @@ class MainActivity : AppCompatActivity() {
 
         db.collection("spots").document(documentPath).get().addOnSuccessListener { documentSnapshot ->
             if(documentSnapshot.exists()){
+
                 val nombre: String? = documentSnapshot.getString("Title")
                 txt_title.setText(nombre)
 
