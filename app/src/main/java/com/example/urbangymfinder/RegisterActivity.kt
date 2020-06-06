@@ -71,7 +71,7 @@ class RegisterActivity : AppCompatActivity()  {
             return
         }
         auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener({ task ->
+            .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(
                         applicationContext,
@@ -79,6 +79,9 @@ class RegisterActivity : AppCompatActivity()  {
                         Toast.LENGTH_LONG
                     ).show()
                     // database create new user
+
+                    //chech if user is login
+                    val user = auth!!.currentUser
                     // withe classes, map or dict
                     // https://firebase.google.com/docs/firestore/manage-data/add-data#kotlin+ktx_2
                     val docData = hashMapOf(
@@ -91,12 +94,12 @@ class RegisterActivity : AppCompatActivity()  {
                     )
 
 
-                    db.collection("users").document(email)
+                    db.collection("users").document(user!!.uid)
                         .set(docData)
                         .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
                         .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e)}
 
-                            //progressBar!!.visibility = View.GONE
+                    //progressBar!!.visibility = View.GONE
                     val intent =
                         Intent(this@RegisterActivity, MainActivity::class.java) //segons d'on ho he tret hauria de ser this@activity_register pero dona error
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -110,7 +113,7 @@ class RegisterActivity : AppCompatActivity()  {
                     ).show()
                     //progressBar!!.visibility = View.GONE
                 }
-            })
+            }
     }
 
 
