@@ -39,10 +39,12 @@ class LoginActivity : AppCompatActivity() {
             // User is signed in go to mainActivity
             Toast.makeText(
                 applicationContext,
-                "Welcome back!",
+                "Welcome back "+ user.displayName +"!",
                 Toast.LENGTH_LONG
             ).show()
-            val intent = Intent(this, MainActivity::class.java).also { it.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT) }
+
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
 
 
@@ -76,6 +78,7 @@ class LoginActivity : AppCompatActivity() {
                     //progressBar.visibility = View.GONE
                     val intent =
                         Intent(this@LoginActivity, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                 } else {
                     Toast.makeText(
@@ -128,6 +131,7 @@ class LoginActivity : AppCompatActivity() {
                     //progressBar.visibility = View.GONE
                     val intent =
                         Intent(this@LoginActivity, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                 } else {
                     Toast.makeText(
@@ -135,24 +139,8 @@ class LoginActivity : AppCompatActivity() {
                         "Login failed! Please try again later",
                         Toast.LENGTH_LONG
                     ).show()
-                    //progressBar.visibility = View.GONE
                 }
-
-
             }
-
-        //val intent = Intent(this, MainActivity::class.java).also { it.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT) } //d'aixo no estic segur
-/*
-    private fun loginUser(){
-        val user: String = txtUser.text.toString()
-        val password: String = txtUser.text.toString()
-
-        val intent = Intent(this, MainActivity::class.java).also { it.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT) }
-
-        startActivity(intent)
-        */
-
-
     }
 
     private fun initializeUI() {
@@ -162,7 +150,6 @@ class LoginActivity : AppCompatActivity() {
         registerBtn = findViewById(R.id.btnRegister)
         guestBtn = findViewById(R.id.btnGuest)
         resetBtn = findViewById(R.id.btnForgotPass)
-        //progressBar = findViewById(R.id.progressBar)
     }
 }
 

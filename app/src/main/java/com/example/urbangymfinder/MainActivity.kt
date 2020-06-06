@@ -102,6 +102,7 @@ class MainActivity : AppCompatActivity() {
             btnShowMap.setOnClickListener({
                 val intent = Intent(this, MapsActivity::class.java)
                 intent.putExtra("spotID", "test")
+
                 startActivity(intent)
             })
 

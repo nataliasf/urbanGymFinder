@@ -43,8 +43,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1
-
-        // 3
         private const val REQUEST_CHECK_SETTINGS = 2
     }
 
@@ -57,6 +55,19 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
+        locationCallback = object : LocationCallback() {
+            override fun onLocationResult(p0: LocationResult) {
+                super.onLocationResult(p0)
+
+                lastLocation = p0.lastLocation
+                placeMarkerOnMap(LatLng(lastLocation.latitude, lastLocation.longitude))
+            }
+        }
+        createLocationRequest()
+
 
         // funcions on click btns
         findViewById<ImageButton>(R.id.btnEvents).setOnClickListener {
@@ -96,12 +107,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
      * installed Google Play services and returned to the app.
      */
     override fun onMapReady(googleMap: GoogleMap) {
-
         map = googleMap
         map.getUiSettings().setZoomControlsEnabled(true)
         map.setOnMarkerClickListener(this)
-        getAllSpotsOnMap()
 
+        //setUpMap()
         // Add a marker in Barcelona and move the camera
         //41°23'11.4"N 2°09'49.3"E
         // primer exemple basic
@@ -125,9 +135,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         // detail without getting crazy-close.
         //map.moveCamera(CameraUpdateFactory.newLatLngZoom(ub, 12.0f))
         //demanem permis localitzacio a usuari
-        setUpMap()
         //mostrem localitzacio usuari
         // habilitem capa mylocation
+        /*
         map.isMyLocationEnabled = true
 
         // busquem localitzacio mes recent
@@ -140,6 +150,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
             }
         }
+
+         */
 
     }
 
@@ -160,16 +172,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             return
         }
         map.isMyLocationEnabled = true
+        map.mapType = GoogleMap.MAP_TYPE_NORMAL
 
         fusedLocationClient.lastLocation.addOnSuccessListener(this) { location ->
             // Got last known location. In some rare situations this can be null.
             if (location != null) {
                 lastLocation = location
                 val currentLatLng = LatLng(location.latitude, location.longitude)
-                //placeMarkerOnMap(currentLatLng)
+                //placeMarkerOnMap(currentLatLng) TODO for new spots throug map API
                 map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
             }
         }
+        //getAllSpotsOnMap()
     }
 
     //marcador de posicio de usuari personalitzat
@@ -191,8 +205,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         //1
         if (ActivityCompat.checkSelfPermission(
                 this,
-                android.Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
+                android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
         ) {
             ActivityCompat.requestPermissions(
                 this,
@@ -332,4 +345,5 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         val intent = Intent(this, FiltrosActivity::class.java)
         startActivity(intent)
     }
+
 }
