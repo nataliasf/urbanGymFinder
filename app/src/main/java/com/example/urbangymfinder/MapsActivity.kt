@@ -50,8 +50,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         askPermision()
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        //askPermision()
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
@@ -67,7 +68,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 placeMarkerOnMap(LatLng(lastLocation.latitude, lastLocation.longitude))
             }
         }
-        //createLocationRequest()
+        createLocationRequest()
         /*
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener {
@@ -101,7 +102,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             filters()
         }
     }
-    /*
+
     override fun onPause() {
         super.onPause()
         fusedLocationClient.removeLocationUpdates(locationCallback)
@@ -112,7 +113,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             startLocationUpdates()
         }
     }
-     */
+
 
     /**
      * Manipulates the map once available.
@@ -124,15 +125,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
      * installed Google Play services and returned to the app.
      */
     override fun onMapReady(googleMap: GoogleMap) {
-        askPermision()
         map = googleMap
         map.uiSettings.isZoomControlsEnabled = true
         map.setOnMarkerClickListener(this)
-        //setUpMap()
         // Add a marker in Barcelona and move the camera
         //41°23'11.4"N 2°09'49.3"E
         // primer exemple basic
-        /*
         val ub = LatLng(41.387, 2.164)
         val basicLocationOptions =
             MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
@@ -143,8 +141,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         val favLocationOptions =
             MarkerOptions()//.icon(BitmapDescriptorFactory.fromBitmap(BitmapFactory.decodeResource(resources, R.drawable.favorite)))
         map.addMarker(favLocationOptions.position(fav).title("Favorite spot"))
-        map.moveCamera(CameraUpdateFactory.newLatLng(fav))
-        */
+        map.moveCamera(CameraUpdateFactory.newLatLng(LatLng(41.380, 2.17)))
+
+        setUpMap()
+        //getAllSpotsOnMap()
+
         //Zoom level 0 corresponds to the fully zoomed-out world view.
         // Most areas support zoom levels up to 20, while more remote areas
         // only support zoom levels up to 13.
@@ -167,8 +168,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
             }
         }
-         */
 
+         */
     }
 
     override fun onMarkerClick(p0: Marker?) = false
@@ -190,12 +191,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     }
 
     private fun setUpMap() {
+
         if (ActivityCompat.checkSelfPermission(this,
                 android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
                 arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_REQUEST_CODE)
             return
         }
+
 
         map.isMyLocationEnabled = true
         map.mapType = GoogleMap.MAP_TYPE_NORMAL
@@ -206,7 +209,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 lastLocation = location
                 val currentLatLng = LatLng(location.latitude, location.longitude)
                 //placeMarkerOnMap(currentLatLng) TODO for new spots throug map API
-                map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 10f))
+                map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
             }
         }
         //getAllSpotsOnMap()
@@ -229,13 +232,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     // start update location
     private fun startLocationUpdates() {
         //1
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
+            != PackageManager.PERMISSION_GRANTED) {
+            // check permisions
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
                 LOCATION_PERMISSION_REQUEST_CODE
             )
             return
@@ -367,7 +367,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     }
     fun map() {
         setUpMap()
-        // getAllSpotsOnMap()
+        getAllSpotsOnMap()
 
     }
     fun filters() {
