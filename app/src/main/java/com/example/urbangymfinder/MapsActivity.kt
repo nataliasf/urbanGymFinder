@@ -99,10 +99,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             Toast.makeText(this, "Map updated", Toast.LENGTH_LONG).show()
             map()
         }
-        findViewById<ImageButton>(R.id.btnFilters).setOnClickListener {
+        /*findViewById<ImageButton>(R.id.btnFilters).setOnClickListener {
             Toast.makeText(this, "Select filters!", Toast.LENGTH_LONG).show()
             filters()
-        }
+        }*/
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -409,9 +409,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         getAllSpotsOnMap()
         setUpMap()
     }
-    fun filters() {
+    /*fun filters() {
         val intent = Intent(this, FiltrosActivity::class.java)
         startActivity(intent)
-    }
+    }*/
 
 }
