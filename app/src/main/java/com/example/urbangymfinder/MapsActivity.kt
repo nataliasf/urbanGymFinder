@@ -1,5 +1,6 @@
 package com.example.urbangymfinder
 
+import android.app.Activity
 import android.content.Intent
 import android.content.IntentSender
 import android.content.pm.PackageManager
@@ -51,24 +52,25 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+        createLocationRequest()
 
         locationCallback = object : LocationCallback() {
             override fun onLocationResult(p0: LocationResult) {
                 super.onLocationResult(p0)
 
                 lastLocation = p0.lastLocation
-                placeMarkerOnMap(LatLng(lastLocation.latitude, lastLocation.longitude))
-                getAllSpotsOnMap()
+                //getAllSpotsOnMap()
                 setUpMap()
+
             }
         }
         createLocationRequest()
+
         /*
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener {
@@ -103,6 +105,23 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CHECK_SETTINGS) {
+            if (resultCode == Activity.RESULT_OK) {
+                locationUpdateState = true
+                startLocationUpdates()
+            }
+        }
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                locationUpdateState = true
+                startLocationUpdates()
+                setUpMap()
+            }
+        }
+    }
+
     override fun onPause() {
         super.onPause()
         fusedLocationClient.removeLocationUpdates(locationCallback)
@@ -125,8 +144,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
      * installed Google Play services and returned to the app.
      */
     override fun onMapReady(googleMap: GoogleMap) {
-        //map = googleMap ?: return
-        map = googleMap
+        map = googleMap ?: return
         map.uiSettings.isZoomControlsEnabled = true
         map.setOnMarkerClickListener(this)
 
@@ -139,9 +157,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 getAllSpotsOnMap()
             }
         }
-        //setUpMap()
+        setUpMap()
         //getAllSpotsOnMap()
-
         // Add a marker in Barcelona and move the camera
         //41°23'11.4"N 2°09'49.3"E
         // primer exemple basic
@@ -150,7 +167,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         val basicLocationOptions =
             MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
         map.addMarker(basicLocationOptions.position(ub).title("University of Barcelona"))
-
         // segon exemple loc
         val fav = LatLng(41.380, 2.17)
         val favLocationOptions =
@@ -158,32 +174,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         map.addMarker(favLocationOptions.position(fav).title("Favorite spot"))
         map.moveCamera(CameraUpdateFactory.newLatLng(LatLng(41.380, 2.17)))
         */
-
-
         //Zoom level 0 corresponds to the fully zoomed-out world view.
         // Most areas support zoom levels up to 20, while more remote areas
         // only support zoom levels up to 13.
         // A zoom level of 12 is a nice in-between value that shows enough
         // detail without getting crazy-close.
         //map.moveCamera(CameraUpdateFactory.newLatLngZoom(ub, 12.0f))
-        //demanem permis localitzacio a usuari
-        //mostrem localitzacio usuari
-        // habilitem capa mylocation
-        /*
-        map.isMyLocationEnabled = true
-
-        // busquem localitzacio mes recent
-        fusedLocationClient.lastLocation.addOnSuccessListener(this) { location ->
-            // Got last known location. In some rare situations this can be null.
-            // movem la camara a la localitzacio mes recent
-            if (location != null) {
-                lastLocation = location
-                val currentLatLng = LatLng(location.latitude, location.longitude)
-                map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
-            }
-        }
-
-         */
 
     }
 
@@ -206,7 +202,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     }
 
     private fun setUpMap() {
-
         if (ActivityCompat.checkSelfPermission(this,
                 android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
@@ -222,7 +217,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             if (location != null) {
                 lastLocation = location
                 val currentLatLng = LatLng(location.latitude, location.longitude)
-                //placeMarkerOnMap(currentLatLng) TODO for new spots throug map API
+                placeMarkerOnMap(currentLatLng)
                 map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
             }
         }
@@ -263,28 +258,22 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
     // update user location
     private fun createLocationRequest() {
-        // 1
         locationRequest = LocationRequest()
-        // 2
         locationRequest.interval = 10000
-        // 3
         locationRequest.fastestInterval = 5000
         locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
 
         val builder = LocationSettingsRequest.Builder()
             .addLocationRequest(locationRequest)
 
-        // 4
         val client = LocationServices.getSettingsClient(this)
         val task = client.checkLocationSettings(builder.build())
 
-        // 5
         task.addOnSuccessListener {
             locationUpdateState = true
             startLocationUpdates()
         }
         task.addOnFailureListener { e ->
-            // 6
             if (e is ResolvableApiException) {
                 // Location settings are not satisfied, but this can be fixed
                 // by showing the user a dialog.
@@ -335,10 +324,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 for (document in result) {
                     val nombre: String? = document.getString("Title")
                     val geopoint: GeoPoint? = document.getGeoPoint("geopoint")
+                    val sid: String? = document.getString("sid")
                     val lat: Double = geopoint!!.getLatitude()
                     val lng: Double = geopoint!!.getLongitude()
                     val latLng = LatLng(lat, lng)
-                    // primer exemple basic
+                    // primer exemple
                     // TODO depenent del tipus de spot, event, favorit, canviar markup color, icon i intent type
                     val basicLocationOptions = MarkerOptions().icon(
                         BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)
@@ -348,9 +338,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                         GoogleMap.OnInfoWindowClickListener {
                         override fun onInfoWindowClick(marker: Marker) {
                             val intent1 =
-                                Intent(this@MapsActivity, MainActivity::class.java)
+                                Intent(this@MapsActivity, PopActivity::class.java)
                             val title = marker.title
-                            intent1.putExtra("spotTitle", title)
+                            intent1.putExtra("sid", sid)
                             startActivity(intent1)
                             //TODO open new activity on spot details popActivity
                     }
@@ -375,10 +365,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     }
     fun home() {
         val intent = Intent(this, MainActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
     }
     fun map() {
+        //reload spots and map location
         getAllSpotsOnMap()
         setUpMap()
     }

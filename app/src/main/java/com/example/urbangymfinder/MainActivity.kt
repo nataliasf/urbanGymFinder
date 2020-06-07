@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.ImageButton
+import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -562,7 +563,6 @@ class MainActivity : AppCompatActivity() {
             profile()
         }
         findViewById<ImageButton>(R.id.btnHome).setOnClickListener {
-            Toast.makeText(this, "Select home/config!", Toast.LENGTH_LONG).show()
             home()
         }
         findViewById<ImageButton>(R.id.btnMap).setOnClickListener {
@@ -659,8 +659,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
     fun home() {
-        val intent = Intent(this, ConfigActivity::class.java)
-        startActivity(intent)
+        findViewById<ScrollView>(R.id.scrollView).fullScroll(ScrollView.FOCUS_UP);
     }
     fun map() {
         val intent = Intent(this, MapsActivity::class.java)

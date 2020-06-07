@@ -36,13 +36,14 @@ class LoginActivity : AppCompatActivity() {
         //chech if user is login
         val user = mAuth!!.currentUser
         if (user != null) {
-            // User is signed in go to mainActivity
-            Toast.makeText(
-                applicationContext,
-                "Welcome back "+ user.displayName +"!",
-                Toast.LENGTH_LONG
-            ).show()
-
+            if( !user.isAnonymous) {
+                // User is signed in go to mainActivity
+                Toast.makeText(
+                    applicationContext,
+                    "Welcome back " + user.displayName + "!",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
             val intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
