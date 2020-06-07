@@ -21,13 +21,11 @@ class ConfigActivity : AppCompatActivity() {
     lateinit var TVname : EditText
     lateinit var TVgender: EditText
     lateinit var TVphone: EditText
-    lateinit var TVemail: EditText
     lateinit var TVaddress: EditText
 
     lateinit var name : String
     lateinit var gen: String
     lateinit var phone: String
-    lateinit var email: String
     lateinit var add: String
 
     private var changeBtn: Button? = null
@@ -51,13 +49,11 @@ class ConfigActivity : AppCompatActivity() {
             TVname = findViewById(R.id.etName)
             TVgender = findViewById(R.id.etGender)
             TVphone = findViewById(R.id.etPhone)
-            TVemail  = findViewById(R.id.etEmail)
             TVaddress = findViewById(R.id.etAdd)
 
             name=TVname.text.toString()
             gen = TVgender.text.toString()
             phone = TVphone.text.toString()
-            email = TVemail.text.toString()
             add = TVaddress.text.toString()
         }
         fun save() {
@@ -86,14 +82,7 @@ class ConfigActivity : AppCompatActivity() {
                      .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
                      .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e)}
              }
-            if(email!=""){
-                db.collection("users").document(user.uid)
-                    .update(
-                        "email", email
-                    )
-                    .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
-                    .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e)}
-            }
+
            if(add!=""){
                db.collection("users").document(user.uid)
                    .update(
