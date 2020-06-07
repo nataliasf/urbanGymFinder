@@ -1,6 +1,5 @@
 package com.example.urbangymfinder
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -28,36 +27,44 @@ class EventsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_events)
 
         val listviewContent = ArrayList<String>()
-        val sidList = ArrayList<String>()
+        val dateList = ArrayList<String>()
         val titleList = ArrayList<String>()
-        val directionList = ArrayList<String>()
+        val descriptionList = ArrayList<String>()
 
         db.collection("events").get()
             .addOnSuccessListener { result ->
-                for (document in result) {
-                    //Log.d(TAG, "${document.id} => ${document.data}")
+            for (document in result) {
+                //Log.d(TAG, "${document.id} => ${document.data}")
 
-                    sidList.add(document.getString("date").toString())
-                    //descriptionList.add(document.getString("description").toString())
-                    titleList.add(document.getString("name").toString())
-                    //listviewContent.add(document.getString("date").toString() + "\n" +document.getString("name").toString()+ ":\n " +document.getString("description").toString())
-                }
-                listView = findViewById<ListView>(R.id.lvListaEvents)
-                val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, titleList)
-                listView.adapter = adapter
-                listView.setOnItemClickListener { parent, view, position, id ->
-                    val element = parent.getItemAtPosition(position) // The item that was clicked
-                    val intent = Intent(this, PopActivity::class.java)
-                    intent.putExtra("nom", titleList[position])
-                    startActivity(intent)
-                }
-
-
+                dateList.add(document.getString("date").toString())
+                descriptionList.add(document.getString("description").toString())
+                titleList.add(document.getString("name").toString())
+                listviewContent.add(document.getString("date").toString() + "\n" +document.getString("name").toString()+ ":\n " +document.getString("description").toString())
             }
-            .addOnFailureListener { exception ->
-                Log.d("Error", "Error getting documents: ", exception)
+            listView = findViewById<ListView>(R.id.lvListaEvents)
+
+            val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listviewContent)
+
+            listView.adapter = adapter
+
+            listView.setOnItemClickListener { parent, view, position, id ->
+                val element = parent.getItemAtPosition(position) // The item that was clicked
+                val intent = Intent(this, PopActivity::class.java)
+                intent.putExtra("nom", titleList[position])
+                intent.putExtra("descripcio", descriptionList[position])
+                startActivity(intent)
+            }
+        }.addOnFailureListener { exception ->
+            Log.d("Error", "Error getting documents: ", exception)
         }
 
+        /*
+        Toast.makeText(
+            applicationContext,
+            "Next events and activities around you",
+            Toast.LENGTH_LONG
+        ).show()
+        */
         findViewById<Button>(R.id.buttonback).setOnClickListener {
             finish()
         }

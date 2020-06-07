@@ -1,61 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/animation_list"
-    tools:context=".EventsActivity"
-    android:padding="10dp"
-    android:weightSum="16">
+    tools:context=".FavoritosActivity">
 
-    <TextView
-        android:id="@+id/tvEvents"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:fontFamily="@font/baloo_chettan_bold"
-        android:padding="13dp"
-        android:text="Events"
-        android:textSize="36sp" />
-
-
-    <ListView
-        android:id="@+id/lvListaEvents"
-        android:layout_width="match_parent"
-        android:fontFamily="@font/baloo_chettan_bold"
-        android:padding="5dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="10"
-        android:textSize="15sp"/>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_weight="1"
-        android:padding="5dp">
+        android:weightSum="16"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/animation_list">
+
+        <TextView
+            android:id="@+id/tvEvents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Favourite gyms"
+            android:padding="5dp"
+            android:fontFamily="@font/baloo_chettan_bold"
+            android:gravity="center"
+            android:textSize="36sp"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            android:id="@+id/tvSelect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please select a gym:"
+            android:padding="5dp"
+            android:fontFamily="@font/baloo_chettan_bold"
+            android:gravity="left"
+            android:textSize="18dp"
+            android:layout_weight="1"
+            />
+        <ListView
+            android:id="@+id/lvListaEvents"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/baloo_chettan_bold"
+            android:padding="5dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:textSize="15sp"/>
 
 
 
-    <Button
-        android:id="@+id/btnHome"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/rounded_btn"
-        android:fontFamily="@font/baloo_chettan"
-        android:padding="15dp"
-        android:text="Home"
-        android:textColor="#FFFFFF" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/buttonback"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_chettan"
+
+            android:text="back"
+            android:background="@drawable/rounded_btn"
+            android:layout_gravity="center"
+            android:textColor="#FFFFFF"/>
+
     </LinearLayout>
-
-    <View
-        android:layout_width="1dp"
-        android:layout_height="1dp"
-        android:layout_weight="1" />
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

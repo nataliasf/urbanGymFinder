@@ -54,10 +54,7 @@ class FavoritosActivity : AppCompatActivity() {
                         intent.putExtra("descripcio", descriptionList[position])
                         startActivity(intent)
                     }
-
-
-                }
-                .addOnFailureListener { exception ->
+                }.addOnFailureListener { exception ->
                     Log.d("Error", "Error getting documents: ", exception)
                 }
 
