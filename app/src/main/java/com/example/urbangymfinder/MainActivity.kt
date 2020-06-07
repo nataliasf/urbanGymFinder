@@ -6,10 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.widget.ImageButton
-import android.widget.ScrollView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -17,6 +14,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_pop.*
 
 
@@ -40,26 +38,33 @@ class MainActivity : AppCompatActivity() {
 
         val txtTitle1: TextView= findViewById(R.id.txttitle1)
         val txtDirection1: TextView = findViewById(R.id.txtdirection1)
+        val ImageView1: ImageView = findViewById(R.id.imageview1)
 
 
         val txtTitle2: TextView= findViewById(R.id.txttitle2)
         val txtDirection2: TextView = findViewById(R.id.txtdirection2)
+        val ImageView2: ImageView = findViewById(R.id.imageview2)
+
 
         val txtTitle3: TextView= findViewById(R.id.txttitle3)
         val txtDirection3: TextView = findViewById(R.id.txtdirection3)
+        val ImageView3: ImageView = findViewById(R.id.imageview3)
 
         val txtTitle4: TextView= findViewById(R.id.txttitle4)
         val txtDirection4: TextView = findViewById(R.id.txtdirection4)
+        val ImageView4: ImageView = findViewById(R.id.imageview4)
 
         val txtTitle5: TextView= findViewById(R.id.txttitle5)
-
         val txtDirection5: TextView = findViewById(R.id.txtdirection5)
+        val ImageView5: ImageView = findViewById(R.id.imageview5)
 
         val txtTitle6: TextView= findViewById(R.id.txttitle6)
         val txtDirection6: TextView = findViewById(R.id.txtdirection6)
+        val ImageView6: ImageView = findViewById(R.id.imageview6)
 
-        val txtTitle7: TextView= findViewById(R.id.txttitle6)
-        val txtDirection7: TextView = findViewById(R.id.txtdirection6)
+        val txtTitle7: TextView= findViewById(R.id.txttitle7)
+        val txtDirection7: TextView = findViewById(R.id.txtdirection7)
+        val ImageView7: ImageView = findViewById(R.id.imageview7)
 
         getFirebaseData(txtTitle1,txtDirection1, "1")
         getFirebaseData(txtTitle2, txtDirection2, "2")
@@ -72,7 +77,489 @@ class MainActivity : AppCompatActivity() {
 
         //CLICK LISTENERS FOR SPOT DETAILS
 
+        ImageView1.setOnClickListener{
+            val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            //val pop_view = inflater.inflate(R.layout.activity_pop, null)
 
+            sid = "1"
+            setContentView(R.layout.activity_pop)
+
+            // Get the widgets reference from custom view
+            val pop_title: TextView = findViewById(R.id.popTitle)
+            val pop_description = findViewById<TextView>(R.id.popDescription)
+
+
+            pop_title.setText(txtTitle1.text)
+            getFireBaseDescription(pop_description, sid)
+
+            // Set a click listener for pop_activity btn
+            btnBack.setOnClickListener{
+                getFirebaseData(txtTitle1,txtDirection1, "1")
+                getFirebaseData(txtTitle2, txtDirection2, "2")
+                getFirebaseData(txtTitle3, txtDirection3, "3")
+                getFirebaseData(txtTitle4, txtDirection4, "4")
+                getFirebaseData(txtTitle5, txtDirection5, "5")
+                getFirebaseData(txtTitle6, txtDirection6, "6")
+                getFirebaseData(txtTitle7, txtDirection7, "7")
+                // Dismiss the detail window
+                //setContentView(R.layout.activity_main)
+                //Set data from Firebase
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+
+            //TODO get spotID on mapActivity, zoom in and show title
+            btnShowMap.setOnClickListener({
+                val intent = Intent(this, MapsActivity::class.java)
+                intent.putExtra("spotID", sid)
+                startActivity(intent)
+            })
+
+            //TODO add to database user/favorites for each element
+            buttonfavs.setOnClickListener {
+                //Añadir a favoritos
+                if (user != null) {
+                    // User is signed in with email
+                    if (!user.isAnonymous) {
+                        // Recuperar los gimnasios preferidos de la bd
+                        // Añadir a esos el gimnasio en cuestión
+                        // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+
+                        // Update favorit
+                        db.collection("users").document(user.uid)
+                            .update("favorits", FieldValue.arrayUnion(sid))
+                        Toast.makeText(
+                            this,
+                            "Spot added to favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                    } else {
+                        // User is anon
+                        Toast.makeText(
+                            this,
+                            "You must register to add a spot to your favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+            }
+        }
+        ImageView2.setOnClickListener{
+            val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            //val pop_view = inflater.inflate(R.layout.activity_pop, null)
+
+            sid = "1"
+            setContentView(R.layout.activity_pop)
+
+            // Get the widgets reference from custom view
+            val pop_title: TextView = findViewById(R.id.popTitle)
+            val pop_description = findViewById<TextView>(R.id.popDescription)
+
+
+            pop_title.setText(txtTitle2.text)
+            getFireBaseDescription(pop_description, sid)
+
+            // Set a click listener for pop_activity btn
+            btnBack.setOnClickListener{
+                getFirebaseData(txtTitle1,txtDirection1, "1")
+                getFirebaseData(txtTitle2, txtDirection2, "2")
+                getFirebaseData(txtTitle3, txtDirection3, "3")
+                getFirebaseData(txtTitle4, txtDirection4, "4")
+                getFirebaseData(txtTitle5, txtDirection5, "5")
+                getFirebaseData(txtTitle6, txtDirection6, "6")
+                getFirebaseData(txtTitle7, txtDirection7, "7")
+                // Dismiss the detail window
+                //setContentView(R.layout.activity_main)
+                //Set data from Firebase
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+
+            //TODO get spotID on mapActivity, zoom in and show title
+            btnShowMap.setOnClickListener({
+                val intent = Intent(this, MapsActivity::class.java)
+                intent.putExtra("spotID", sid)
+                startActivity(intent)
+            })
+
+            //TODO add to database user/favorites for each element
+            buttonfavs.setOnClickListener {
+                //Añadir a favoritos
+                if (user != null) {
+                    // User is signed in with email
+                    if (!user.isAnonymous) {
+                        // Recuperar los gimnasios preferidos de la bd
+                        // Añadir a esos el gimnasio en cuestión
+                        // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+
+                        // Update favorit
+                        db.collection("users").document(user.uid)
+                            .update("favorits", FieldValue.arrayUnion(sid))
+                        Toast.makeText(
+                            this,
+                            "Spot added to favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                    } else {
+                        // User is anon
+                        Toast.makeText(
+                            this,
+                            "You must register to add a spot to your favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+            }
+        }
+        ImageView3.setOnClickListener{
+            val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            //val pop_view = inflater.inflate(R.layout.activity_pop, null)
+
+            sid = "1"
+            setContentView(R.layout.activity_pop)
+
+            // Get the widgets reference from custom view
+            val pop_title: TextView = findViewById(R.id.popTitle)
+            val pop_description = findViewById<TextView>(R.id.popDescription)
+
+
+            pop_title.setText(txtTitle3.text)
+            getFireBaseDescription(pop_description, sid)
+
+            // Set a click listener for pop_activity btn
+            btnBack.setOnClickListener{
+                getFirebaseData(txtTitle1,txtDirection1, "1")
+                getFirebaseData(txtTitle2, txtDirection2, "2")
+                getFirebaseData(txtTitle3, txtDirection3, "3")
+                getFirebaseData(txtTitle4, txtDirection4, "4")
+                getFirebaseData(txtTitle5, txtDirection5, "5")
+                getFirebaseData(txtTitle6, txtDirection6, "6")
+                getFirebaseData(txtTitle7, txtDirection7, "7")
+                // Dismiss the detail window
+                //setContentView(R.layout.activity_main)
+                //Set data from Firebase
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+
+            //TODO get spotID on mapActivity, zoom in and show title
+            btnShowMap.setOnClickListener({
+                val intent = Intent(this, MapsActivity::class.java)
+                intent.putExtra("spotID", sid)
+                startActivity(intent)
+            })
+
+            //TODO add to database user/favorites for each element
+            buttonfavs.setOnClickListener {
+                //Añadir a favoritos
+                if (user != null) {
+                    // User is signed in with email
+                    if (!user.isAnonymous) {
+                        // Recuperar los gimnasios preferidos de la bd
+                        // Añadir a esos el gimnasio en cuestión
+                        // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+
+                        // Update favorit
+                        db.collection("users").document(user.uid)
+                            .update("favorits", FieldValue.arrayUnion(sid))
+                        Toast.makeText(
+                            this,
+                            "Spot added to favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                    } else {
+                        // User is anon
+                        Toast.makeText(
+                            this,
+                            "You must register to add a spot to your favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+            }
+        }
+        ImageView4.setOnClickListener{
+            val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            //val pop_view = inflater.inflate(R.layout.activity_pop, null)
+
+            sid = "1"
+            setContentView(R.layout.activity_pop)
+
+            // Get the widgets reference from custom view
+            val pop_title: TextView = findViewById(R.id.popTitle)
+            val pop_description = findViewById<TextView>(R.id.popDescription)
+
+
+            pop_title.setText(txtTitle4.text)
+            getFireBaseDescription(pop_description, sid)
+
+            // Set a click listener for pop_activity btn
+            btnBack.setOnClickListener{
+                getFirebaseData(txtTitle1,txtDirection1, "1")
+                getFirebaseData(txtTitle2, txtDirection2, "2")
+                getFirebaseData(txtTitle3, txtDirection3, "3")
+                getFirebaseData(txtTitle4, txtDirection4, "4")
+                getFirebaseData(txtTitle5, txtDirection5, "5")
+                getFirebaseData(txtTitle6, txtDirection6, "6")
+                getFirebaseData(txtTitle7, txtDirection7, "7")
+                // Dismiss the detail window
+                //setContentView(R.layout.activity_main)
+                //Set data from Firebase
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+
+            //TODO get spotID on mapActivity, zoom in and show title
+            btnShowMap.setOnClickListener({
+                val intent = Intent(this, MapsActivity::class.java)
+                intent.putExtra("spotID", sid)
+                startActivity(intent)
+            })
+
+            //TODO add to database user/favorites for each element
+            buttonfavs.setOnClickListener {
+                //Añadir a favoritos
+                if (user != null) {
+                    // User is signed in with email
+                    if (!user.isAnonymous) {
+                        // Recuperar los gimnasios preferidos de la bd
+                        // Añadir a esos el gimnasio en cuestión
+                        // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+
+                        // Update favorit
+                        db.collection("users").document(user.uid)
+                            .update("favorits", FieldValue.arrayUnion(sid))
+                        Toast.makeText(
+                            this,
+                            "Spot added to favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                    } else {
+                        // User is anon
+                        Toast.makeText(
+                            this,
+                            "You must register to add a spot to your favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+            }
+        }
+        ImageView5.setOnClickListener{
+            val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            //val pop_view = inflater.inflate(R.layout.activity_pop, null)
+
+            sid = "1"
+            setContentView(R.layout.activity_pop)
+
+            // Get the widgets reference from custom view
+            val pop_title: TextView = findViewById(R.id.popTitle)
+            val pop_description = findViewById<TextView>(R.id.popDescription)
+
+
+            pop_title.setText(txtTitle5.text)
+            getFireBaseDescription(pop_description, sid)
+
+            // Set a click listener for pop_activity btn
+            btnBack.setOnClickListener{
+                getFirebaseData(txtTitle1,txtDirection1, "1")
+                getFirebaseData(txtTitle2, txtDirection2, "2")
+                getFirebaseData(txtTitle3, txtDirection3, "3")
+                getFirebaseData(txtTitle4, txtDirection4, "4")
+                getFirebaseData(txtTitle5, txtDirection5, "5")
+                getFirebaseData(txtTitle6, txtDirection6, "6")
+                getFirebaseData(txtTitle7, txtDirection7, "7")
+                // Dismiss the detail window
+                //setContentView(R.layout.activity_main)
+                //Set data from Firebase
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+
+            //TODO get spotID on mapActivity, zoom in and show title
+            btnShowMap.setOnClickListener({
+                val intent = Intent(this, MapsActivity::class.java)
+                intent.putExtra("spotID", sid)
+                startActivity(intent)
+            })
+
+            //TODO add to database user/favorites for each element
+            buttonfavs.setOnClickListener {
+                //Añadir a favoritos
+                if (user != null) {
+                    // User is signed in with email
+                    if (!user.isAnonymous) {
+                        // Recuperar los gimnasios preferidos de la bd
+                        // Añadir a esos el gimnasio en cuestión
+                        // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+
+                        // Update favorit
+                        db.collection("users").document(user.uid)
+                            .update("favorits", FieldValue.arrayUnion(sid))
+                        Toast.makeText(
+                            this,
+                            "Spot added to favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                    } else {
+                        // User is anon
+                        Toast.makeText(
+                            this,
+                            "You must register to add a spot to your favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+            }
+        }
+        ImageView6.setOnClickListener{
+            val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            //val pop_view = inflater.inflate(R.layout.activity_pop, null)
+
+            sid = "1"
+            setContentView(R.layout.activity_pop)
+
+            // Get the widgets reference from custom view
+            val pop_title: TextView = findViewById(R.id.popTitle)
+            val pop_description = findViewById<TextView>(R.id.popDescription)
+
+
+            pop_title.setText(txtTitle6.text)
+            getFireBaseDescription(pop_description, sid)
+
+            // Set a click listener for pop_activity btn
+            btnBack.setOnClickListener{
+                getFirebaseData(txtTitle1,txtDirection1, "1")
+                getFirebaseData(txtTitle2, txtDirection2, "2")
+                getFirebaseData(txtTitle3, txtDirection3, "3")
+                getFirebaseData(txtTitle4, txtDirection4, "4")
+                getFirebaseData(txtTitle5, txtDirection5, "5")
+                getFirebaseData(txtTitle6, txtDirection6, "6")
+                getFirebaseData(txtTitle7, txtDirection7, "7")
+                // Dismiss the detail window
+                //setContentView(R.layout.activity_main)
+                //Set data from Firebase
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+
+            //TODO get spotID on mapActivity, zoom in and show title
+            btnShowMap.setOnClickListener({
+                val intent = Intent(this, MapsActivity::class.java)
+                intent.putExtra("spotID", sid)
+                startActivity(intent)
+            })
+
+            //TODO add to database user/favorites for each element
+            buttonfavs.setOnClickListener {
+                //Añadir a favoritos
+                if (user != null) {
+                    // User is signed in with email
+                    if (!user.isAnonymous) {
+                        // Recuperar los gimnasios preferidos de la bd
+                        // Añadir a esos el gimnasio en cuestión
+                        // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+
+                        // Update favorit
+                        db.collection("users").document(user.uid)
+                            .update("favorits", FieldValue.arrayUnion(sid))
+                        Toast.makeText(
+                            this,
+                            "Spot added to favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                    } else {
+                        // User is anon
+                        Toast.makeText(
+                            this,
+                            "You must register to add a spot to your favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+            }
+        }
+        ImageView7.setOnClickListener{
+            val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            //val pop_view = inflater.inflate(R.layout.activity_pop, null)
+
+            sid = "1"
+            setContentView(R.layout.activity_pop)
+
+            // Get the widgets reference from custom view
+            val pop_title: TextView = findViewById(R.id.popTitle)
+            val pop_description = findViewById<TextView>(R.id.popDescription)
+
+
+            pop_title.setText(txtTitle7.text)
+            getFireBaseDescription(pop_description, sid)
+
+            // Set a click listener for pop_activity btn
+            btnBack.setOnClickListener{
+                getFirebaseData(txtTitle1,txtDirection1, "1")
+                getFirebaseData(txtTitle2, txtDirection2, "2")
+                getFirebaseData(txtTitle3, txtDirection3, "3")
+                getFirebaseData(txtTitle4, txtDirection4, "4")
+                getFirebaseData(txtTitle5, txtDirection5, "5")
+                getFirebaseData(txtTitle6, txtDirection6, "6")
+                getFirebaseData(txtTitle7, txtDirection7, "7")
+                // Dismiss the detail window
+                //setContentView(R.layout.activity_main)
+                //Set data from Firebase
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+
+            //TODO get spotID on mapActivity, zoom in and show title
+            btnShowMap.setOnClickListener({
+                val intent = Intent(this, MapsActivity::class.java)
+                intent.putExtra("spotID", sid)
+                startActivity(intent)
+            })
+
+            //TODO add to database user/favorites for each element
+            buttonfavs.setOnClickListener {
+                //Añadir a favoritos
+                if (user != null) {
+                    // User is signed in with email
+                    if (!user.isAnonymous) {
+                        // Recuperar los gimnasios preferidos de la bd
+                        // Añadir a esos el gimnasio en cuestión
+                        // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+
+                        // Update favorit
+                        db.collection("users").document(user.uid)
+                            .update("favorits", FieldValue.arrayUnion(sid))
+                        Toast.makeText(
+                            this,
+                            "Spot added to favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                    } else {
+                        // User is anon
+                        Toast.makeText(
+                            this,
+                            "You must register to add a spot to your favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+            }
+        }
         txtTitle1.setOnClickListener{
             val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             //val pop_view = inflater.inflate(R.layout.activity_pop, null)
@@ -98,9 +585,11 @@ class MainActivity : AppCompatActivity() {
                 getFirebaseData(txtTitle6, txtDirection6, "6")
                 getFirebaseData(txtTitle7, txtDirection7, "7")
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
+                //setContentView(R.layout.activity_main)
                 //Set data from Firebase
-
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
@@ -219,8 +708,10 @@ class MainActivity : AppCompatActivity() {
             // Set a click listener for pop_activity btn
             btnBack.setOnClickListener{
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
-
+                //setContentView(R.layout.activity_main)
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
@@ -277,8 +768,10 @@ class MainActivity : AppCompatActivity() {
             // Set a click listener for pop_activity btn
             btnBack.setOnClickListener{
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
-
+                //setContentView(R.layout.activity_main)
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
@@ -336,8 +829,10 @@ class MainActivity : AppCompatActivity() {
             // Set a click listener for pop_activity btn
             btnBack.setOnClickListener{
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
-
+                //setContentView(R.layout.activity_main)
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
@@ -395,8 +890,10 @@ class MainActivity : AppCompatActivity() {
             // Set a click listener for pop_activity btn
             btnBack.setOnClickListener{
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
-
+                //setContentView(R.layout.activity_main)
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
@@ -454,8 +951,10 @@ class MainActivity : AppCompatActivity() {
             // Set a click listener for pop_activity btn
             btnBack.setOnClickListener{
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
-
+                //setContentView(R.layout.activity_main)
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
@@ -512,16 +1011,19 @@ class MainActivity : AppCompatActivity() {
             // Set a click listener for pop_activity btn
             btnBack.setOnClickListener{
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
+                //setContentView(R.layout.activity_main)
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
 
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
-            btnShowMap.setOnClickListener({
+            btnShowMap.setOnClickListener {
                 val intent = Intent(this, MapsActivity::class.java)
                 intent.putExtra("spotID", "test")
                 startActivity(intent)
-            })
+            }
 
             //TODO add to database user/favorites for each element
             buttonfavs.setOnClickListener {

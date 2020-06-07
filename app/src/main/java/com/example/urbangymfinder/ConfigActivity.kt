@@ -116,15 +116,14 @@ class ConfigActivity : AppCompatActivity() {
 
 
     fun back(){
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this,PerfilActivity::class.java)
             startActivity(intent)
-            finish()
     }
 
      findViewById<Button>(R.id.btnBack2).setOnClickListener {
             back()
         }
-        findViewById<Button>(R.id.btnBack2).setOnClickListener {
+        findViewById<Button>(R.id.btnChange).setOnClickListener {
             resetUserPassword()
         }
 }
