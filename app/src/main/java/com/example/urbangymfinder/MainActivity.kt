@@ -11,10 +11,8 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_pop.*
 
 
@@ -106,7 +104,6 @@ class MainActivity : AppCompatActivity() {
                 //Set data from Firebase
                 val intent = Intent(this,MainActivity::class.java)
                 startActivity(intent)
-                finish()
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
@@ -118,17 +115,25 @@ class MainActivity : AppCompatActivity() {
 
             //TODO add to database user/favorites for each element
             buttonfavs.setOnClickListener {
+                // check if already following
+
                 //Añadir a favoritos
                 if (user != null) {
                     // User is signed in with email
-                    if (!user.isAnonymous) {
+                    if (!user!!.isAnonymous) {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+                        val data = hashMapOf("userID" to user.uid)
 
-                        // Update favorit
-                        db.collection("users").document(user.uid)
-                            .update("favorits", FieldValue.arrayUnion(sid))
+                        // Update favorit spot with userID
+                        db.collection("spots").document(sid).set(data, SetOptions.merge())
+                            .addOnSuccessListener { documentReference ->
+                                Log.d("TAG", "DocumentSnapshot written with ID: ${documentReference}")
+                            }
+                            .addOnFailureListener { e ->
+                                Log.w("TAG", "Error adding document", e)
+                            }
                         Toast.makeText(
                             this,
                             "Spot added to favorites",
@@ -150,7 +155,7 @@ class MainActivity : AppCompatActivity() {
             val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             //val pop_view = inflater.inflate(R.layout.activity_pop, null)
 
-            sid = "1"
+            sid = "2"
             setContentView(R.layout.activity_pop)
 
             // Get the widgets reference from custom view
@@ -187,17 +192,25 @@ class MainActivity : AppCompatActivity() {
 
             //TODO add to database user/favorites for each element
             buttonfavs.setOnClickListener {
+                // check if already following
+
                 //Añadir a favoritos
                 if (user != null) {
                     // User is signed in with email
-                    if (!user.isAnonymous) {
+                    if (!user!!.isAnonymous) {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+                        val data = hashMapOf("userID" to user.uid)
 
-                        // Update favorit
-                        db.collection("users").document(user.uid)
-                            .update("favorits", FieldValue.arrayUnion(sid))
+                        // Update favorit spot with userID
+                        db.collection("spots").document(sid).set(data, SetOptions.merge())
+                            .addOnSuccessListener { documentReference ->
+                                Log.d("TAG", "DocumentSnapshot written with ID: ${documentReference}")
+                            }
+                            .addOnFailureListener { e ->
+                                Log.w("TAG", "Error adding document", e)
+                            }
                         Toast.makeText(
                             this,
                             "Spot added to favorites",
@@ -219,7 +232,7 @@ class MainActivity : AppCompatActivity() {
             val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             //val pop_view = inflater.inflate(R.layout.activity_pop, null)
 
-            sid = "1"
+            sid = "3"
             setContentView(R.layout.activity_pop)
 
             // Get the widgets reference from custom view
@@ -256,17 +269,25 @@ class MainActivity : AppCompatActivity() {
 
             //TODO add to database user/favorites for each element
             buttonfavs.setOnClickListener {
+                // check if already following
+
                 //Añadir a favoritos
                 if (user != null) {
                     // User is signed in with email
-                    if (!user.isAnonymous) {
+                    if (!user!!.isAnonymous) {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+                        val data = hashMapOf("userID" to user.uid)
 
-                        // Update favorit
-                        db.collection("users").document(user.uid)
-                            .update("favorits", FieldValue.arrayUnion(sid))
+                        // Update favorit spot with userID
+                        db.collection("spots").document(sid).set(data, SetOptions.merge())
+                            .addOnSuccessListener { documentReference ->
+                                Log.d("TAG", "DocumentSnapshot written with ID: ${documentReference}")
+                            }
+                            .addOnFailureListener { e ->
+                                Log.w("TAG", "Error adding document", e)
+                            }
                         Toast.makeText(
                             this,
                             "Spot added to favorites",
@@ -288,7 +309,7 @@ class MainActivity : AppCompatActivity() {
             val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             //val pop_view = inflater.inflate(R.layout.activity_pop, null)
 
-            sid = "1"
+            sid = "4"
             setContentView(R.layout.activity_pop)
 
             // Get the widgets reference from custom view
@@ -325,17 +346,25 @@ class MainActivity : AppCompatActivity() {
 
             //TODO add to database user/favorites for each element
             buttonfavs.setOnClickListener {
+                // check if already following
+
                 //Añadir a favoritos
                 if (user != null) {
                     // User is signed in with email
-                    if (!user.isAnonymous) {
+                    if (!user!!.isAnonymous) {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+                        val data = hashMapOf("userID" to user.uid)
 
-                        // Update favorit
-                        db.collection("users").document(user.uid)
-                            .update("favorits", FieldValue.arrayUnion(sid))
+                        // Update favorit spot with userID
+                        db.collection("spots").document(sid).set(data, SetOptions.merge())
+                            .addOnSuccessListener { documentReference ->
+                                Log.d("TAG", "DocumentSnapshot written with ID: ${documentReference}")
+                            }
+                            .addOnFailureListener { e ->
+                                Log.w("TAG", "Error adding document", e)
+                            }
                         Toast.makeText(
                             this,
                             "Spot added to favorites",
@@ -357,7 +386,7 @@ class MainActivity : AppCompatActivity() {
             val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             //val pop_view = inflater.inflate(R.layout.activity_pop, null)
 
-            sid = "1"
+            sid = "5"
             setContentView(R.layout.activity_pop)
 
             // Get the widgets reference from custom view
@@ -394,17 +423,25 @@ class MainActivity : AppCompatActivity() {
 
             //TODO add to database user/favorites for each element
             buttonfavs.setOnClickListener {
+                // check if already following
+
                 //Añadir a favoritos
                 if (user != null) {
                     // User is signed in with email
-                    if (!user.isAnonymous) {
+                    if (!user!!.isAnonymous) {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+                        val data = hashMapOf("userID" to user.uid)
 
-                        // Update favorit
-                        db.collection("users").document(user.uid)
-                            .update("favorits", FieldValue.arrayUnion(sid))
+                        // Update favorit spot with userID
+                        db.collection("spots").document(sid).set(data, SetOptions.merge())
+                            .addOnSuccessListener { documentReference ->
+                                Log.d("TAG", "DocumentSnapshot written with ID: ${documentReference}")
+                            }
+                            .addOnFailureListener { e ->
+                                Log.w("TAG", "Error adding document", e)
+                            }
                         Toast.makeText(
                             this,
                             "Spot added to favorites",
@@ -426,7 +463,7 @@ class MainActivity : AppCompatActivity() {
             val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             //val pop_view = inflater.inflate(R.layout.activity_pop, null)
 
-            sid = "1"
+            sid = "6"
             setContentView(R.layout.activity_pop)
 
             // Get the widgets reference from custom view
@@ -463,17 +500,25 @@ class MainActivity : AppCompatActivity() {
 
             //TODO add to database user/favorites for each element
             buttonfavs.setOnClickListener {
+                // check if already following
+
                 //Añadir a favoritos
                 if (user != null) {
                     // User is signed in with email
-                    if (!user.isAnonymous) {
+                    if (!user!!.isAnonymous) {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+                        val data = hashMapOf("userID" to user.uid)
 
-                        // Update favorit
-                        db.collection("users").document(user.uid)
-                            .update("favorits", FieldValue.arrayUnion(sid))
+                        // Update favorit spot with userID
+                        db.collection("spots").document(sid).set(data, SetOptions.merge())
+                            .addOnSuccessListener { documentReference ->
+                                Log.d("TAG", "DocumentSnapshot written with ID: ${documentReference}")
+                            }
+                            .addOnFailureListener { e ->
+                                Log.w("TAG", "Error adding document", e)
+                            }
                         Toast.makeText(
                             this,
                             "Spot added to favorites",
@@ -495,7 +540,7 @@ class MainActivity : AppCompatActivity() {
             val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             //val pop_view = inflater.inflate(R.layout.activity_pop, null)
 
-            sid = "1"
+            sid = "7"
             setContentView(R.layout.activity_pop)
 
             // Get the widgets reference from custom view
@@ -532,17 +577,25 @@ class MainActivity : AppCompatActivity() {
 
             //TODO add to database user/favorites for each element
             buttonfavs.setOnClickListener {
+                // check if already following
+
                 //Añadir a favoritos
                 if (user != null) {
                     // User is signed in with email
-                    if (!user.isAnonymous) {
+                    if (!user!!.isAnonymous) {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+                        val data = hashMapOf("userID" to user.uid)
 
-                        // Update favorit
-                        db.collection("users").document(user.uid)
-                            .update("favorits", FieldValue.arrayUnion(sid))
+                        // Update favorit spot with userID
+                        db.collection("spots").document(sid).set(data, SetOptions.merge())
+                            .addOnSuccessListener { documentReference ->
+                                Log.d("TAG", "DocumentSnapshot written with ID: ${documentReference}")
+                            }
+                            .addOnFailureListener { e ->
+                                Log.w("TAG", "Error adding document", e)
+                            }
                         Toast.makeText(
                             this,
                             "Spot added to favorites",
@@ -723,17 +776,25 @@ class MainActivity : AppCompatActivity() {
 
             //TODO add to database user/favorites for each element
             buttonfavs.setOnClickListener {
+                // check if already following
+
                 //Añadir a favoritos
                 if (user != null) {
                     // User is signed in with email
-                    if (!user.isAnonymous) {
+                    if (!user!!.isAnonymous) {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+                        val data = hashMapOf("userID" to user.uid)
 
-                        // Update favorit
-                        db.collection("users").document(user.uid)
-                            .update("favorits", FieldValue.arrayUnion(sid))
+                        // Update favorit spot with userID
+                        db.collection("spots").document(sid).set(data, SetOptions.merge())
+                            .addOnSuccessListener { documentReference ->
+                                Log.d("TAG", "DocumentSnapshot written with ID: ${documentReference}")
+                            }
+                            .addOnFailureListener { e ->
+                                Log.w("TAG", "Error adding document", e)
+                            }
                         Toast.makeText(
                             this,
                             "Spot added to favorites",
@@ -755,7 +816,7 @@ class MainActivity : AppCompatActivity() {
         txtTitle3.setOnClickListener{
 
             setContentView(R.layout.activity_pop)
-
+            sid = "3"
             // Get the widgets reference from custom view
             // * Posar com a variables globals.. *
             val pop_title: TextView = findViewById(R.id.popTitle)
@@ -783,33 +844,39 @@ class MainActivity : AppCompatActivity() {
 
             //TODO add to database user/favorites for each element
             buttonfavs.setOnClickListener {
+                // check if already following
+
                 //Añadir a favoritos
-                val user = FirebaseAuth.getInstance().currentUser
                 if (user != null) {
-                    // User is signed in
+                    // User is signed in with email
+                    if (!user!!.isAnonymous) {
+                        // Recuperar los gimnasios preferidos de la bd
+                        // Añadir a esos el gimnasio en cuestión
+                        // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+                        val data = hashMapOf("userID" to user.uid)
 
-                    // Recuperar los gimnasios preferidos de la bd
-                    // Añadir a esos el gimnasio en cuestión
-                    // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+                        // Update favorit spot with userID
+                        db.collection("spots").document(sid).set(data, SetOptions.merge())
+                            .addOnSuccessListener { documentReference ->
+                                Log.d("TAG", "DocumentSnapshot written with ID: ${documentReference}")
+                            }
+                            .addOnFailureListener { e ->
+                                Log.w("TAG", "Error adding document", e)
+                            }
+                        Toast.makeText(
+                            this,
+                            "Spot added to favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
 
-                    // Update favorit field
-
-                    val data = hashMapOf("favorit" to true)
-                    db.collection("spots").document("test")
-                        .set(data, SetOptions.merge())
-                    Toast.makeText(
-                        this,
-                        "Spot added to favorites",
-                        Toast.LENGTH_LONG
-                    ).show()
-
-                } else {
-                    // No user is signed in
-                    Toast.makeText(
-                        this,
-                        "You must be signed in to add a spot to your favorites",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    } else {
+                        // User is anon
+                        Toast.makeText(
+                            this,
+                            "You must register to add a spot to your favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                 }
             }
 
@@ -817,6 +884,8 @@ class MainActivity : AppCompatActivity() {
         txtTitle4.setOnClickListener{
 
             setContentView(R.layout.activity_pop)
+
+            sid = "4"
 
             // Get the widgets reference from custom view
             val pop_title: TextView = findViewById(R.id.popTitle)
@@ -844,33 +913,39 @@ class MainActivity : AppCompatActivity() {
 
             //TODO add to database user/favorites for each element
             buttonfavs.setOnClickListener {
+                // check if already following
+
                 //Añadir a favoritos
-                val user = FirebaseAuth.getInstance().currentUser
                 if (user != null) {
-                    // User is signed in
+                    // User is signed in with email
+                    if (!user!!.isAnonymous) {
+                        // Recuperar los gimnasios preferidos de la bd
+                        // Añadir a esos el gimnasio en cuestión
+                        // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+                        val data = hashMapOf("userID" to user.uid)
 
-                    // Recuperar los gimnasios preferidos de la bd
-                    // Añadir a esos el gimnasio en cuestión
-                    // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+                        // Update favorit spot with userID
+                        db.collection("spots").document(sid).set(data, SetOptions.merge())
+                            .addOnSuccessListener { documentReference ->
+                                Log.d("TAG", "DocumentSnapshot written with ID: ${documentReference}")
+                            }
+                            .addOnFailureListener { e ->
+                                Log.w("TAG", "Error adding document", e)
+                            }
+                        Toast.makeText(
+                            this,
+                            "Spot added to favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
 
-                    // Update favorit field
-
-                    val data = hashMapOf("favorit" to true)
-                    db.collection("spots").document("test")
-                        .set(data, SetOptions.merge())
-                    Toast.makeText(
-                        this,
-                        "Spot added to favorites",
-                        Toast.LENGTH_LONG
-                    ).show()
-
-                } else {
-                    // No user is signed in
-                    Toast.makeText(
-                        this,
-                        "You must be signed in to add a spot to your favorites",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    } else {
+                        // User is anon
+                        Toast.makeText(
+                            this,
+                            "You must register to add a spot to your favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                 }
             }
 
@@ -878,6 +953,7 @@ class MainActivity : AppCompatActivity() {
         txtTitle5.setOnClickListener{
 
             setContentView(R.layout.activity_pop)
+            sid = "5"
 
             // Get the widgets reference from custom view
             val pop_title: TextView = findViewById(R.id.popTitle)
@@ -905,33 +981,39 @@ class MainActivity : AppCompatActivity() {
 
             //TODO add to database user/favorites for each element
             buttonfavs.setOnClickListener {
+                // check if already following
+
                 //Añadir a favoritos
-                val user = FirebaseAuth.getInstance().currentUser
                 if (user != null) {
-                    // User is signed in
+                    // User is signed in with email
+                    if (!user!!.isAnonymous) {
+                        // Recuperar los gimnasios preferidos de la bd
+                        // Añadir a esos el gimnasio en cuestión
+                        // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+                        val data = hashMapOf("userID" to user.uid)
 
-                    // Recuperar los gimnasios preferidos de la bd
-                    // Añadir a esos el gimnasio en cuestión
-                    // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+                        // Update favorit spot with userID
+                        db.collection("spots").document(sid).set(data, SetOptions.merge())
+                            .addOnSuccessListener { documentReference ->
+                                Log.d("TAG", "DocumentSnapshot written with ID: ${documentReference}")
+                            }
+                            .addOnFailureListener { e ->
+                                Log.w("TAG", "Error adding document", e)
+                            }
+                        Toast.makeText(
+                            this,
+                            "Spot added to favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
 
-                    // Update favorit field
-
-                    val data = hashMapOf("favorit" to true)
-                    db.collection("spots").document("test")
-                        .set(data, SetOptions.merge())
-                    Toast.makeText(
-                        this,
-                        "Spot added to favorites",
-                        Toast.LENGTH_LONG
-                    ).show()
-
-                } else {
-                    // No user is signed in
-                    Toast.makeText(
-                        this,
-                        "You must be signed in to add a spot to your favorites",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    } else {
+                        // User is anon
+                        Toast.makeText(
+                            this,
+                            "You must register to add a spot to your favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                 }
             }
 
@@ -939,6 +1021,7 @@ class MainActivity : AppCompatActivity() {
         txtTitle6.setOnClickListener{
 
             setContentView(R.layout.activity_pop)
+            sid = "6"
 
             // Get the widgets reference from custom view
             val pop_title: TextView = findViewById(R.id.popTitle)
@@ -966,39 +1049,46 @@ class MainActivity : AppCompatActivity() {
 
             //TODO add to database user/favorites for each element
             buttonfavs.setOnClickListener {
+                // check if already following
+
                 //Añadir a favoritos
-                val user = FirebaseAuth.getInstance().currentUser
                 if (user != null) {
-                    // User is signed in
+                    // User is signed in with email
+                    if (!user!!.isAnonymous) {
+                        // Recuperar los gimnasios preferidos de la bd
+                        // Añadir a esos el gimnasio en cuestión
+                        // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+                        val data = hashMapOf("userID" to user.uid)
 
-                    // Recuperar los gimnasios preferidos de la bd
-                    // Añadir a esos el gimnasio en cuestión
-                    // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+                        // Update favorit spot with userID
+                        db.collection("spots").document(sid).set(data, SetOptions.merge())
+                            .addOnSuccessListener { documentReference ->
+                                Log.d("TAG", "DocumentSnapshot written with ID: ${documentReference}")
+                            }
+                            .addOnFailureListener { e ->
+                                Log.w("TAG", "Error adding document", e)
+                            }
+                        Toast.makeText(
+                            this,
+                            "Spot added to favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
 
-                    // Update favorit field
-
-                    val data = hashMapOf("favorit" to true)
-                    db.collection("spots").document("test")
-                        .set(data, SetOptions.merge())
-                    Toast.makeText(
-                        this,
-                        "Spot added to favorites",
-                        Toast.LENGTH_LONG
-                    ).show()
-
-                } else {
-                    // No user is signed in
-                    Toast.makeText(
-                        this,
-                        "You must be signed in to add a spot to your favorites",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    } else {
+                        // User is anon
+                        Toast.makeText(
+                            this,
+                            "You must register to add a spot to your favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                 }
             }
         }
         txtTitle7.setOnClickListener{
 
             setContentView(R.layout.activity_pop)
+            sid = "7"
 
             // Get the widgets reference from custom view
             val pop_title: TextView = findViewById(R.id.popTitle)
@@ -1027,33 +1117,39 @@ class MainActivity : AppCompatActivity() {
 
             //TODO add to database user/favorites for each element
             buttonfavs.setOnClickListener {
+                // check if already following
+
                 //Añadir a favoritos
-                val user = FirebaseAuth.getInstance().currentUser
                 if (user != null) {
-                    // User is signed in
+                    // User is signed in with email
+                    if (!user!!.isAnonymous) {
+                        // Recuperar los gimnasios preferidos de la bd
+                        // Añadir a esos el gimnasio en cuestión
+                        // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+                        val data = hashMapOf("userID" to user.uid)
 
-                    // Recuperar los gimnasios preferidos de la bd
-                    // Añadir a esos el gimnasio en cuestión
-                    // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+                        // Update favorit spot with userID
+                        db.collection("spots").document(sid).set(data, SetOptions.merge())
+                            .addOnSuccessListener { documentReference ->
+                                Log.d("TAG", "DocumentSnapshot written with ID: ${documentReference}")
+                            }
+                            .addOnFailureListener { e ->
+                                Log.w("TAG", "Error adding document", e)
+                            }
+                        Toast.makeText(
+                            this,
+                            "Spot added to favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
 
-                    // Update favorit field
-
-                    val data = hashMapOf("favorit" to true)
-                    db.collection("spots").document("test")
-                        .set(data, SetOptions.merge())
-                    Toast.makeText(
-                        this,
-                        "Spot added to favorites",
-                        Toast.LENGTH_LONG
-                    ).show()
-
-                } else {
-                    // No user is signed in
-                    Toast.makeText(
-                        this,
-                        "You must be signed in to add a spot to your favorites",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    } else {
+                        // User is anon
+                        Toast.makeText(
+                            this,
+                            "You must register to add a spot to your favorites",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                 }
             }
         }

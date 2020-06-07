@@ -329,7 +329,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                     val lng: Double = geopoint!!.getLongitude()
                     val latLng = LatLng(lat, lng)
                     // primer exemple
-                    // TODO depenent del tipus de spot, event, favorit, canviar markup color, icon i intent type
                     val basicLocationOptions = MarkerOptions().icon(
                         BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)
                     )
@@ -347,6 +346,37 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 })
             }
         }
+
+        db.collection("events").get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    val nombreEvent: String? = document.getString("name")
+                    val geopointEvent: GeoPoint? = document.getGeoPoint("geopoint")
+                    val dateEvent: String? = document.getString("date")
+                    val descriptionEvent: String? = document.getString("description")
+                    val lat: Double = geopointEvent!!.getLatitude()
+                    val lng: Double = geopointEvent!!.getLongitude()
+                    val latLng = LatLng(lat, lng)
+                    // primer exemple
+                    val basicLocationOptions = MarkerOptions().icon(
+                        BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)
+                    )
+                    map.addMarker(basicLocationOptions.position(latLng).title(nombreEvent + "\n" + dateEvent))
+                    map.setOnInfoWindowClickListener(object :
+                        GoogleMap.OnInfoWindowClickListener {
+                        override fun onInfoWindowClick(marker: Marker) {
+                            val intent1 =
+                                Intent(this@MapsActivity, EventsActivity::class.java)
+                            val title = marker.title
+                            intent1.putExtra("nombreEvent", nombreEvent)
+                            startActivity(intent1)
+                            //TODO open new activity on event activity detail
+                        }
+                    })
+                }
+            }
+
+
      }
 
 

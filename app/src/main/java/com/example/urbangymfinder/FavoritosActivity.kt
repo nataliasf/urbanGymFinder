@@ -1,10 +1,12 @@
 package com.example.urbangymfinder
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -24,10 +26,11 @@ class FavoritosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favoritos)
-        val docid = ArrayList<String>()
+
+        val listviewContent = ArrayList<String>()
         val sidList = ArrayList<String>()
         val titleList = ArrayList<String>()
-        val descriptionList = ArrayList<String>()
+        val directionList = ArrayList<String>()
 
         if (!user!!.isAnonymous) {
             db.collectionGroup("spots").whereEqualTo("followerID", user.uid).get()
@@ -37,22 +40,56 @@ class FavoritosActivity : AppCompatActivity() {
 
                         sidList.add(document.getString("sid").toString())
                         titleList.add(document.getString("Title").toString())
-                        descriptionList.add(document.getString("Description").toString())
+                        directionList.add(document.getString("direccion").toString())
+                        listviewContent.add(document.getString("Title").toString()+ ":\n "  + document.getString("direccion").toString())
                     }
                     listView = findViewById<ListView>(R.id.lvListaFavs)
-                    val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, titleList)
+                    val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listviewContent)
                     listView.adapter = adapter
+                    listView.setOnItemClickListener { parent, view, position, id ->
+                        val element = parent.getItemAtPosition(position) // The item that was clicked
+                        val intent = Intent(this, PopActivity::class.java)
+                        startActivity(intent)
+                    }
+
+
                 }
                 .addOnFailureListener { exception ->
                     Log.d("Error", "Error getting documents: ", exception)
                 }
 
+        }else{
+            Toast.makeText(
+                applicationContext,
+                "Register with an email to use your favorite list",
+                Toast.LENGTH_LONG
+            ).show()
+
         }
         findViewById<Button>(R.id.buttonback).setOnClickListener {
             finish()
         }
+
+
+
     }
 }
+        /*
+        listView.setOnItemClickListener { _, _, position, _ ->
+            Toast.makeText(
+                applicationContext,
+                "TODO implement navigation to event detail",
+                Toast.LENGTH_LONG ).show()
+
+            val intent = Intent(this, PopActivity::class.java)
+            intent.putExtra("spotID", sidList[position])
+            startActivity(intent)
+        }
+         */
+
+
+// TODO populate recycle view or listview with favorits
+
         /*
         if (!user!!.isAnonymous) {
             db.collection("spots").whereEqualTo("userID", true).get()
@@ -172,7 +209,6 @@ class FavoritosActivity : AppCompatActivity() {
             Toast.makeText(this, "The list " +
                     spots + " has been get!", Toast.LENGTH_LONG).show()
 
-            // TODO populate recycle view or listview with favorits
         }
     }
 }

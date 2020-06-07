@@ -1,19 +1,68 @@
 package com.example.urbangymfinder
 
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.view.ViewGroup
-import android.widget.BaseAdapter
+import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.TextView
+import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
-import java.io.Serializable
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.firestore.FirebaseFirestore
+import java.util.*
 
 
+class EventsActivity : AppCompatActivity() {
+
+    private lateinit var listView: ListView
+
+    lateinit var database: DatabaseReference
+    val db = FirebaseFirestore.getInstance()
+    val user = FirebaseAuth.getInstance().currentUser
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_events)
+
+        val listviewContent = ArrayList<String>()
+        val sidList = ArrayList<String>()
+        val titleList = ArrayList<String>()
+        val directionList = ArrayList<String>()
+
+        db.collection("events").get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    //Log.d(TAG, "${document.id} => ${document.data}")
+
+                    sidList.add(document.getString("date").toString())
+                    titleList.add(document.getString("description").toString())
+                    directionList.add(document.getString("name").toString())
+                    listviewContent.add(document.getString("date").toString() + "\n" +document.getString("name").toString()+ ":\n " +document.getString("description").toString())
+                }
+                listView = findViewById<ListView>(R.id.lvListaEvents)
+                val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listviewContent)
+                listView.adapter = adapter
+                listView.setOnItemClickListener { parent, view, position, id ->
+                    val element = parent.getItemAtPosition(position) // The item that was clicked
+                    val intent = Intent(this, MapsActivity::class.java)
+                    startActivity(intent)
+                }
+
+
+            }
+            .addOnFailureListener { exception ->
+                Log.d("Error", "Error getting documents: ", exception)
+        }
+
+        findViewById<Button>(R.id.buttonback).setOnClickListener {
+            finish()
+        }
+    }
+}
+/*
 class EventsActivity : AppCompatActivity() {
 
     var eventsList = ArrayList<Event>()
@@ -25,7 +74,7 @@ class EventsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_events)
 
         //TODO add more events with json request to database
-
+        /*
         eventsList.add(Event(
             "Massa Critica",
             "Thu, May 17, 10:00 AM",
@@ -38,66 +87,7 @@ class EventsActivity : AppCompatActivity() {
             "16:00 to 20:00",
             "Arc triomf",
             "Massive gathering of hundreds to march around the city of barcelona. Bring your bycicle!" ))
-        eventsList.add(Event(
-            "Yoga on the beach",
-            "Thu, May 27, 8:00 AM",
-            "8:00 - 11:00",
-            "Bogatell",
-            "Free yoga class in the beautiful Bogatell beach"  ))
-        eventsList.add(Event(
-            "CrossFit",
-            "Fry, May 30, 18:00 AM",
-            "18:00 - 21:00",
-            "Park Güell",
-            "descripcio del event, participants, etc..." ))
-        eventsList.add(Event(
-            "Massa Critica",
-            "Thu, May 17, 10:00 AM",
-            "10:00 to 12:00",
-            "Plaça catalunya",
-            "descripcio del event, participants, etc..." ))
-        eventsList.add(Event(
-            "Massa Critica 2",
-            "Sat, May 19, 16:00 AM",
-            "16:00 to 20:00",
-            "Arc triomf",
-            "Massive gathering of hundreds to march around the city of barcelona. Bring your bycicle!" ))
-        eventsList.add(Event(
-            "Yoga on the beach",
-            "Thu, May 27, 8:00 AM",
-            "8:00 - 11:00",
-            "Bogatell",
-            "descripcio del event, participants, etc..." ))
-        eventsList.add(Event(
-            "CrossFit",
-            "Fry, May 30, 18:00 AM",
-            "18:00 - 21:00",
-            "Park Güell",
-            "descripcio del event, participants, etc..." ))
-        eventsList.add(Event(
-            "Massa Critica",
-            "Thu, May 17, 10:00 AM",
-            "10:00 to 12:00",
-            "Plaça catalunya",
-            "descripcio del event, participants, etc..." ))
-        eventsList.add(Event(
-            "Massa Critica 2",
-            "Sat, May 19, 16:00 AM",
-            "16:00 to 20:00",
-            "Arc triomf",
-            "Massive gathering of hundreds to march around the city of barcelona. Bring your bycicle!" ))
-        eventsList.add(Event(
-            "Yoga on the beach",
-            "Thu, May 27, 8:00 AM",
-            "8:00 - 11:00",
-            "Bogatell",
-            "Free yoga class in the beautiful Bogatell beach" ))
-        eventsList.add(Event(
-            "CrossFit",
-            "Fry, May 30, 18:00 AM",
-            "18:00 - 21:00",
-            "Park Güell",
-            "descripcio del event, participants, etc..." ))
+        */
 
         val EventsAdapter = EventsAdapter(this, eventsList)
         /*
@@ -189,3 +179,5 @@ class EventsActivity : AppCompatActivity() {
     }
 
 }
+*
+ */
