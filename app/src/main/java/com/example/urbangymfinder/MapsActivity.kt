@@ -323,6 +323,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             .addOnSuccessListener { result ->
                 for (document in result) {
                     val nombre: String? = document.getString("Title")
+                    val descripcio: String? = document.getString("Description")
                     val geopoint: GeoPoint? = document.getGeoPoint("geopoint")
                     val sid: String? = document.getString("sid")
                     val lat: Double = geopoint!!.getLatitude()
@@ -339,7 +340,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                             val intent1 =
                                 Intent(this@MapsActivity, PopActivity::class.java)
                             val title = marker.title
-                            intent1.putExtra("sid", sid)
+                            intent1.putExtra("nom", nombre)
+                            intent1.putExtra("descripcio", descripcio)
                             startActivity(intent1)
                             //TODO open new activity on spot details popActivity
                     }
@@ -361,20 +363,23 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                     val basicLocationOptions = MarkerOptions().icon(
                         BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)
                     )
-                    map.addMarker(basicLocationOptions.position(latLng).title(nombreEvent + "\n" + dateEvent))
+                    map.addMarker(basicLocationOptions.position(latLng).title("Event: " + nombreEvent + "\n" + dateEvent))
                     map.setOnInfoWindowClickListener(object :
                         GoogleMap.OnInfoWindowClickListener {
                         override fun onInfoWindowClick(marker: Marker) {
-                            val intent1 =
+                            val intent2 =
                                 Intent(this@MapsActivity, EventsActivity::class.java)
                             val title = marker.title
-                            intent1.putExtra("nombreEvent", nombreEvent)
-                            startActivity(intent1)
+                            intent2.putExtra("nom", nombreEvent)
+                            intent2.putExtra("descripcio", descriptionEvent)
+                            startActivity(intent2)
                             //TODO open new activity on event activity detail
                         }
                     })
                 }
             }
+
+
 
 
      }

@@ -38,16 +38,17 @@ class EventsActivity : AppCompatActivity() {
                     //Log.d(TAG, "${document.id} => ${document.data}")
 
                     sidList.add(document.getString("date").toString())
-                    titleList.add(document.getString("description").toString())
-                    directionList.add(document.getString("name").toString())
-                    listviewContent.add(document.getString("date").toString() + "\n" +document.getString("name").toString()+ ":\n " +document.getString("description").toString())
+                    //descriptionList.add(document.getString("description").toString())
+                    titleList.add(document.getString("name").toString())
+                    //listviewContent.add(document.getString("date").toString() + "\n" +document.getString("name").toString()+ ":\n " +document.getString("description").toString())
                 }
                 listView = findViewById<ListView>(R.id.lvListaEvents)
-                val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listviewContent)
+                val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, titleList)
                 listView.adapter = adapter
                 listView.setOnItemClickListener { parent, view, position, id ->
                     val element = parent.getItemAtPosition(position) // The item that was clicked
-                    val intent = Intent(this, MapsActivity::class.java)
+                    val intent = Intent(this, PopActivity::class.java)
+                    intent.putExtra("nom", titleList[position])
                     startActivity(intent)
                 }
 

@@ -31,7 +31,7 @@ class FavoritosActivity : AppCompatActivity() {
         val sidList = ArrayList<String>()
         val titleList = ArrayList<String>()
         val directionList = ArrayList<String>()
-
+        val descriptionList = ArrayList<String>()
         if (!user!!.isAnonymous) {
             db.collectionGroup("spots").whereEqualTo("followerID", user.uid).get()
                 .addOnSuccessListener { result ->
@@ -40,6 +40,7 @@ class FavoritosActivity : AppCompatActivity() {
 
                         sidList.add(document.getString("sid").toString())
                         titleList.add(document.getString("Title").toString())
+                        descriptionList.add(document.getString("Description").toString())
                         directionList.add(document.getString("direccion").toString())
                         listviewContent.add(document.getString("Title").toString()+ ":\n "  + document.getString("direccion").toString())
                     }
@@ -49,6 +50,8 @@ class FavoritosActivity : AppCompatActivity() {
                     listView.setOnItemClickListener { parent, view, position, id ->
                         val element = parent.getItemAtPosition(position) // The item that was clicked
                         val intent = Intent(this, PopActivity::class.java)
+                        intent.putExtra("nom", titleList[position])
+                        intent.putExtra("descripcio", descriptionList[position])
                         startActivity(intent)
                     }
 

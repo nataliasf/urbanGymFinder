@@ -31,14 +31,14 @@
 
         android:text="Description"
         android:textColor="#FFFFFF"
-        android:textSize="24sp" />
+        android:textSize="34sp" />
 
     <TextView
         android:id="@+id/textDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#8D8989"
-        android:textSize="12sp"
+        android:textSize="22sp"
         android:layout_weight="9"/>
 
     <View

@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity() {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
-                        val data = hashMapOf("userID" to user.uid)
+                        val data = hashMapOf("followerID" to user.uid)
 
                         // Update favorit spot with userID
                         db.collection("spots").document(sid).set(data, SetOptions.merge())
@@ -201,7 +201,7 @@ class MainActivity : AppCompatActivity() {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
-                        val data = hashMapOf("userID" to user.uid)
+                        val data = hashMapOf("followerID" to user.uid)
 
                         // Update favorit spot with userID
                         db.collection("spots").document(sid).set(data, SetOptions.merge())
@@ -278,7 +278,7 @@ class MainActivity : AppCompatActivity() {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
-                        val data = hashMapOf("userID" to user.uid)
+                        val data = hashMapOf("followerID" to user.uid)
 
                         // Update favorit spot with userID
                         db.collection("spots").document(sid).set(data, SetOptions.merge())
@@ -355,7 +355,7 @@ class MainActivity : AppCompatActivity() {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
-                        val data = hashMapOf("userID" to user.uid)
+                        val data = hashMapOf("followerID" to user.uid)
 
                         // Update favorit spot with userID
                         db.collection("spots").document(sid).set(data, SetOptions.merge())
@@ -432,7 +432,7 @@ class MainActivity : AppCompatActivity() {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
-                        val data = hashMapOf("userID" to user.uid)
+                        val data = hashMapOf("followerID" to user.uid)
 
                         // Update favorit spot with userID
                         db.collection("spots").document(sid).set(data, SetOptions.merge())
@@ -509,7 +509,7 @@ class MainActivity : AppCompatActivity() {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
-                        val data = hashMapOf("userID" to user.uid)
+                        val data = hashMapOf("followerID" to user.uid)
 
                         // Update favorit spot with userID
                         db.collection("spots").document(sid).set(data, SetOptions.merge())
@@ -586,7 +586,7 @@ class MainActivity : AppCompatActivity() {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
-                        val data = hashMapOf("userID" to user.uid)
+                        val data = hashMapOf("followerID" to user.uid)
 
                         // Update favorit spot with userID
                         db.collection("spots").document(sid).set(data, SetOptions.merge())
@@ -663,7 +663,7 @@ class MainActivity : AppCompatActivity() {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
-                        val data = hashMapOf("userID" to user.uid)
+                        val data = hashMapOf("followerID" to user.uid)
 
                         // Update favorit spot with userID
                         db.collection("spots").document(sid).set(data, SetOptions.merge())
@@ -785,7 +785,7 @@ class MainActivity : AppCompatActivity() {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
-                        val data = hashMapOf("userID" to user.uid)
+                        val data = hashMapOf("followerID" to user.uid)
 
                         // Update favorit spot with userID
                         db.collection("spots").document(sid).set(data, SetOptions.merge())
@@ -853,7 +853,7 @@ class MainActivity : AppCompatActivity() {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
-                        val data = hashMapOf("userID" to user.uid)
+                        val data = hashMapOf("followerID" to user.uid)
 
                         // Update favorit spot with userID
                         db.collection("spots").document(sid).set(data, SetOptions.merge())
@@ -922,7 +922,7 @@ class MainActivity : AppCompatActivity() {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
-                        val data = hashMapOf("userID" to user.uid)
+                        val data = hashMapOf("followerID" to user.uid)
 
                         // Update favorit spot with userID
                         db.collection("spots").document(sid).set(data, SetOptions.merge())
@@ -990,7 +990,7 @@ class MainActivity : AppCompatActivity() {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
-                        val data = hashMapOf("userID" to user.uid)
+                        val data = hashMapOf("followerID" to user.uid)
 
                         // Update favorit spot with userID
                         db.collection("spots").document(sid).set(data, SetOptions.merge())
@@ -1058,7 +1058,7 @@ class MainActivity : AppCompatActivity() {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
-                        val data = hashMapOf("userID" to user.uid)
+                        val data = hashMapOf("followerID" to user.uid)
 
                         // Update favorit spot with userID
                         db.collection("spots").document(sid).set(data, SetOptions.merge())
@@ -1126,7 +1126,7 @@ class MainActivity : AppCompatActivity() {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
-                        val data = hashMapOf("userID" to user.uid)
+                        val data = hashMapOf("followerID" to user.uid)
 
                         // Update favorit spot with userID
                         db.collection("spots").document(sid).set(data, SetOptions.merge())
@@ -1270,6 +1270,7 @@ class MainActivity : AppCompatActivity() {
     }
     fun map() {
         val intent = Intent(this, MapsActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
     }
     fun filters() {
