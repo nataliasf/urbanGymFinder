@@ -65,20 +65,49 @@ class ConfigActivity : AppCompatActivity() {
             /*val obj=findViewById<EditText>(R.id.etName)
             Toast.makeText(this,obj.text, Toast.LENGTH_LONG).show()*/
             if (!user!!.isAnonymous) {
+                if(name!=""){
                 db.collection("users").document(user.uid)
                  .update(
-                     //"name", name,
-                     "gender",gen,
-                     "phone", phone,
-                     "email", email,
-                     "address",add
+                     "name", name
                  )
-                 //.set(docData)
+                }
+             if(gen!=""){
+                            db.collection("users").document(user.uid)
+                                .update(
+                                    "gender",gen
+                                )
+                        }
+
+             if(phone!=""){
+                 db.collection("users").document(user.uid)
+                     .update(
+                         "phone", phone
+                     )
+                     .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
+                     .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e)}
+             }
+            if(email!=""){
+                db.collection("users").document(user.uid)
+                    .update(
+                        "email", email
+                    )
                     .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
                     .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e)}
             }
+           if(add!=""){
+               db.collection("users").document(user.uid)
+                   .update(
+                       "address", add)
+                   .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
+                   .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e)}
+           }
+
+
+            }
         Toast.makeText(this, "Changes saved!", Toast.LENGTH_LONG).show()
-        finish()
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+            finish()
     }
 
     findViewById<Button>(R.id.btnSave).setOnClickListener {
@@ -89,7 +118,7 @@ class ConfigActivity : AppCompatActivity() {
     fun back(){
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
-        finish()
+            finish()
     }
 
      findViewById<Button>(R.id.btnBack2).setOnClickListener {
