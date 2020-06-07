@@ -323,13 +323,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             .addOnSuccessListener { result ->
                 for (document in result) {
                     val nombre: String? = document.getString("Title")
+                    val descripcio: String? = document.getString("Description")
                     val geopoint: GeoPoint? = document.getGeoPoint("geopoint")
                     val sid: String? = document.getString("sid")
                     val lat: Double = geopoint!!.getLatitude()
                     val lng: Double = geopoint!!.getLongitude()
                     val latLng = LatLng(lat, lng)
                     // primer exemple
-                    // TODO depenent del tipus de spot, event, favorit, canviar markup color, icon i intent type
                     val basicLocationOptions = MarkerOptions().icon(
                         BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)
                     )
@@ -340,13 +340,48 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                             val intent1 =
                                 Intent(this@MapsActivity, PopActivity::class.java)
                             val title = marker.title
-                            intent1.putExtra("sid", sid)
+                            intent1.putExtra("nom", nombre)
+                            intent1.putExtra("descripcio", descripcio)
                             startActivity(intent1)
                             //TODO open new activity on spot details popActivity
                     }
                 })
             }
         }
+
+        db.collection("events").get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    val nombreEvent: String? = document.getString("name")
+                    val geopointEvent: GeoPoint? = document.getGeoPoint("geopoint")
+                    val dateEvent: String? = document.getString("date")
+                    val descriptionEvent: String? = document.getString("description")
+                    val lat: Double = geopointEvent!!.getLatitude()
+                    val lng: Double = geopointEvent!!.getLongitude()
+                    val latLng = LatLng(lat, lng)
+                    // primer exemple
+                    val basicLocationOptions = MarkerOptions().icon(
+                        BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)
+                    )
+                    map.addMarker(basicLocationOptions.position(latLng).title("Event: " + nombreEvent + "\n" + dateEvent))
+                    map.setOnInfoWindowClickListener(object :
+                        GoogleMap.OnInfoWindowClickListener {
+                        override fun onInfoWindowClick(marker: Marker) {
+                            val intent2 =
+                                Intent(this@MapsActivity, EventsActivity::class.java)
+                            val title = marker.title
+                            intent2.putExtra("nom", nombreEvent)
+                            intent2.putExtra("descripcio", descriptionEvent)
+                            startActivity(intent2)
+                            //TODO open new activity on event activity detail
+                        }
+                    })
+                }
+            }
+
+
+
+
      }
 
 

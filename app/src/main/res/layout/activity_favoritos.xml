@@ -46,9 +46,13 @@
         <ListView
             android:id="@+id/lvListaFavs"
             android:layout_width="match_parent"
+            android:fontFamily="@font/baloo_chettan_bold"
             android:padding="5dp"
             android:layout_height="wrap_content"
-            android:layout_weight="10">
+            android:layout_weight="10"
+            android:textSize="15sp"/>
+
+
 
 
         </ListView>
