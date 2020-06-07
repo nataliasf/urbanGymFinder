@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val user = FirebaseAuth.getInstance().currentUser
+        val uid = user?.uid
 
         val txtTitle1: TextView= findViewById(R.id.txttitle1)
         val txtDirection1: TextView = findViewById(R.id.txtdirection1)
@@ -111,17 +112,27 @@ class MainActivity : AppCompatActivity() {
 
             //TODO add to database user/favorites for each element
             buttonfavs.setOnClickListener {
+                // check if already following
+
                 //Añadir a favoritos
                 if (user != null) {
                     // User is signed in with email
-                    if (!user.isAnonymous) {
+                    if (!user!!.isAnonymous) {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
+                        //val data = hashMapOf("userID" to user.uid)
+                        val data = mapOf("userID" to user.uid)
 
-                        // Update favorit
-                        db.collection("users").document(user.uid)
-                            .update("favorits", FieldValue.arrayUnion(sid))
+                        // Update favorit spot with userID
+                        db.collection("spots").document(sid).collection("followers")
+                            .add(data)
+                            .addOnSuccessListener { documentReference ->
+                                Log.d("TAG", "DocumentSnapshot written with ID: ${documentReference.id}")
+                            }
+                            .addOnFailureListener { e ->
+                                Log.w("TAG", "Error adding document", e)
+                            }
                         Toast.makeText(
                             this,
                             "Spot added to favorites",
