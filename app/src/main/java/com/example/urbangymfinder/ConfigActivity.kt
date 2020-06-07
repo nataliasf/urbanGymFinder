@@ -8,11 +8,14 @@ import androidx.appcompat.app.AppCompatActivity
 
 class ConfigActivity : AppCompatActivity() {
 
+    private var changeBtn: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.config_activity)
 
+        initializeUI()
+        changeBtn?.setOnClickListener { resetUserPassword() }
 
 
     fun save(){
@@ -36,10 +39,20 @@ class ConfigActivity : AppCompatActivity() {
      findViewById<Button>(R.id.btnBack2).setOnClickListener {
             finish()
         }
-
+        findViewById<Button>(R.id.btnBack2).setOnClickListener {
+            resetUserPassword()
+        }
 }
+    private fun resetUserPassword(){
+        val intent =
+            Intent(this@ConfigActivity, ResetActivity::class.java)
+        startActivity(intent)
+    }
+    private fun initializeUI() {
 
+        changeBtn = findViewById(R.id.btnChange)
 
+    }
 }
 
 
