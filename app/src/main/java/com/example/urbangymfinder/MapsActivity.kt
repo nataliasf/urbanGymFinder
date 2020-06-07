@@ -50,9 +50,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
-        askPermision()
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        //askPermision()
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
@@ -66,6 +64,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
                 lastLocation = p0.lastLocation
                 placeMarkerOnMap(LatLng(lastLocation.latitude, lastLocation.longitude))
+                getAllSpotsOnMap()
+                setUpMap()
             }
         }
         createLocationRequest()
@@ -125,12 +125,27 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
      * installed Google Play services and returned to the app.
      */
     override fun onMapReady(googleMap: GoogleMap) {
+        //map = googleMap ?: return
         map = googleMap
         map.uiSettings.isZoomControlsEnabled = true
         map.setOnMarkerClickListener(this)
+
+        try {
+            setUpMap()
+            getAllSpotsOnMap()
+        } catch (e: IllegalStateException) {
+            map.setOnMapLoadedCallback {
+                setUpMap()
+                getAllSpotsOnMap()
+            }
+        }
+        //setUpMap()
+        //getAllSpotsOnMap()
+
         // Add a marker in Barcelona and move the camera
         //41°23'11.4"N 2°09'49.3"E
         // primer exemple basic
+        /*
         val ub = LatLng(41.387, 2.164)
         val basicLocationOptions =
             MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
@@ -142,9 +157,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             MarkerOptions()//.icon(BitmapDescriptorFactory.fromBitmap(BitmapFactory.decodeResource(resources, R.drawable.favorite)))
         map.addMarker(favLocationOptions.position(fav).title("Favorite spot"))
         map.moveCamera(CameraUpdateFactory.newLatLng(LatLng(41.380, 2.17)))
+        */
 
-        setUpMap()
-        //getAllSpotsOnMap()
 
         //Zoom level 0 corresponds to the fully zoomed-out world view.
         // Most areas support zoom levels up to 20, while more remote areas
@@ -170,6 +184,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         }
 
          */
+
     }
 
     override fun onMarkerClick(p0: Marker?) = false
@@ -196,10 +211,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
                 arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_REQUEST_CODE)
+            map.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(41.380, 2.17), 12f))
             return
         }
-
-
         map.isMyLocationEnabled = true
         map.mapType = GoogleMap.MAP_TYPE_NORMAL
 
@@ -212,7 +226,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
             }
         }
-        //getAllSpotsOnMap()
     }
 
     //marcador de posicio de usuari personalitzat
@@ -366,9 +379,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         startActivity(intent)
     }
     fun map() {
-        setUpMap()
         getAllSpotsOnMap()
-
+        setUpMap()
     }
     fun filters() {
         val intent = Intent(this, FiltrosActivity::class.java)
