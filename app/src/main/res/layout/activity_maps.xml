@@ -41,22 +41,14 @@
 
         <ImageButton
             android:id="@+id/btnMap"
-            android:layout_width="83dp"
+            android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:layout_gravity="left"
+            android:layout_weight="6"
             android:background="@color/colorPrimary"
             android:contentDescription="map"
-            android:layout_gravity="left"
-            app:srcCompat="@android:drawable/ic_dialog_map"
-            android:layout_weight="6" />
+            app:srcCompat="@android:drawable/ic_dialog_map" />
 
-        <ImageButton
-            android:id="@+id/btnFilters"
-            android:layout_width="83dp"
-            android:layout_height="60dp"
-            android:background="@color/colorPrimary"
-            android:contentDescription="filters"
-            android:layout_weight="6"
-            app:srcCompat="@drawable/filters" />
     </LinearLayout>
 
     <LinearLayout
