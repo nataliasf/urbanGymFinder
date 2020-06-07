@@ -101,9 +101,11 @@ class MainActivity : AppCompatActivity() {
                 getFirebaseData(txtTitle6, txtDirection6, "6")
                 getFirebaseData(txtTitle7, txtDirection7, "7")
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
+                //setContentView(R.layout.activity_main)
                 //Set data from Firebase
-
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
@@ -168,9 +170,11 @@ class MainActivity : AppCompatActivity() {
                 getFirebaseData(txtTitle6, txtDirection6, "6")
                 getFirebaseData(txtTitle7, txtDirection7, "7")
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
+                //setContentView(R.layout.activity_main)
                 //Set data from Firebase
-
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
@@ -235,9 +239,11 @@ class MainActivity : AppCompatActivity() {
                 getFirebaseData(txtTitle6, txtDirection6, "6")
                 getFirebaseData(txtTitle7, txtDirection7, "7")
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
+                //setContentView(R.layout.activity_main)
                 //Set data from Firebase
-
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
@@ -302,9 +308,11 @@ class MainActivity : AppCompatActivity() {
                 getFirebaseData(txtTitle6, txtDirection6, "6")
                 getFirebaseData(txtTitle7, txtDirection7, "7")
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
+                //setContentView(R.layout.activity_main)
                 //Set data from Firebase
-
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
@@ -369,9 +377,11 @@ class MainActivity : AppCompatActivity() {
                 getFirebaseData(txtTitle6, txtDirection6, "6")
                 getFirebaseData(txtTitle7, txtDirection7, "7")
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
+                //setContentView(R.layout.activity_main)
                 //Set data from Firebase
-
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
@@ -436,9 +446,11 @@ class MainActivity : AppCompatActivity() {
                 getFirebaseData(txtTitle6, txtDirection6, "6")
                 getFirebaseData(txtTitle7, txtDirection7, "7")
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
+                //setContentView(R.layout.activity_main)
                 //Set data from Firebase
-
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
@@ -503,9 +515,11 @@ class MainActivity : AppCompatActivity() {
                 getFirebaseData(txtTitle6, txtDirection6, "6")
                 getFirebaseData(txtTitle7, txtDirection7, "7")
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
+                //setContentView(R.layout.activity_main)
                 //Set data from Firebase
-
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
@@ -570,9 +584,11 @@ class MainActivity : AppCompatActivity() {
                 getFirebaseData(txtTitle6, txtDirection6, "6")
                 getFirebaseData(txtTitle7, txtDirection7, "7")
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
+                //setContentView(R.layout.activity_main)
                 //Set data from Firebase
-
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
@@ -683,8 +699,10 @@ class MainActivity : AppCompatActivity() {
             // Set a click listener for pop_activity btn
             btnBack.setOnClickListener{
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
-
+                //setContentView(R.layout.activity_main)
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
@@ -741,8 +759,10 @@ class MainActivity : AppCompatActivity() {
             // Set a click listener for pop_activity btn
             btnBack.setOnClickListener{
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
-
+                //setContentView(R.layout.activity_main)
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
@@ -800,8 +820,10 @@ class MainActivity : AppCompatActivity() {
             // Set a click listener for pop_activity btn
             btnBack.setOnClickListener{
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
-
+                //setContentView(R.layout.activity_main)
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
@@ -859,8 +881,10 @@ class MainActivity : AppCompatActivity() {
             // Set a click listener for pop_activity btn
             btnBack.setOnClickListener{
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
-
+                //setContentView(R.layout.activity_main)
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
@@ -918,8 +942,10 @@ class MainActivity : AppCompatActivity() {
             // Set a click listener for pop_activity btn
             btnBack.setOnClickListener{
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
-
+                //setContentView(R.layout.activity_main)
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
@@ -976,16 +1002,19 @@ class MainActivity : AppCompatActivity() {
             // Set a click listener for pop_activity btn
             btnBack.setOnClickListener{
                 // Dismiss the detail window
-                setContentView(R.layout.activity_main)
+                //setContentView(R.layout.activity_main)
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                finish()
 
             }
 
             //TODO get spotID on mapActivity, zoom in and show title
-            btnShowMap.setOnClickListener({
+            btnShowMap.setOnClickListener {
                 val intent = Intent(this, MapsActivity::class.java)
                 intent.putExtra("spotID", "test")
                 startActivity(intent)
-            })
+            }
 
             //TODO add to database user/favorites for each element
             buttonfavs.setOnClickListener {
