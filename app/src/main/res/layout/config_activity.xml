@@ -91,7 +91,7 @@
             android:textSize="18dp" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/etPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -117,7 +117,7 @@
             android:textSize="18dp" />
 
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/etEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -143,7 +143,7 @@
             android:textSize="18dp" />
 
         <EditText
-            android:id="@+id/editText5"
+            android:id="@+id/etAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
