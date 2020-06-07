@@ -1176,10 +1176,10 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Select map option!", Toast.LENGTH_LONG).show()
             map()
         }
-        findViewById<ImageButton>(R.id.btnFilters).setOnClickListener {
+        /*findViewById<ImageButton>(R.id.btnFilters).setOnClickListener {
             Toast.makeText(this, "Select filters!", Toast.LENGTH_LONG).show()
             filters()
-        }
+        }*/
     }
 
     @RequiresApi(Build.VERSION_CODES.KITKAT)
@@ -1273,8 +1273,8 @@ class MainActivity : AppCompatActivity() {
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
     }
-    fun filters() {
+    /*fun filters() {
         val intent = Intent(this, FiltrosActivity::class.java)
         startActivity(intent)
-    }
+    }*/
 }
