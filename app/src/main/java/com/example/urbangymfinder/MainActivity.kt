@@ -121,14 +121,12 @@ class MainActivity : AppCompatActivity() {
                         // Recuperar los gimnasios preferidos de la bd
                         // Añadir a esos el gimnasio en cuestión
                         // Guardar el nuevo valor en db.collection("users") del usuario en cuestión
-                        //val data = hashMapOf("userID" to user.uid)
-                        val data = mapOf("userID" to user.uid)
+                        val data = hashMapOf("userID" to user.uid)
 
                         // Update favorit spot with userID
-                        db.collection("spots").document(sid).collection("followers")
-                            .add(data)
+                        db.collection("spots").document(sid).set(data, SetOptions.merge())
                             .addOnSuccessListener { documentReference ->
-                                Log.d("TAG", "DocumentSnapshot written with ID: ${documentReference.id}")
+                                Log.d("TAG", "DocumentSnapshot written with ID: ${documentReference}")
                             }
                             .addOnFailureListener { e ->
                                 Log.w("TAG", "Error adding document", e)

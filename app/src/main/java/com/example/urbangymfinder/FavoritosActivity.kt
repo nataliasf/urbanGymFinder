@@ -24,15 +24,17 @@ class FavoritosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favoritos)
+        val docid = ArrayList<String>()
         val sidList = ArrayList<String>()
         val titleList = ArrayList<String>()
         val descriptionList = ArrayList<String>()
 
         if (!user!!.isAnonymous) {
-            db.collectionGroup("followers").whereEqualTo("userID", user.uid).get()
+            db.collectionGroup("spots").whereEqualTo("followerID", user.uid).get()
                 .addOnSuccessListener { result ->
                     for (document in result) {
                         //Log.d(TAG, "${document.id} => ${document.data}")
+
                         sidList.add(document.getString("sid").toString())
                         titleList.add(document.getString("Title").toString())
                         descriptionList.add(document.getString("Description").toString())

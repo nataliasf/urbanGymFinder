@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
                 // User is signed in go to mainActivity
                 Toast.makeText(
                     applicationContext,
-                    "Welcome back " + user.displayName + "!",
+                    "Welcome back!",
                     Toast.LENGTH_LONG
                 ).show()
             }
@@ -87,7 +87,6 @@ class LoginActivity : AppCompatActivity() {
                         "Login failed! Please try again later",
                         Toast.LENGTH_LONG
                     ).show()
-                    //progressBar.visibility = View.GONE
                 }
             }
     }
